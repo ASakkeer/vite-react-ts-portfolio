@@ -71,23 +71,23 @@ button:focus-visible {
   background-color: var(--color-dark);
   padding: 1rem 0;
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1000px;
   z-index: 1000;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.nav-logo h2 {
-  color: var(--color-white);
-  margin: 0;
 }
 
 .nav-menu {
@@ -95,17 +95,59 @@ button:focus-visible {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  gap: 2.5rem;
+  align-items: center;
 }
 
-.nav-menu a {
+.nav-link {
   color: var(--color-white);
   text-decoration: none;
-  transition: color 0.3s ease;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.nav-menu a:hover {
-  color: var(--color-primary);
+.nav-link:hover {
+  color: var(--color-white);
+}
+
+.nav-link.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 2rem;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.logo-name {
+  color: var(--color-primary-light);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
 }
 
 /* Section Styles */
@@ -129,8 +171,13 @@ section {
   color: var(--color-dark);
 }
 
-.resume {
+.service {
   background-color: var(--color-primary-light);
+  color: var(--color-dark);
+}
+
+.resume {
+  background-color: var(--color-white);
   color: var(--color-dark);
 }
 
@@ -147,6 +194,7 @@ section {
 /* Content Styles */
 .hero-content,
 .about-content,
+.service-content,
 .resume-content,
 .projects-content,
 .contact-content {
