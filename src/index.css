@@ -1,6 +1,6 @@
 :root {
   /* Theme Colors */
-  --color-primary: #F59F57;
+  --color-primary: #fd853a;
   --color-primary-light: #fdf7f3;
   --color-dark: #0F0F10;
   --color-text-gray: #4B5563;
@@ -8,7 +8,7 @@
   --color-border: #D1D5DB;
   --color-shadow: rgba(0,0,0,0.1);
 
-  font-family: 'Sansation', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Manrope', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -74,9 +74,9 @@ button:focus-visible {
 /* Navbar Styles */
 .navbar {
   background-color: var(--color-dark);
-  padding: 1rem 0;
+  padding: 0.7rem 0;
   position: fixed;
-  top: 2rem;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -183,9 +183,55 @@ section {
   width: 100%;
 }
 
+/* Hero Section Specific Styles */
 .hero {
+  position: relative;
+  padding-top: 8rem;
   background-color: var(--color-primary-light);
   color: var(--color-dark);
+  align-items: flex-start;
+}
+
+.hello-badge {
+  border: 1px solid var(--color-dark);
+  border-radius: 50px;
+  padding: 0.3rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+.hello-badge span {
+  color: var(--color-dark);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-intro {
+  text-align: center;
+}
+
+.hero-name {
+  color: var(--color-primary);
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero-title {
+  color: var(--color-dark);
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+.hero-name-highlight {
+  color: var(--color-dark);
+  font-weight: 700;
 }
 
 .about {
@@ -222,18 +268,6 @@ section {
 .contact-content {
   max-width: 800px;
   margin: 0 auto;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: var(--color-text-gray);
 }
 
 .cta-button {
