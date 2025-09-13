@@ -102,6 +102,7 @@ button:focus-visible {
   padding: 0;
   gap: 2.5rem;
   align-items: center;
+  outline: none;
 }
 
 .nav-link {
@@ -120,13 +121,13 @@ button:focus-visible {
 .nav-link:hover {
   color: var(--color-white);
   background-color: rgba(245, 159, 87, 0.1);
-  transform: translateY(-1px);
+  /* transform: translateY(-1px); */
+  outline: none;
 }
 
 .nav-link:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
   background-color: rgba(245, 159, 87, 0.1);
+  outline: none;
 }
 
 .nav-link.active {
@@ -174,7 +175,7 @@ button:focus-visible {
 
 /* Section Styles */
 section {
-  padding: 5rem 0;
+  padding: 0rem 0;
   text-align: center;
   min-height: 100vh;
   display: flex;
@@ -186,10 +187,12 @@ section {
 /* Hero Section Specific Styles */
 .hero {
   position: relative;
-  padding-top: 8rem;
   background-color: var(--color-primary-light);
   color: var(--color-dark);
-  align-items: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .hello-badge {
@@ -206,6 +209,17 @@ section {
   font-weight: 500;
   font-size: 1rem;
   letter-spacing: 0.5px;
+}
+
+.hero-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  /* padding-top: 150px; */
+  height: 100vh;
+  position: relative;
 }
 
 .hero-intro {
@@ -232,6 +246,100 @@ section {
 .hero-name-highlight {
   color: var(--color-dark);
   font-weight: 700;
+}
+
+.hero-circle {
+  /* position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+  z-index: 1;
+}
+
+.circle-fill {
+  width: 450px;
+  height: 450px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(253, 133, 58, 0.3);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image {
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 2;
+  opacity: 0.95;
+  transition: transform 0.7s ease;
+}
+
+.hero-image:hover {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Responsive Design for Hero Section */
+@media (max-width: 768px) {
+  .hero-content {
+    padding-top: 100px;
+  }
+  
+  .hero-name {
+    font-size: 2.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .circle-fill {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .hero-image {
+    width: 270px;
+    height: 270px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding-top: 80px;
+  }
+  
+  .hero-name {
+    font-size: 2rem;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .circle-fill {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .hero-image {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .hero-circle {
+    bottom: 1rem;
+  }
 }
 
 .about {
