@@ -32,6 +32,12 @@ const Hero: React.FC = () => {
           <div className="years">8 years</div>
           <div className="experience-text">EXPERIENCE</div>
         </div>
+        <div className="hero-hire-button">
+          <button className="hire-me-btn">
+            <span className="btn-text">Hire Me</span>
+            <div className="btn-shine"></div>
+          </button>
+        </div>
     </section>
   );
 };
