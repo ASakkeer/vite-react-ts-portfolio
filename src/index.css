@@ -27,6 +27,38 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Magnifying Glass Effect */
+.magnify-glass {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(253, 133, 58, 0.1) 0%, rgba(253, 133, 58, 0.05) 50%, transparent 70%);
+  box-shadow: 
+    0 0 0 2px rgba(253, 133, 58, 0.3),
+    0 0 20px rgba(253, 133, 58, 0.2),
+    inset 0 0 20px rgba(253, 133, 58, 0.1);
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.1s ease-out;
+  transform: translate(-50%, -50%);
+  backdrop-filter: blur(1px);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.magnify-glass.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hide magnifying glass on mobile devices */
+@media (max-width: 768px) {
+  .magnify-glass {
+    display: none;
+  }
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -313,9 +345,14 @@ section {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .hello-badge {
+  pointer-events: none;
   border: 1px solid var(--color-dark);
   border-radius: 50px;
   padding: 0.3rem 1rem;
@@ -343,6 +380,7 @@ section {
 }
 
 .hero-intro {
+  pointer-events: none;
   text-align: center;
   padding-bottom: 30px;
 }
