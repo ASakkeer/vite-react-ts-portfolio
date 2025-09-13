@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,12 +34,19 @@ const Navbar: React.FC = () => {
         block: 'start'
       });
     }
+    // Close mobile menu when a link is clicked
+    setIsMobileMenuOpen(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <ul className="nav-menu">
+        {/* Desktop Navigation */}
+        <ul className="nav-menu desktop-menu">
           <li>
             <a 
               href="#home" 
@@ -72,7 +80,7 @@ const Navbar: React.FC = () => {
           <span className="logo-name">Portfolio</span>
         </div>
         
-        <ul className="nav-menu">
+        <ul className="nav-menu desktop-menu">
           <li>
             <a 
               href="#resume" 
@@ -95,6 +103,77 @@ const Navbar: React.FC = () => {
             <a 
               href="#contact" 
               className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'contact')}
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className={`mobile-menu-btn ${isMobileMenuOpen ? 'active' : ''}`}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+          <span className="hamburger-line"></span>
+        </button>
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+        <ul className="mobile-nav-list">
+          <li>
+            <a 
+              href="#home" 
+              className={`mobile-nav-link ${activeSection === 'home' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'home')}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#about" 
+              className={`mobile-nav-link ${activeSection === 'about' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'about')}
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#service" 
+              className={`mobile-nav-link ${activeSection === 'service' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'service')}
+            >
+              Service
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#resume" 
+              className={`mobile-nav-link ${activeSection === 'resume' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'resume')}
+            >
+              Resume
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#projects" 
+              className={`mobile-nav-link ${activeSection === 'projects' ? 'active' : ''}`}
+              onClick={(e) => handleNavClick(e, 'projects')}
+            >
+              Project
+            </a>
+          </li>
+          <li>
+            <a 
+              href="#contact" 
+              className={`mobile-nav-link ${activeSection === 'contact' ? 'active' : ''}`}
               onClick={(e) => handleNavClick(e, 'contact')}
             >
               Contact
