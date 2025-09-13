@@ -1,5 +1,6 @@
 import React from 'react';
 import heroPic from '../assets/images/heroPic.png';
+import quotesImg from '../assets/images/quotes.png';
 
 const Hero: React.FC = () => {
   return (
@@ -18,6 +19,19 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+        <div className="hero-testimonial">
+          <div className="quote-marks">
+            <img src={quotesImg} alt="Quote marks" className="quotes-image" />
+          </div>
+          <div className="testimonial-text">
+            <span className="highlight">Sakkeer's</span> exceptional frontend development ensures our website's success. <span className="highlight">Highly Recommended</span>
+          </div>
+        </div>
+        <div className="hero-experience">
+          <div className="stars">★★★★★</div>
+          <div className="years">8 years</div>
+          <div className="experience-text">EXPERIENCE</div>
+        </div>
     </section>
   );
 };

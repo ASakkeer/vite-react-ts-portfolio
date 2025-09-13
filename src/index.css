@@ -377,6 +377,9 @@ section {
   /* padding-top: 150px; */
   height: 100vh;
   position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .hero-intro {
@@ -448,6 +451,92 @@ section {
   transform: translate(-50%, -50%) scale(1.5);
 }
 
+.hero-testimonial {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  z-index: 10;
+  max-width: 280px;
+  width: fit-content;
+}
+
+.quote-marks {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.quotes-image {
+  width: 20px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(253, 133, 58, 0.3));
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  color: var(--color-dark);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.testimonial-text .highlight {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.hero-experience {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  z-index: 10;
+  max-width: 180px;
+  width: fit-content;
+}
+
+.stars {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.years {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.3rem;
+  line-height: 1;
+}
+
+.experience-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-gray);
+  letter-spacing: 0.2em;
+  line-height: 1;
+}
+
 /* Responsive Design for Hero Section */
 @media (max-width: 768px) {
   .hero-content {
@@ -470,6 +559,35 @@ section {
   .hero-image {
     width: 270px;
     height: 270px;
+  }
+  
+  .hero-testimonial {
+    left: 0.5rem;
+    max-width: 220px;
+  }
+  
+  .quotes-image {
+    width: 50px;
+  }
+  
+  .testimonial-text {
+    font-size: 0.9rem;
+  }
+  
+  .hero-experience {
+    right: 1rem;
+  }
+  
+  .stars {
+    font-size: 1.2rem;
+  }
+  
+  .years {
+    font-size: 2rem;
+  }
+  
+  .experience-text {
+    font-size: 0.8rem;
   }
 }
 
@@ -498,6 +616,35 @@ section {
   
   .hero-circle {
     bottom: 1rem;
+  }
+  
+  .hero-testimonial {
+    left: 0.3rem;
+    max-width: 180px;
+  }
+  
+  .quotes-image {
+    width: 40px;
+  }
+  
+  .testimonial-text {
+    font-size: 0.8rem;
+  }
+  
+  .hero-experience {
+    right: 0.5rem;
+  }
+  
+  .stars {
+    font-size: 1rem;
+  }
+  
+  .years {
+    font-size: 1.5rem;
+  }
+  
+  .experience-text {
+    font-size: 0.7rem;
   }
 }
 
