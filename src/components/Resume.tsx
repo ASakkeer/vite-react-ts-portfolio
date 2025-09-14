@@ -84,7 +84,7 @@ const Resume: React.FC = () => {
               </div>
             </div>
 
-            <div className="resume-section">
+            {/* <div className="resume-section">
               <h3 className="section-title">Key Projects</h3>
               <div className="project-item">
                 <div className="project-header">
@@ -109,7 +109,7 @@ const Resume: React.FC = () => {
                   Analyzes vehicle status and generates a comprehensive PDI report.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="resume-sidebar">
@@ -124,43 +124,21 @@ const Resume: React.FC = () => {
 
             <div className="sidebar-section">
               <h3 className="sidebar-title">Skills</h3>
-              <div className="skills-grid">
-                <div className="skill-category">
-                  <h4 className="skill-category-title">Programming Languages</h4>
-                  <div className="skill-tags">
-                    <span className="skill-tag">JavaScript</span>
+              <div className="skills-container">
+                <div className="skill-categories">
+                  <div className="skill-category-item">
+                    <div className="skill-category-title">Programming Languages</div>
+                    <div className="skill-category-title">UI Technologies</div>
+                    <div className="skill-category-title">Frameworks</div>
+                    <div className="skill-category-title">Tools</div>
+                    <div className="skill-category-title">Others</div>
                   </div>
-                </div>
-                <div className="skill-category">
-                  <h4 className="skill-category-title">UI Technologies</h4>
-                  <div className="skill-tags">
-                    <span className="skill-tag">HTML</span>
-                    <span className="skill-tag">CSS</span>
-                    <span className="skill-tag">Bootstrap</span>
-                  </div>
-                </div>
-                <div className="skill-category">
-                  <h4 className="skill-category-title">Frameworks</h4>
-                  <div className="skill-tags">
-                    <span className="skill-tag">React</span>
-                    <span className="skill-tag">React Native</span>
-                    <span className="skill-tag">Angular</span>
-                  </div>
-                </div>
-                <div className="skill-category">
-                  <h4 className="skill-category-title">Tools</h4>
-                  <div className="skill-tags">
-                    <span className="skill-tag">VS Code</span>
-                    <span className="skill-tag">Git</span>
-                    <span className="skill-tag">SourceTree</span>
-                  </div>
-                </div>
-                <div className="skill-category">
-                  <h4 className="skill-category-title">Others</h4>
-                  <div className="skill-tags">
-                    <span className="skill-tag">REST APIs</span>
-                    <span className="skill-tag">Figma</span>
-                    <span className="skill-tag">JSX</span>
+                  <div className="skill-values">
+                    <div className="skill-value">JavaScript</div>
+                    <div className="skill-value">HTML, CSS, Bootstrap</div>
+                    <div className="skill-value">React, React Native, Angular</div>
+                    <div className="skill-value">VS Code, Git, SourceTree</div>
+                    <div className="skill-value">REST APIs, Figma, JSX</div>
                   </div>
                 </div>
               </div>

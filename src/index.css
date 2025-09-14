@@ -1652,27 +1652,12 @@ section {
 
 .education-item {
   background: var(--color-white);
-  padding: 2rem;
-  border-radius: 16px;
-  border: 2px solid rgba(253, 133, 58, 0.1);
-  transition: all 0.3s ease;
+  /* padding: 2rem; */
+  /* border-radius: 16px; */
+  /* border: 2px solid rgba(253, 133, 58, 0.1); */
+  /* transition: all 0.3s ease; */
   position: relative;
   text-align: left;
-}
-
-.education-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(253, 133, 58, 0.15);
-  border-color: rgba(253, 133, 58, 0.3);
-}
-
-.education-item::before {
-  content: '🎓';
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: 1.5rem;
-  opacity: 0.3;
 }
 
 .degree {
@@ -1703,60 +1688,66 @@ section {
   width: fit-content;
 }
 
-.skills-grid {
+.skills-container {
+  background: var(--color-white);
+  border-radius: 12px;
+  /* padding: 1.5rem; */
+  /* border: 1px solid rgba(253, 133, 58, 0.1); */
+}
+
+.skill-categories {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  align-items: stretch;
 }
 
-.skill-category {
-  background: var(--color-primary-light);
-  padding: 1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(253, 133, 58, 0.1);
-  transition: all 0.3s ease;
+.skill-category-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
-.skill-category:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(253, 133, 58, 0.15);
-  border-color: rgba(253, 133, 58, 0.2);
+.skill-values {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .skill-category-title {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-dark);
-  margin: 0 0 0.8rem 0;
-  text-align: center;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(253, 133, 58, 0.2);
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  justify-content: center;
-}
-
-.skill-tag {
-  background: var(--color-white);
   color: var(--color-primary);
-  padding: 0.3rem 0.6rem;
-  border-radius: 15px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border: 1px solid rgba(253, 133, 58, 0.3);
+  padding: 0.6rem 1rem;
+  /* background: rgba(253, 133, 58, 0.05); */
+  border: 1px solid rgba(253, 133, 58, 0.15);
+  border-radius: 3px;
+  text-align: left;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(253, 133, 58, 0.1);
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
 }
 
-.skill-tag:hover {
-  background: var(--color-primary);
-  color: var(--color-white);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(253, 133, 58, 0.2);
+.skill-value {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-dark);
+  padding: 0.6rem 1rem;
+  background: rgba(253, 133, 58, 0.02);
+  border: 1px solid rgba(253, 133, 58, 0.1);
+  border-radius: 3px;
+  text-align: left;
+  transition: all 0.3s ease;
+  min-height: 2.5rem;
+  display: flex;
+  font-weight: 700;
+  align-items: center;
+}
+
+.skill-value:hover {
+  background: rgba(253, 133, 58, 0.05);
+  border-color: rgba(253, 133, 58, 0.2);
 }
 
 .languages-list {
@@ -1881,6 +1872,31 @@ section {
     max-width: 250px;
   }
   
+  .skills-container {
+    padding: 1rem;
+  }
+  
+  .skills-heading {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .skill-categories {
+    gap: 0.6rem;
+  }
+  
+  .skill-category-item,
+  .skill-values {
+    gap: 0.5rem;
+  }
+  
+  .skill-category-title,
+  .skill-value {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+    min-height: 2rem;
+  }
+  
   .name {
     font-size: 1.8rem;
   }
@@ -1893,13 +1909,25 @@ section {
     justify-content: flex-start;
   }
   
-  .skills-grid {
+  .skills-container {
+    padding: 1.2rem;
+  }
+  
+  .skill-categories {
     grid-template-columns: 1fr;
     gap: 0.8rem;
   }
   
-  .skill-category {
-    padding: 0.8rem;
+  .skill-category-item,
+  .skill-values {
+    gap: 0.6rem;
+  }
+  
+  .skill-category-title,
+  .skill-value {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    min-height: 2.2rem;
   }
   
   .languages-list {
