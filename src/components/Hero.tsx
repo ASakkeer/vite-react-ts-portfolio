@@ -1,6 +1,7 @@
 import React from 'react';
 import heroPic from '../assets/images/heroPic.png';
 import quotesImg from '../assets/images/quotes.png';
+import linesImg from '../assets/images/lines.png';
 
 const Hero: React.FC = () => {
   return (
@@ -8,10 +9,14 @@ const Hero: React.FC = () => {
       <div className="hero-content">
         <div className="hello-badge">
           <span>Hello!</span>
+          <img src={linesImg} alt="Lines decoration" className="hello-lines-decoration" />
         </div>
         <div className="hero-intro">
           <h1 className="hero-name"><span className="hero-name-highlight">I'm</span> Sakkeer<span className="hero-name-highlight">,</span></h1>
-          <h2 className="hero-title">Frontend Developer</h2>
+          <h2 className="hero-title">
+            <span className="frontend-text">Frontend</span> Developer
+            <img src={linesImg} alt="Lines decoration" className="lines-decoration" />
+          </h2>
         </div>
         <div className="hero-circle">
           <div className="circle-fill">

@@ -359,6 +359,19 @@ section {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
   display: inline-block;
+  position: relative;
+  overflow: visible;
+}
+
+.hello-lines-decoration {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -22px;
+    right: -33px;
+    z-index: 1;
+    pointer-events: none;
+    transform: rotate(190deg);
 }
 
 .hello-badge span {
@@ -403,6 +416,21 @@ section {
   margin: 0.5rem 0 0 0;
   line-height: 1.2;
   letter-spacing: 0.05em;
+  position: relative;
+}
+
+.frontend-text {
+  position: relative;
+}
+
+.lines-decoration {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  top: 23px;
+  left: -82px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-name-highlight {
@@ -551,6 +579,24 @@ section {
     font-size: 2rem;
   }
   
+  .lines-decoration {
+    width: 60px;
+    height: 60px;
+    top: -8px;
+    left: -15px;
+  }
+  
+  .hello-lines-decoration {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -22px;
+    right: -33px;
+    z-index: 1;
+    pointer-events: none;
+    transform: rotate(190deg);
+  }
+  
   .circle-fill {
     width: 250px;
     height: 250px;
@@ -602,6 +648,24 @@ section {
   
   .hero-title {
     font-size: 1.5rem;
+  }
+  
+  .lines-decoration {
+    width: 50px;
+    height: 50px;
+    top: -6px;
+    left: -12px;
+  }
+  
+  .hello-lines-decoration {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: -22px;
+    right: -33px;
+    z-index: 1;
+    pointer-events: none;
+    transform: rotate(190deg);
   }
   
   .circle-fill {
