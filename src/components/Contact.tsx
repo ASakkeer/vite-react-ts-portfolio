@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,9 @@ const Contact: React.FC = () => {
     message: ''
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -16,10 +20,54 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // EmailJS configuration
+      const serviceId = 'service_b8zlv6l';
+      const templateId = 'template_45yogmq';
+      const publicKey = 'O2cXyPaOgsWpx1QAW';
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject || 'Portfolio Contact Form',
+        message: formData.message,
+        to_email: 'sakkeer.nsn@gmail.com'
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      // Success - clear form and show success message
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      setSubmitStatus('success');
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+      
+      // Hide error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -164,10 +212,31 @@ const Contact: React.FC = () => {
                   />
                 </div>
 
-                <button type="submit" className="submit-btn">
-                  <span className="btn-text">Send Message</span>
-                  <span className="btn-icon">→</span>
+                <button 
+                  type="submit" 
+                  className="submit-btn"
+                  disabled={isSubmitting}
+                >
+                  <span className="btn-text">
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </span>
+                  <span className="btn-icon">
+                    {isSubmitting ? '⏳' : '→'}
+                  </span>
                 </button>
+
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="status-message success-message">
+                    ✅ Message sent successfully! I'll get back to you soon.
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="status-message error-message">
+                    ❌ Failed to send message. Please try again or contact me directly.
+                  </div>
+                )}
               </form>
             </div>
           </div>
