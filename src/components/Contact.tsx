@@ -27,15 +27,15 @@ const Contact: React.FC = () => {
       icon: '📧',
       title: 'Email Me',
       description: 'Send me an email anytime',
-      value: 'sakkeer.a@example.com',
-      action: 'mailto:sakkeer.a@example.com'
+      value: 'sakkeer.nsn@gmail.com',
+      action: 'mailto:sakkeer.nsn@gmail.com'
     },
     {
       icon: '📱',
       title: 'Call Me',
       description: 'Mon-Fri from 9am to 6pm',
-      value: '+1 (555) 123-4567',
-      action: 'tel:+15551234567'
+      value: '+91 7904341001',
+      action: 'tel:+917904341001'
     },
     {
       icon: '📍',
@@ -47,10 +47,8 @@ const Contact: React.FC = () => {
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com/in/sakkeer-a' },
-    { name: 'GitHub', icon: '🐙', url: 'https://github.com/sakkeer-a' },
-    { name: 'Twitter', icon: '🐦', url: 'https://twitter.com/sakkeer_a' },
-    { name: 'Instagram', icon: '📷', url: 'https://instagram.com/sakkeer_a' }
+    { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com/in/sakkeer27' },
+    { name: 'GitHub', icon: '🐙', url: 'https://github.com/ASakkeer' }
   ];
 
   return (

@@ -19,7 +19,7 @@ const Resume: React.FC = () => {
         
         <div className="resume-content">
           <div className="resume-main">
-            <div className="personal-info">
+            {/* <div className="personal-info">
               <h1 className="name">SAKKEER A</h1>
               <h2 className="title">Senior Software Engineer</h2>
               <div className="contact-info">
@@ -36,7 +36,7 @@ const Resume: React.FC = () => {
                   <a href="mailto:sakkeer.nsn@gmail.com">sakkeer.nsn@gmail.com</a>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="resume-section">
               <h3 className="section-title">Personal Profile</h3>
@@ -144,7 +144,7 @@ const Resume: React.FC = () => {
               </div>
             </div>
 
-            <div className="sidebar-section">
+            {/* <div className="sidebar-section">
               <h3 className="sidebar-title">Languages</h3>
               <div className="languages-list">
                 <div className="language-item">
@@ -160,7 +160,7 @@ const Resume: React.FC = () => {
                   <span className="language-level">Intermediate</span>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
