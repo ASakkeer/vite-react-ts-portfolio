@@ -1262,12 +1262,12 @@ section {
 }
 
 .projects {
-  background-color: var(--color-white);
+  background-color: var(--color-primary-light);
   color: var(--color-dark);
 }
 
 .contact {
-  background-color: var(--color-primary-light);
+  background-color: var(--color-white);
   color: var(--color-dark);
 }
 
