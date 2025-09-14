@@ -55,9 +55,6 @@ const Contact: React.FC = () => {
     <section id="contact" className="contact">
       <div className="contact-container">
         <div className="contact-header">
-          <div className="contact-badge">
-            <span className="badge-text">Get In Touch</span>
-          </div>
           <h2 className="contact-title">Let's Build Something Amazing Together</h2>
           <p className="contact-subtitle">
             Have a project in mind or want to discuss opportunities? I'd love to hear from you. 

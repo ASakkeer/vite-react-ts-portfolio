@@ -1,4 +1,5 @@
 import React from 'react';
+import developerImage from '../assets/images/developer.png';
 
 const About: React.FC = () => {
   return (
@@ -17,9 +18,11 @@ const About: React.FC = () => {
           </div>
         </div>
         <div className="about-image">
-          <div className="image-placeholder">
-            <span className="placeholder-text">Your Image Here</span>
-          </div>
+          <img 
+            src={developerImage} 
+            alt="Sakkeer A - Senior Software Engineer" 
+            className="about-portrait"
+          />
         </div>
       </div>
     </section>

@@ -4,14 +4,14 @@ const Projects: React.FC = () => {
   const projects = [
     {
       id: 1,
-      name: 'Mongrov',
+      name: 'Vertiv',
       role: 'React Native Developer',
-      duration: '2020 – 2023',
-      category: 'Messaging Platform',
-      description: 'A messaging app for business that connects people to the information that they need. By bringing people together to work as one unified team, Mongrov transforms the way that organisations communicate.',
-      technologies: ['React Native', 'Node.js', 'MongoDB', 'WebSocket'],
+      duration: '2021 – Present',
+      category: 'Field Service Management',
+      description: 'A field service app for electronics products. Users can raise issue tickets, engineers can track customer locations via GPS, and fix product issues with comprehensive attendance and time tracking.',
+      technologies: ['React Native', 'GPS Tracking', 'Ticket Management', 'Time Tracking'],
       status: 'Active',
-      features: ['Real-time Messaging', 'Team Collaboration', 'Information Sharing', 'Business Integration']
+      features: ['Issue Ticket System', 'GPS Location Tracking', 'Attendance Management', 'Service Time Tracking']
     },
     {
       id: 2,
@@ -25,15 +25,15 @@ const Projects: React.FC = () => {
       features: ['OBD Device Integration', 'Vehicle Health Reports', 'Real-time Diagnostics', 'Data Visualization']
     },
     {
-      id: 3,
-      name: 'Vertiv',
+      id: 2,
+      name: 'Mongrov',
       role: 'React Native Developer',
-      duration: '2021 – Present',
-      category: 'Field Service Management',
-      description: 'A field service app for electronics products. Users can raise issue tickets, engineers can track customer locations via GPS, and fix product issues with comprehensive attendance and time tracking.',
-      technologies: ['React Native', 'GPS Tracking', 'Ticket Management', 'Time Tracking'],
+      duration: '2020 – 2023',
+      category: 'Messaging Platform',
+      description: 'A messaging app for business that connects people to the information that they need. By bringing people together to work as one unified team, Mongrov transforms the way that organisations communicate.',
+      technologies: ['React Native', 'Node.js', 'MongoDB', 'WebSocket'],
       status: 'Active',
-      features: ['Issue Ticket System', 'GPS Location Tracking', 'Attendance Management', 'Service Time Tracking']
+      features: ['Real-time Messaging', 'Team Collaboration', 'Information Sharing', 'Business Integration']
     }
   ];
 

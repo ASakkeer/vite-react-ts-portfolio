@@ -999,6 +999,20 @@ section {
   height: 100%;
 }
 
+.about-portrait {
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center;
+  /* box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); */
+  transition: transform 0.3s ease;
+}
+
+.about-portrait:hover {
+  transform: scale(1.05);
+}
+
 .image-placeholder {
   width: 400px;
   height: 400px;
@@ -1051,6 +1065,11 @@ section {
     width: 350px;
     height: 350px;
   }
+  
+  .about-portrait {
+    width: 350px;
+    height: 350px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1086,6 +1105,11 @@ section {
     width: 300px;
     height: 300px;
   }
+  
+  .about-portrait {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1110,6 +1134,11 @@ section {
   }
   
   .image-placeholder {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .about-portrait {
     width: 250px;
     height: 250px;
   }
