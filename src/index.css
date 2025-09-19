@@ -349,6 +349,46 @@ section {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  margin: 0 auto;
+}
+
+/* Hero Container - Three Section Layout */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Left Section - Testimonial */
+.hero-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+/* Middle Section - Main Content */
+.hero-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  position: relative;
+}
+
+/* Right Section - Experience */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
 }
 
 .hello-badge {
@@ -381,18 +421,17 @@ section {
   letter-spacing: 0.5px;
 }
 
-.hero-content {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  /* padding-top: 150px; */
-  height: 100vh;
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+/* Updated hero-content styles for middle section */
+.hero-middle .hello-badge {
+  margin-bottom: 1rem;
+}
+
+.hero-middle .hero-intro {
+  margin-bottom: 2rem;
+}
+
+.hero-middle .hero-circle {
+  margin-bottom: 2rem;
 }
 
 .hero-intro {
@@ -480,10 +519,6 @@ section {
 }
 
 .hero-testimonial {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -524,10 +559,6 @@ section {
 }
 
 .hero-experience {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -566,9 +597,41 @@ section {
 }
 
 /* Responsive Design for Hero Section */
+@media (max-width: 1200px) {
+  .hero {
+    width: 100%;
+    min-width: 1200px;
+  }
+  
+  .hero-container {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
-  .hero-content {
-    padding-top: 100px;
+  .hero-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 2rem;
+    padding: 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .hero-left {
+    order: 2;
+    justify-content: center;
+  }
+  
+  .hero-middle {
+    order: 1;
+  }
+  
+  .hero-right {
+    order: 3;
+    justify-content: center;
   }
   
   .hero-name {
@@ -608,8 +671,9 @@ section {
   }
   
   .hero-testimonial {
-    left: 0.5rem;
     max-width: 220px;
+    text-align: center;
+    align-items: center;
   }
   
   .quotes-image {
@@ -621,7 +685,8 @@ section {
   }
   
   .hero-experience {
-    right: 1rem;
+    text-align: center;
+    align-items: center;
   }
   
   .stars {
@@ -638,8 +703,9 @@ section {
 }
 
 @media (max-width: 480px) {
-  .hero-content {
-    padding-top: 80px;
+  .hero-container {
+    gap: 1.5rem;
+    padding: 0.5rem;
   }
   
   .hero-name {
@@ -678,12 +744,7 @@ section {
     height: 220px;
   }
   
-  .hero-circle {
-    bottom: 1rem;
-  }
-  
   .hero-testimonial {
-    left: 0.3rem;
     max-width: 180px;
   }
   
@@ -693,10 +754,6 @@ section {
   
   .testimonial-text {
     font-size: 0.8rem;
-  }
-  
-  .hero-experience {
-    right: 0.5rem;
   }
   
   .stars {
@@ -714,14 +771,11 @@ section {
 
 /* Hire Me Button Styles */
 .hero-hire-button {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
   z-index: 20;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .hire-me-btn {
