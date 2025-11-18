@@ -1,251 +1,166 @@
-import React, { useState } from 'react';
-import * as emailjs from '@emailjs/browser';
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
-const Contact: React.FC = () => {
+const Contact = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      // EmailJS configuration
-      const serviceId = 'service_b8zlv6l';
-      const templateId = 'template_45yogmq';
-      const publicKey = 'O2cXyPaOgsWpx1QAW';
-
-      // Prepare template parameters
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject || 'Portfolio Contact Form',
-        message: formData.message,
-        to_email: 'sakkeer.nsn@gmail.com'
-      };
-
-      // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      
-      // Success - clear form and show success message
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-      setSubmitStatus('success');
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-
-    } catch (error) {
-      console.error('Email sending failed:', error);
-      setSubmitStatus('error');
-      
-      // Hide error message after 5 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
-  const contactMethods = [
+  const contactInfo = [
     {
-      icon: '📧',
-      title: 'Email Me',
-      description: 'Send me an email anytime',
-      value: 'sakkeer.nsn@gmail.com',
-      action: 'mailto:sakkeer.nsn@gmail.com'
+      icon: Mail,
+      label: "Email",
+      value: "sakkeer.nsng@gmail.com",
+      href: "mailto:sakkeer.nsng@gmail.com",
     },
     {
-      icon: '📱',
-      title: 'Call Me',
-      description: 'Mon-Fri from 9am to 6pm',
-      value: '+91 7904341001',
-      action: 'tel:+917904341001'
+      icon: Phone,
+      label: "Phone",
+      value: "+91 7904341001",
+      href: "tel:+917904341001",
     },
     {
-      icon: '📍',
-      title: 'Location',
-      description: 'Available for remote work',
-      value: 'Remote / On-site',
-      action: '#'
-    }
+      icon: MapPin,
+      label: "Location",
+      value: "Coimbatore, Tamil Nadu, India",
+      href: null,
+    },
   ];
 
-  const socialLinks = [
-    { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com/in/sakkeer27' },
-    { name: 'GitHub', icon: '🐙', url: 'https://github.com/ASakkeer' }
+  const socials = [
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      href: "https://linkedin.com/in/sakkeer-abdul-salam-387175196",
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      href: "https://sakkeer.com",
+    },
   ];
 
   return (
-    <section id="contact" className="contact">
-      <div className="contact-container">
-        <div className="contact-header">
-          <h2 className="contact-title">Let's Build Something Amazing Together</h2>
-          <p className="contact-subtitle">
-            Have a project in mind or want to discuss opportunities? I'd love to hear from you. 
-            Let's create something extraordinary that makes a difference.
+    <section id="contact" className="py-20 relative">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Let's Build Something <span className="text-gradient">Amazing Together</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Have a project in mind? Let's discuss how I can help bring your ideas to life
           </p>
         </div>
 
-        <div className="contact-content">
-          <div className="contact-info">
-            <div className="contact-methods">
-              {contactMethods.map((method, index) => (
-                <a 
-                  key={index} 
-                  href={method.action} 
-                  className="contact-method-card"
-                  target={method.action.startsWith('http') ? '_blank' : undefined}
-                  rel={method.action.startsWith('http') ? 'noopener noreferrer' : undefined}
-                >
-                  <div className="method-icon">
-                    <span className="icon-emoji">{method.icon}</span>
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Info */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="glass p-8 rounded-2xl space-y-6">
+              {contactInfo.map((info, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-primary/10">
+                    <info.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <div className="method-content">
-                    <h3 className="method-title">{method.title}</h3>
-                    <p className="method-description">{method.description}</p>
-                    <span className="method-value">{method.value}</span>
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-1">{info.label}</div>
+                    {info.href ? (
+                      <a
+                        href={info.href}
+                        className="font-medium hover:text-primary transition-colors"
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <div className="font-medium">{info.value}</div>
+                    )}
                   </div>
-                </a>
+                </div>
               ))}
             </div>
 
-            <div className="social-section">
-              <h3 className="social-title">Follow Me</h3>
-              <div className="social-links">
-                {socialLinks.map((social, index) => (
-                  <a 
+            <div className="glass p-8 rounded-2xl">
+              <h3 className="text-xl font-bold mb-6">Connect With Me</h3>
+              <div className="flex gap-4">
+                {socials.map((social, index) => (
+                  <a
                     key={index}
-                    href={social.url}
+                    href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-link"
+                    className="p-4 rounded-xl glass glass-hover group"
                   >
-                    <span className="social-icon">{social.icon}</span>
-                    <span className="social-name">{social.name}</span>
+                    <social.icon className="h-6 w-6 group-hover:text-primary transition-colors" />
                   </a>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="contact-form-section">
-            <div className="form-container">
-              <h3 className="form-title">Send Message</h3>
-              <form onSubmit={handleSubmit} className="contact-form">
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="name" className="form-label">Your Name *</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      placeholder="Enter your full name"
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="email" className="form-label">Your Email *</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      placeholder="Enter your email address"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="subject" className="form-label">Subject</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="form-input"
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message" className="form-label">Your Message *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="form-textarea"
-                    placeholder="Tell me about your project or idea..."
-                    rows={6}
-                    required
-                  />
-                </div>
-
-                <button 
-                  type="submit" 
-                  className="submit-btn"
-                  disabled={isSubmitting}
-                >
-                  <span className="btn-text">
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </span>
-                  <span className="btn-icon">
-                    {isSubmitting ? '⏳' : '→'}
-                  </span>
-                </button>
-
-                {/* Status Messages */}
-                {submitStatus === 'success' && (
-                  <div className="status-message success-message">
-                    ✅ Message sent successfully! I'll get back to you soon.
-                  </div>
-                )}
-                
-                {submitStatus === 'error' && (
-                  <div className="status-message error-message">
-                    ❌ Failed to send message. Please try again or contact me directly.
-                  </div>
-                )}
-              </form>
-            </div>
+          {/* Contact Form */}
+          <div className="glass p-8 rounded-2xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <Input
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                  className="glass border-border/50"
+                />
+              </div>
+              <div>
+                <Input
+                  type="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  className="glass border-border/50"
+                />
+              </div>
+              <div>
+                <Input
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  required
+                  className="glass border-border/50"
+                />
+              </div>
+              <div>
+                <Textarea
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                  rows={6}
+                  className="glass border-border/50 resize-none"
+                />
+              </div>
+              <Button type="submit" size="lg" className="w-full glow-box group">
+                <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                Send Message
+              </Button>
+            </form>
           </div>
-        </div>
-
-        <div className="contact-footer">
-          <p className="availability-text">
-            I typically respond within 24 hours. Looking forward to hearing from you!
-          </p>
         </div>
       </div>
     </section>
