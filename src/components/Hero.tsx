@@ -54,7 +54,7 @@ const Hero = () => {
               variant="outline" 
               size="lg" 
               className="glass glass-hover"
-              onClick={() => window.open('/sakkeer_resume.pdf', '_blank')}
+              onClick={() => window.open('/sakkeer_react_native_developer.pdf', '_blank')}
             >
               <Download className="mr-2 h-4 w-4" />
               Download Resume

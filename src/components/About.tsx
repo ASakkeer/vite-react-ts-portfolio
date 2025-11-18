@@ -2,10 +2,10 @@ import { Code2, Smartphone, Globe, Zap } from "lucide-react";
 
 const About = () => {
   const stats = [
-    { icon: Code2, label: "Years Experience", value: "8+" },
-    { icon: Smartphone, label: "Apps Published", value: "10+" },
-    { icon: Globe, label: "Performance Boost", value: "30%" },
-    { icon: Zap, label: "Crash Reduction", value: "40%" },
+    { icon: Code2, label: "Years Experience", value: "8" },
+    { icon: Smartphone, label: "Apps Published", value: "5+" },
+    { icon: Globe, label: "Performance Boost", value: "40%" },
+    { icon: Zap, label: "Crash Reduction", value: "55%" },
   ];
 
   const skills = [
