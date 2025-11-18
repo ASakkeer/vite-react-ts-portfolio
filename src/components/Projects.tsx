@@ -10,8 +10,8 @@ const Projects = () => {
       title: "Enterprise Mobile Applications",
       category: "mobile",
       description:
-        "Led development of 10+ cross-platform mobile applications at Mongrov Inc. Published to both Play Store and App Store with 90% on-time release rate and zero critical rejections.",
-      tags: ["React Native", "TypeScript", "Redux Toolkit", "CI/CD"],
+        "Led development of 10+ cross-platform mobile applications at Atom8 IT Solutions Pvt Ltd. Published to both Play Store and App Store with 90% on-time release rate and zero critical rejections.",
+      tags: ["React Native", "TypeScript", "Redux Toolkit"],
       image: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
     },
     {

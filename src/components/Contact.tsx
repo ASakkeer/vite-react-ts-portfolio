@@ -27,8 +27,8 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "sakkeer.nsng@gmail.com",
-      href: "mailto:sakkeer.nsng@gmail.com",
+      value: "sakkeer.nsn@gmail.com",
+      href: "mailto:sakkeer.nsn@gmail.com",
     },
     {
       icon: Phone,
@@ -48,12 +48,12 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: "LinkedIn",
-      href: "https://linkedin.com/in/sakkeer-abdul-salam-387175196",
+      href: "www.linkedin.com/in/sakkeer5297",
     },
     {
       icon: Github,
       label: "GitHub",
-      href: "https://sakkeer.com",
+      href: "https://github.com/ASakkeer",
     },
   ];
 

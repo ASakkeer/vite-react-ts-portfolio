@@ -4,25 +4,30 @@ import { Button } from "./ui/button";
 const Resume = () => {
   const experience = [
     {
-      company: "Mongrov, Inc.",
+      company: "Atom8 IT Solutions Pvt Ltd.",
       location: "Coimbatore, IN",
       role: "Senior Software Engineer",
       period: "Aug 2020 - Sep 2025",
       description:
         "Led development of 10+ cross-platform mobile applications with zero critical rejections. Achieved 40% crash reduction and 30% performance improvements through code optimization and real-time monitoring.",
       achievements: [
-        "Designed and engineered 10+ cross-platform mobile applications",
-        "Led app store publishing with 90% on-time release rate",
-        "Integrated third-party modules and native iOS/Android code",
-        "Mentored team of junior/mid developers improving delivery KPIs",
-        "Implemented Redux state management for better performance",
+        "Designed and engineered 10+ cross-platform mobile applications.",
+        "Led app store publishing workflows, achieving zero critical rejections and 90% on-time release rate.",
+        "Integrated third-party modules (Google Maps, Inapp Browser Reborn, Device Sensors, Push Notifications) and native iOS/Android code, accelerating feature delivery.",
+        "Refactored existing applications, achieving a boost in startup speed and reduction in crashes via code optimization and real-time monitoring.",
+        "Mentored a team of junior/mid developers, improving code quality and delivery KPIs through best practice training and peer code reviews.",
+        "Led the development of mobile applications using React Native, enhancing user experience and adoption rates across platforms.",
+        "Mentored junior developers in best practices for React Native, fostering a culture of continuous learning and collaboration.",
+        "Implemented state management solutions using Redux, resulting in improved application performance and maintainability.",
+        "Developed and maintained RESTful APIs, improving integration capabilities and streamlining data flow across applications.",
+        "Conducted code reviews and implemented best practices, resulting in reduced bugs and improved code maintainability."
       ],
-      skills: ["React Native", "TypeScript", "Redux Toolkit", "CI/CD", "Fastlane"],
+      skills: ["React Native", "TypeScript", "Redux Toolkit"],
     },
     {
       company: "Hartwin Tech Pvt Ltd",
       location: "Coimbatore, IN",
-      role: "Full Stack Developer",
+      role: "L1 Full Stack Developer",
       period: "Mar 2020 - Jun 2020",
       description:
         "Developed integrated web and mobile solutions, focusing on robust RESTful API/middleware development and seamless UI/UX connection.",
@@ -32,7 +37,7 @@ const Resume = () => {
         "Collaborated with designers for rapid prototyping",
         "Drove end-to-end app delivery cycles",
       ],
-      skills: ["React", "Node.js", "REST APIs", "UI/UX"],
+      skills: ["Angular", "JavaScript", "Node.js", "REST APIs", "UI/UX"],
     },
     {
       company: "Brigita Solutions Pvt Ltd",
@@ -47,7 +52,7 @@ const Resume = () => {
         "Coordinated with backend teams for scalable solutions",
         "Managed web/mobile integrations",
       ],
-      skills: ["React.js", "Angular", "JavaScript", "RESTful APIs"],
+      skills: ["Angular", "JavaScript", "Node.js", "RESTful APIs"],
     },
   ];
 
@@ -167,7 +172,15 @@ const Resume = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>Performance Optimization (30%+ improvement)</span>
+                  <span>REST API & Backend Integration</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">▸</span>
+                  <span>Performance Optimization (40%+ improvement)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">▸</span>
+                  <span>UI/UX Modernization & Best Practices</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
@@ -175,7 +188,7 @@ const Resume = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
-                  <span>CI/CD Automation (Fastlane, Bitrise, GitHub Actions)</span>
+                  <span>Real-time Troubleshooting & Debugging</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">▸</span>
@@ -206,15 +219,23 @@ const Resume = () => {
                 </div>
                 <div>
                   <span className="text-primary font-medium">Tools:</span>
-                  <span className="text-muted-foreground ml-2">VS Code, Git, Figma, POSTMAN, Fastlane, Bitrise</span>
+                  <span className="text-muted-foreground ml-2">VS Code, Git, Figma, POSTMAN, Basic usage of SourceTree</span>
                 </div>
                 <div>
                   <span className="text-primary font-medium">Databases:</span>
-                  <span className="text-muted-foreground ml-2">Firebase, SQL Server</span>
+                  <span className="text-muted-foreground ml-2">Firebase, SQL Server (Basics)</span>
                 </div>
                 <div>
                   <span className="text-primary font-medium">Testing:</span>
                   <span className="text-muted-foreground ml-2">Jest, Sentry, Crashlytics</span>
+                </div>
+                <div>
+                  <span className="text-primary font-medium">Others:</span>
+                  <span className="text-muted-foreground ml-2">JSON, REST APIs, OAuth, GitHub Actions, Redux Toolkit, Context API, Native Modules (Android/iOS), Sentry, Crashlytics</span>
+                </div>
+                <div>
+                  <span className="text-primary font-medium">Platforms:</span>
+                  <span className="text-muted-foreground ml-2">macOS, Windows, Linux</span>
                 </div>
               </div>
             </div>

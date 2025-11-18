@@ -19,7 +19,6 @@ const About = () => {
     "Angular",
     "Firebase",
     "Git & GitHub",
-    "CI/CD (Fastlane, Bitrise)",
     "Native Modules (iOS/Android)",
     "Jest Testing",
     "Sentry & Crashlytics",
@@ -48,7 +47,7 @@ const About = () => {
               Seasoned Senior React Native Engineer with over 8 years of experience in leading the end-to-end development of high-performance, scalable, and robust cross-platform mobile applications for global clients.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Expertise in publishing applications to Android and iOS app stores, integrating complex APIs, and implementing CI/CD best practices has consistently driven project success. My proven track record includes reducing crash rates by up to 40% and boosting performance by 30%+, significantly enhancing user engagement and retention.
+              Expertise in publishing applications to Android and iOS app stores, integrating complex APIs, and delivering reliable, high-quality builds that consistently drive project success. My proven track record includes reducing crash rates by up to 40% and boosting performance by 30%+, significantly enhancing user engagement and retention.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Strong collaboration skills across functional teams enable rapid troubleshooting of complex issues, delivering polished solutions in fast-paced Agile environments. I'm passionate about mentoring developers and fostering a culture of continuous learning.

@@ -33,7 +33,7 @@ const Hero = () => {
           <p className="text-2xl md:text-3xl text-muted-foreground font-light max-w-3xl mx-auto">
             Senior React Native Engineer
             <br />
-            <span className="text-primary">Full Stack Mobile Developer</span>
+            <span className="text-primary">Frontend Developer</span>
           </p>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
