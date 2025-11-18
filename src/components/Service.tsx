@@ -2,7 +2,7 @@ import React from 'react';
 import mobileImg from '../assets/images/mobile.png';
 import webImg from '../assets/images/web.png';
 import apiImg from '../assets/images/api.png';
-import uiuxImg from '../assets/images/ui:ux.png';
+import uiuxImg from '../assets/images/ui-ux.png';
 import performanceImg from '../assets/images/performance.png';
 import maintenanceImg from '../assets/images/maintenance.png';
 
