@@ -1,0 +1,45 @@
+[
+  {
+    "id": "notebook-pro",
+    "name": "Productivity Notebook Pro",
+    "price": 39,
+    "category": "Stationery",
+    "imageUrl": "/placeholder/notebook-pro"
+  },
+  {
+    "id": "wireless-headphones",
+    "name": "Wireless Focus Headphones",
+    "price": 129,
+    "category": "Electronics",
+    "imageUrl": "/placeholder/headphones"
+  },
+  {
+    "id": "standing-desk",
+    "name": "Adjustable Standing Desk",
+    "price": 399,
+    "category": "Office",
+    "imageUrl": "/placeholder/desk"
+  },
+  {
+    "id": "ergonomic-chair",
+    "name": "Ergonomic Office Chair",
+    "price": 259,
+    "category": "Office",
+    "imageUrl": "/placeholder/chair"
+  },
+  {
+    "id": "desk-lamp",
+    "name": "Minimalist Desk Lamp",
+    "price": 59,
+    "category": "Electronics",
+    "imageUrl": "/placeholder/lamp"
+  },
+  {
+    "id": "planner",
+    "name": "Weekly Planner",
+    "price": 19,
+    "category": "Stationery",
+    "imageUrl": "/placeholder/planner"
+  }
+]
+

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "basic",
+    "name": "Basic",
+    "monthlyPrice": 49,
+    "maxUsers": 5,
+    "status": "Active"
+  },
+  {
+    "id": "pro",
+    "name": "Pro",
+    "monthlyPrice": 99,
+    "maxUsers": 25,
+    "status": "Active"
+  },
+  {
+    "id": "enterprise",
+    "name": "Enterprise",
+    "monthlyPrice": 249,
+    "maxUsers": 100,
+    "status": "Active"
+  }
+]
+

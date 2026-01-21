@@ -1,9 +1,8 @@
-// Projects section presenting business-focused case studies instead of toy apps.
+// Projects section listing real, completed demos and upcoming work.
 import type { FC } from "react";
 import { Link } from "react-router-dom";
-import { projects } from "./projects.data";
 
-export const ProjectsList: FC = () => {
+const ProjectsList: FC = () => {
   return (
     <section
       id="projects"
@@ -16,40 +15,99 @@ export const ProjectsList: FC = () => {
             id="projects-heading"
             className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl"
           >
-            Selected React projects as business case studies
+            Projects and demos
           </h2>
           <p className="text-sm text-slate-600 md:text-base">
-            Each project is framed around the problem, solution, and measurable impact, rather than
-            toy apps or isolated UI experiments.
-          </p>
-          <p className="text-xs text-slate-500">
-            Representative case studies based on real enterprise work. Details anonymized for
-            confidentiality.
+            A small set of production-style demos and case studies focused on analytics, product
+            flows, and internal tools.
           </p>
         </header>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <Link key={project.slug} to={`/projects/${project.slug}`} className="block">
-              <article className="hover-elevate h-full rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
-                <header className="mb-3 flex flex-col gap-1">
-                  <h3 className="text-base font-semibold text-slate-900">{project.name}</h3>
-                  <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-                    {project.role}
-                  </p>
-                </header>
-                <p className="mb-3 text-sm text-slate-700">{project.context}</p>
-                <section className="mb-4">
-                  <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Outcomes
-                  </h4>
-                  <ul className="list-disc space-y-1 pl-5 text-sm text-slate-700">
-                    <li>{project.outcome}</li>
-                  </ul>
-                </section>
-                <p className="text-xs font-semibold text-[#2563EB]">View case study</p>
-              </article>
-            </Link>
-          ))}
+          {/* Project 1: Revenue Analytics Dashboard */}
+          <article className="hover-elevate h-full rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+            <header className="mb-3 space-y-1">
+              <p className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                Completed · Admin Dashboard / B2B SaaS
+              </p>
+              <h3 className="text-base font-semibold text-slate-900">
+                Revenue Analytics Dashboard
+              </h3>
+            </header>
+            <p className="mb-4 text-sm text-slate-700">
+              A production-style analytics dashboard that demonstrates KPIs, charts, filters, and an
+              admin CRUD module with simulated APIs.
+            </p>
+            <div className="flex flex-wrap gap-2 text-xs">
+              <Link
+                to="/demos/revenue-analytics"
+                className="pressable inline-flex items-center justify-center rounded-full bg-[#2563EB] px-4 py-1.5 font-semibold text-white shadow-sm hover:bg-[#1d4ed8]"
+              >
+                Live Demo
+              </Link>
+              <Link
+                to="/projects/revenue-analytics-dashboard"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-1.5 font-semibold text-slate-800 hover:bg-slate-50"
+              >
+                Case Study
+              </Link>
+            </div>
+          </article>
+
+          {/* Project 2: E-commerce Frontend Demo */}
+          <article className="hover-elevate h-full rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+            <header className="mb-3 space-y-1">
+              <p className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                Completed · Product UI / Commerce Flow
+              </p>
+              <h3 className="text-base font-semibold text-slate-900">
+                E-commerce Frontend Demo
+              </h3>
+            </header>
+            <p className="mb-4 text-sm text-slate-700">
+              A frontend-only e-commerce experience with product listing, client-side filters, cart
+              management, and a mock checkout flow.
+            </p>
+            <div className="flex flex-wrap gap-2 text-xs">
+              <Link
+                to="/demos/ecommerce"
+                className="pressable inline-flex items-center justify-center rounded-full bg-[#2563EB] px-4 py-1.5 font-semibold text-white shadow-sm hover:bg-[#1d4ed8]"
+              >
+                Live Demo
+              </Link>
+              <a
+                href="https://github.com/sakkeer/vite-react-ts-portfolio"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-1.5 font-semibold text-slate-800 hover:bg-slate-50"
+              >
+                GitHub Repo
+              </a>
+            </div>
+          </article>
+
+          {/* Project 3: SaaS Ops Tool / Design System (preview) */}
+          <article className="hover-elevate h-full rounded-2xl border border-dashed border-slate-300 bg-slate-50/80 p-6">
+            <header className="mb-3 space-y-1">
+              <p className="inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
+                In Progress · Internal Tooling
+              </p>
+              <h3 className="text-base font-semibold text-slate-900">
+                SaaS Ops Tool / Design System
+              </h3>
+            </header>
+            <p className="mb-4 text-sm text-slate-700">
+              An upcoming SaaS-style internal tool focused on reusable components, workflow screens,
+              and product consistency.
+            </p>
+            <div className="flex flex-wrap gap-2 text-xs">
+              <Link
+                to="/demos/ops-tool"
+                className="pressable inline-flex items-center justify-center rounded-full bg-[#2563EB] px-4 py-1.5 font-semibold text-white shadow-sm hover:bg-[#1d4ed8]"
+              >
+                SaaS Ops Tool (Preview)
+              </Link>
+            </div>
+          </article>
         </div>
       </div>
     </section>

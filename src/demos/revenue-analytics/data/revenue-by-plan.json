@@ -1,0 +1,8 @@
+{
+  "plans": [
+    { "plan": "Basic", "mrr": 18000, "subscriptions": 240 },
+    { "plan": "Pro", "mrr": 27000, "subscriptions": 135 },
+    { "plan": "Enterprise", "mrr": 12100, "subscriptions": 18 }
+  ]
+}
+

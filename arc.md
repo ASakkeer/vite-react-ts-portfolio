@@ -48,7 +48,7 @@ Build a career-focused React portfolio for an experienced Frontend React Develop
 
 - Scroll/anchor-based single-page navigation has been removed in favor of true multi-page routing.
 - React Router is implemented with `BrowserRouter` at the root and route-based pages.
-- Core pages are split into dedicated routes: Home (`/`), Projects (`/projects`), Project case studies (`/projects/:id`), Services (`/services`), Experience (`/experience`), and Contact (`/contact`).
+- Core pages are split into dedicated routes: Home (`/`), Projects (`/projects`), Project case studies (`/projects/:id`), Services (`/services`), Experience (`/experience`), Contact (`/contact`), plus demo routes such as `/demos/revenue-analytics` and `/demos/ecommerce` for interactive flagship examples.
 
 ## Project completion status
 

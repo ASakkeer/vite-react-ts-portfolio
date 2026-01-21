@@ -1,0 +1,24 @@
+[
+  {
+    "id": "task-1",
+    "title": "Review new customer signups",
+    "description": "Check for incomplete onboarding steps and flag accounts that need outreach.",
+    "status": "Open",
+    "priority": "High"
+  },
+  {
+    "id": "task-2",
+    "title": "Reconcile usage and billing",
+    "description": "Verify that metered usage matches invoiced amounts for the current period.",
+    "status": "In Progress",
+    "priority": "Medium"
+  },
+  {
+    "id": "task-3",
+    "title": "Archive stale test accounts",
+    "description": "Clean up sandbox and test tenants that have been inactive for 60+ days.",
+    "status": "Done",
+    "priority": "Low"
+  }
+]
+

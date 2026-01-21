@@ -2,10 +2,10 @@
 
 ## Purpose of `Projects` sections
 
-- Present a small number of high-signal React projects as business case studies, not toy apps.
-- Show how frontend work contributed to real outcomes: speed of delivery, operational efficiency, revenue visibility, or UX improvements.
-- Keep structure consistent so reviewers can quickly scan problem, solution, and impact.
-- Serve as the dedicated `/projects` route in the React Router setup, with individual case studies rendered on `/projects/:id`.
+- Present a small number of high-signal React projects and demos, not toy apps.
+- Show how frontend work contributed to real outcomes: speed of delivery, operational efficiency, revenue visibility, or product flows.
+- Keep structure consistent so reviewers can quickly scan project type, status, and where to explore more detail (live demo vs. case study).
+- Serve as the dedicated `/projects` route in the React Router setup, with individual case studies rendered on `/projects/:id` and demos exposed under `/demos/*`.
 
 ## Decisions made
 
