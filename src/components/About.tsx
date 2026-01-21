@@ -2,7 +2,7 @@ import { Code2, Smartphone, Globe, Zap } from "lucide-react";
 
 const About = () => {
   const stats = [
-    { icon: Code2, label: "Years Experience", value: "8" },
+    { icon: Code2, label: "Years Experience", value: "8+" },
     { icon: Smartphone, label: "Apps Published", value: "5+" },
     { icon: Globe, label: "Performance Boost", value: "40%" },
     { icon: Zap, label: "Crash Reduction", value: "55%" },
@@ -44,7 +44,7 @@ const About = () => {
               Senior React Native Engineer & Full Stack Developer
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              Seasoned Senior React Native Engineer with over 8 years of experience in leading the end-to-end development of high-performance, scalable, and robust cross-platform mobile applications for global clients.
+              Seasoned Senior React Native Engineer with over 8+ years of experience in leading the end-to-end development of high-performance, scalable, and robust cross-platform mobile applications for global clients.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Expertise in publishing applications to Android and iOS app stores, integrating complex APIs, and delivering reliable, high-quality builds that consistently drive project success. My proven track record includes reducing crash rates by up to 40% and boosting performance by 30%+, significantly enhancing user engagement and retention.

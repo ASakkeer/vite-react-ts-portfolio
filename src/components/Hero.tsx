@@ -37,7 +37,7 @@ const Hero = () => {
           </p>
 
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Over 8 years of experience leading end-to-end development of high-performance, scalable cross-platform mobile applications for global clients
+            Over 8+ years of experience leading end-to-end development of high-performance, scalable cross-platform mobile applications for global clients
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
