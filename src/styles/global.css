@@ -1,0 +1,37 @@
+/* Global styles for the career-focused frontend portfolio. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: theme("fontFamily.sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif);
+  background-color: #f8fafc; /* matches theme background */
+  color: #334155; /* matches theme textPrimary */
+}
+
+/* Global layout helpers */
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-section {
+  padding: 3rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .page-section {
+    padding: 4rem 3rem;
+  }
+}
+

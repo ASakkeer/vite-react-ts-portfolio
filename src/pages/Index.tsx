@@ -1,25 +1,9 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Services from "@/components/Services";
-import Resume from "@/components/Resume";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+// Backwards-compatible alias that now maps the legacy Index route to the dedicated home page.
+import type { FC } from "react";
+import HomePage from "./Home/HomePage";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <About />
-      <Services />
-      <Resume />
-      {/* <Projects /> */}
-      <Contact />
-      <Footer />
-    </div>
-  );
+const Index: FC = () => {
+  return <HomePage />;
 };
 
 export default Index;
