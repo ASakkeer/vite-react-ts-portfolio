@@ -1,6 +1,7 @@
 // Route-level page for the ecommerce demo (product listing, cart, checkout).
 import type { FC } from "react";
 import Layout from "../../../components/layout/Layout";
+import BackButton from "../../../components/BackButton";
 import DemoDisclaimer from "../../../components/DemoDisclaimer";
 import { useCart } from "../hooks/useCart";
 import { useProductFilters } from "../hooks/useProductFilters";
@@ -22,6 +23,9 @@ export const ECommerceDemoPage: FC = () => {
   return (
     <Layout>
       <section className="space-y-6 bg-slate-50 py-4">
+        <div className="space-y-2">
+          <BackButton fallbackPath="/projects" label="Back to projects" />
+        </div>
         <header className="space-y-2">
           <h1 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
             E-commerce Demo (Frontend Only)

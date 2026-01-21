@@ -2,6 +2,7 @@
 import type { FC } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../../components/layout/Layout";
+import BackButton from "../../../components/BackButton";
 import DemoDisclaimer from "../../../components/DemoDisclaimer";
 import { useRevenueFilters } from "../hooks/useRevenueFilters";
 import { getKpis, getMrrSeries, getRevenueByPlan } from "../utils/metrics";
@@ -20,6 +21,9 @@ export const RevenueAnalyticsDemoPage: FC = () => {
   return (
     <Layout>
       <section className="space-y-6 bg-slate-50 py-4">
+        <div className="space-y-2">
+          <BackButton fallbackPath="/projects" label="Back to projects" />
+        </div>
         <header className="space-y-2">
           <h1 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
             Revenue Analytics Dashboard (Demo)

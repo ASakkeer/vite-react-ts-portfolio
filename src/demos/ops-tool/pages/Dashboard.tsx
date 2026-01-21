@@ -2,6 +2,7 @@
 import type { FC, FormEvent } from "react";
 import { useState } from "react";
 import Layout from "../../../components/layout/Layout";
+import BackButton from "../../../components/BackButton";
 import DemoDisclaimer from "../../../components/DemoDisclaimer";
 import PageHeader from "../components/PageHeader";
 import StatusBadge from "../components/StatusBadge";
@@ -65,12 +66,15 @@ export const OpsToolDashboardPage: FC = () => {
   return (
     <Layout>
       <section className="space-y-6 bg-slate-50 py-4">
+        <div className="space-y-2">
+          <BackButton fallbackPath="/projects" label="Back to projects" />
+        </div>
         <PageHeader
           title="SaaS Ops Tool (Preview)"
-          description="Internal operations dashboard for tracking day-to-day tasks across onboarding, billing, and cleanup. All data and workflows are simulated client-side."
+          description="Internal operations dashboard for tracking day-to-day tasks across onboarding, billing, and cleanup. All data and workflows are simulated client-side. This is a preview demo showcasing workflow patterns and reusable components. Not a full production system."
           badge={
             <span className="inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
-              In Progress · Internal Tooling
+              Preview · Internal Tooling
             </span>
           }
         />

@@ -6,7 +6,7 @@ const ProjectsList: FC = () => {
   return (
     <section
       id="projects"
-      className="page-section animate-fade-up bg-slate-50"
+      className="page-section animate-fade-up bg-white"
       aria-labelledby="projects-heading"
     >
       <div className="mx-auto max-w-[1200px] space-y-8">
@@ -74,14 +74,12 @@ const ProjectsList: FC = () => {
               >
                 Live Demo
               </Link>
-              <a
-                href="https://github.com/sakkeer/vite-react-ts-portfolio"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                to="/projects/ecommerce-frontend-demo"
                 className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-1.5 font-semibold text-slate-800 hover:bg-slate-50"
               >
-                GitHub Repo
-              </a>
+                Case Study
+              </Link>
             </div>
           </article>
 
@@ -89,7 +87,7 @@ const ProjectsList: FC = () => {
           <article className="hover-elevate h-full rounded-2xl border border-dashed border-slate-300 bg-slate-50/80 p-6">
             <header className="mb-3 space-y-1">
               <p className="inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
-                In Progress · Internal Tooling
+                Preview · Internal Tooling
               </p>
               <h3 className="text-base font-semibold text-slate-900">
                 SaaS Ops Tool / Design System
@@ -104,7 +102,13 @@ const ProjectsList: FC = () => {
                 to="/demos/ops-tool"
                 className="pressable inline-flex items-center justify-center rounded-full bg-[#2563EB] px-4 py-1.5 font-semibold text-white shadow-sm hover:bg-[#1d4ed8]"
               >
-                SaaS Ops Tool (Preview)
+                Live Demo
+              </Link>
+              <Link
+                to="/projects/design-system-react-component-library"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-1.5 font-semibold text-slate-800 hover:bg-slate-50"
+              >
+                Case Study
               </Link>
             </div>
           </article>

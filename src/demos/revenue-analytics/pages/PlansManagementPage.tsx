@@ -2,6 +2,7 @@
 import type { FC, FormEvent } from "react";
 import { useEffect, useState } from "react";
 import Layout from "../../../components/layout/Layout";
+import BackButton from "../../../components/BackButton";
 import type { Plan } from "../utils/plansService";
 import { fetchPlans, createPlan, updatePlan, deletePlan } from "../utils/plansService";
 
@@ -134,6 +135,9 @@ export const PlansManagementPage: FC = () => {
   return (
     <Layout>
       <section className="space-y-6 bg-slate-50 py-4">
+        <div className="space-y-2">
+          <BackButton fallbackPath="/projects" label="Back to projects" />
+        </div>
         <header className="space-y-2">
           <h1 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
             Manage Subscription Plans

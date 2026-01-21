@@ -1,7 +1,8 @@
-// Route-level case study page for a single project identified by id.
+// Route-level case study page for a single project identified by id, with back navigation.
 import type { FC } from "react";
 import { useParams } from "react-router-dom";
 import Layout from "../../components/layout/Layout";
+import BackButton from "../../components/BackButton";
 import ProjectCaseStudy from "./ProjectCaseStudy";
 import { findProjectBySlug } from "./projects.data";
 
@@ -13,6 +14,9 @@ export const ProjectCaseStudyPage: FC = () => {
     <Layout>
       <section className="page-section bg-slate-50" aria-labelledby="project-case-study-heading">
         <div className="mx-auto max-w-[1200px] space-y-6">
+          <div className="pt-1">
+            <BackButton fallbackPath="/projects" label="Back to projects" />
+          </div>
           {project ? (
             <>
               <header className="space-y-2">

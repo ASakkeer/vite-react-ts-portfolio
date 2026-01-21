@@ -1,9 +1,9 @@
-// Sticky site header with primary navigation and hire-me call to action.
+// Sticky site header with primary navigation, active route highlighting, and hire-me call to action.
 import type { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const navItems = [
-  { to: "/", label: "Home" },
+  { to: "/", label: "Home", end: true },
   { to: "/services", label: "Services" },
   { to: "/projects", label: "Projects" },
   { to: "/experience", label: "Experience" },
@@ -21,15 +21,23 @@ export const Header: FC = () => {
         >
           SAKKEER
         </Link>
-        <nav className="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
+        <nav className="hidden items-center gap-2 text-sm font-medium text-slate-700 md:flex">
           {navItems.map((item) => (
-            <Link
+            <NavLink
               key={item.to}
               to={item.to}
-              className="hover-elevate rounded-full px-2 py-1 transition-colors hover:text-slate-900"
+              end={item.end}
+              className={({ isActive }) =>
+                [
+                  "rounded-full px-3 py-1 transition-colors",
+                  isActive
+                    ? "bg-[#2563EB] text-white font-semibold"
+                    : "hover-elevate text-slate-700 hover:text-slate-900",
+                ].join(" ")
+              }
             >
               {item.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
         <div className="flex items-center gap-2">

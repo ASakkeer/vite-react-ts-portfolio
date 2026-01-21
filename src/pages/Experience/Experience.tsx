@@ -1,49 +1,5 @@
-// Experience section summarizing roles with measurable, technology-focused achievements.
+// Experience section aligned to real, resume-style professional history.
 import type { FC } from "react";
-
-interface ExperienceItem {
-  company: string;
-  role: string;
-  duration: string;
-  achievements: string[];
-  technologies: string[];
-}
-
-const experience: ExperienceItem[] = [
-  {
-    company: "SaaS Analytics Platform",
-    role: "Senior Frontend React Developer",
-    duration: "2021 – Present",
-    achievements: [
-      "Led React migration of core analytics workflows, reducing page load time by ~40% on high-traffic dashboards.",
-      "Delivered a unified reporting UI used in weekly leadership reviews for subscription, churn, and MRR trends.",
-      "Introduced a shared analytics component library that standardized dashboards and forms across multiple product areas.",
-    ],
-    technologies: ["React", "TypeScript", "React Query", "Recharts", "Tailwind CSS"],
-  },
-  {
-    company: "B2B Productivity Suite",
-    role: "Frontend Engineer",
-    duration: "2018 – 2021",
-    achievements: [
-      "Implemented permission-aware admin panels that reduced configuration errors and related support tickets for misconfigured accounts.",
-      "Optimized data-heavy views with virtualization and pagination to keep critical workflows responsive under peak usage.",
-      "Added front-end CI checks and linting rules that caught common regressions before they reached production.",
-    ],
-    technologies: ["React", "JavaScript", "Redux", "REST APIs", "Jest"],
-  },
-  {
-    company: "Digital Services Agency",
-    role: "React Developer",
-    duration: "2016 – 2018",
-    achievements: [
-      "Delivered multiple React-based marketing and product sites to production under tight launch timelines.",
-      "Converted static design handoffs into reusable React components to speed up subsequent page builds.",
-      "Set up basic performance and accessibility checks so launches met client requirements without last-minute rework.",
-    ],
-    technologies: ["React", "Next.js", "Sass", "Webpack"],
-  },
-];
 
 export const Experience: FC = () => {
   return (
@@ -58,49 +14,110 @@ export const Experience: FC = () => {
             id="experience-heading"
             className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl"
           >
-            Experience and impact
+            Professional experience
           </h2>
           <p className="text-sm text-slate-600 md:text-base">
-            Roles focused on shipping React-based interfaces, improving performance, and supporting
-            product and operations teams.
+            Roles focused on building and shipping React and React Native applications across mobile
+            and web, with end-to-end ownership from implementation to publishing.
           </p>
         </header>
+
         <div className="space-y-5">
-          {experience.map((item) => (
-            <article
-              key={`${item.company}-${item.role}-${item.duration}`}
-              className="hover-elevate rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm"
-            >
-              <header className="mb-3 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
-                <div>
-                  <h3 className="text-base font-semibold text-slate-900">{item.company}</h3>
-                  <p className="text-sm text-slate-600">{item.role}</p>
-                </div>
-                <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
-                  {item.duration}
-                </p>
-              </header>
-              <div className="space-y-3 text-sm text-slate-700">
-                <section>
-                  <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Achievements
-                  </h4>
-                  <ul className="list-disc space-y-1 pl-5">
-                    {item.achievements.map((achievement) => (
-                      <li key={achievement}>{achievement}</li>
-                    ))}
-                  </ul>
-                </section>
-                <section>
-                  <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Technologies
-                  </h4>
-                  <p>{item.technologies.join(" · ")}</p>
-                </section>
+          {/* 1) Senior Software Engineer – React Native */}
+          <article className="hover-elevate rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+            <header className="mb-3 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+              <div>
+                <h3 className="text-base font-semibold text-slate-900">
+                  Senior Software Engineer – React Native
+                </h3>
+                <p className="text-sm text-slate-600">Atom8 IT Solutions Pvt Ltd</p>
               </div>
-            </article>
-          ))}
+              <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                Aug 2020 – Sep 2025
+              </p>
+            </header>
+            <div className="space-y-3 text-sm text-slate-700">
+              <ul className="list-disc space-y-1 pl-5">
+                <li>Delivered 10+ cross-platform mobile applications using React Native.</li>
+                <li>
+                  Managed end-to-end app publishing to both the Apple App Store and Google Play
+                  Store.
+                </li>
+                <li>Contributed to a 40% crash reduction through monitoring and stability fixes.</li>
+                <li>Integrated native modules where needed for device- and OS-specific features.</li>
+                <li>Mentored developers on React Native patterns and mobile delivery practices.</li>
+              </ul>
+            </div>
+          </article>
+
+          {/* 2) Full Stack Developer */}
+          <article className="hover-elevate rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+            <header className="mb-3 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+              <div>
+                <h3 className="text-base font-semibold text-slate-900">Full Stack Developer</h3>
+                <p className="text-sm text-slate-600">Hartwin Tech Pvt Ltd</p>
+              </div>
+              <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                Mar 2020 – Jun 2020
+              </p>
+            </header>
+            <div className="space-y-3 text-sm text-slate-700">
+              <ul className="list-disc space-y-1 pl-5">
+                <li>
+                  Worked across web and mobile solutions, contributing to both frontend and backend
+                  code.
+                </li>
+                <li>Integrated REST APIs to connect UI flows with backend services.</li>
+              </ul>
+            </div>
+          </article>
+
+          {/* 3) Frontend Developer */}
+          <article className="hover-elevate rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
+            <header className="mb-3 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+              <div>
+                <h3 className="text-base font-semibold text-slate-900">Frontend Developer</h3>
+                <p className="text-sm text-slate-600">Brigita Solutions Pvt Ltd</p>
+              </div>
+              <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                Sep 2017 – Feb 2020
+              </p>
+            </header>
+            <div className="space-y-3 text-sm text-slate-700">
+              <ul className="list-disc space-y-1 pl-5">
+                <li>Implemented user interfaces in React and Angular for web applications.</li>
+                <li>Collaborated with backend teams to connect UI components to REST APIs.</li>
+              </ul>
+            </div>
+          </article>
         </div>
+
+        {/* Skills badges */}
+        <section className="pt-2 text-sm text-slate-700">
+          <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+            Core skills
+          </h3>
+          <div className="flex flex-wrap gap-2 text-xs">
+            {[
+              "React",
+              "React Native",
+              "TypeScript",
+              "JavaScript",
+              "REST APIs",
+              "React Query",
+              "State Management",
+              "App Store / Play Store publishing",
+              "Component-driven UI",
+            ].map((skill) => (
+              <span
+                key={skill}
+                className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );

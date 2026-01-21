@@ -1,8 +1,9 @@
 // Route-level page for viewing a single account in the revenue analytics demo.
 import type { FC } from "react";
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Layout from "../../../components/layout/Layout";
+import BackButton from "../../../components/BackButton";
 import DemoDisclaimer from "../../../components/DemoDisclaimer";
 import accounts from "../data/accounts.json";
 import accountMetrics from "../data/account-metrics.json";
@@ -58,12 +59,7 @@ export const AccountDetailsPage: FC = () => {
         <header className="space-y-3 rounded-2xl border border-slate-200 bg-white/80 p-4">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <Link
-                to="/demos/revenue-analytics"
-                className="text-xs font-medium text-[#2563EB] underline-offset-2 hover:underline"
-              >
-                ← Back to Revenue Analytics Dashboard
-              </Link>
+              <BackButton fallbackPath="/projects" label="Back to projects" />
               <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
                 {account ? account.name : "Account not found"}
               </h1>

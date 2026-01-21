@@ -49,6 +49,8 @@ Build a career-focused React portfolio for an experienced Frontend React Develop
 - Scroll/anchor-based single-page navigation has been removed in favor of true multi-page routing.
 - React Router is implemented with `BrowserRouter` at the root and route-based pages.
 - Core pages are split into dedicated routes: Home (`/`), Projects (`/projects`), Project case studies (`/projects/:id`), Services (`/services`), Experience (`/experience`), Contact (`/contact`), plus demo routes such as `/demos/revenue-analytics` and `/demos/ecommerce` for interactive flagship examples.
+- The primary navigation header now uses `NavLink` with route-based active states (pill background + stronger font weight) so the current section is clearly highlighted and persists across refreshes and deep links.
+- A shared `BackButton` component is used on deep routes (project case studies and demos) to provide a lightweight “← Back” action that prefers browser history when available and falls back to `/projects` when a page is accessed directly.
 
 ## Project completion status
 
