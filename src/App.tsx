@@ -7,7 +7,11 @@ import ProjectCaseStudyPage from "./pages/Projects/ProjectCaseStudyPage.tsx";
 import ServicesPage from "./pages/Services/ServicesPage.tsx";
 import ExperiencePage from "./pages/Experience/ExperiencePage.tsx";
 import ContactPage from "./pages/Contact/ContactPage.tsx";
-import { PlansManagementPage, RevenueAnalyticsDemoPage } from "./demos/revenue-analytics";
+import {
+  AccountDetailsPage,
+  PlansManagementPage,
+  RevenueAnalyticsDemoPage,
+} from "./demos/revenue-analytics";
 import { ECommerceDemoPage } from "./demos/ecommerce";
 import { OpsToolDashboardPage } from "./demos/ops-tool";
 import NotFound from "./pages/NotFound";
@@ -25,6 +29,10 @@ const App = () => (
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/demos/revenue-analytics" element={<RevenueAnalyticsDemoPage />} />
       <Route path="/demos/revenue-analytics/plans" element={<PlansManagementPage />} />
+      <Route
+        path="/demos/revenue-analytics/accounts/:accountId"
+        element={<AccountDetailsPage />}
+      />
       <Route path="/demos/ecommerce" element={<ECommerceDemoPage />} />
       <Route path="/demos/ops-tool" element={<OpsToolDashboardPage />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

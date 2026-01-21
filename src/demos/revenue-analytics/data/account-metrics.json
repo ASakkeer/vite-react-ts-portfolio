@@ -1,0 +1,75 @@
+[
+  {
+    "id": "acme-analytics",
+    "mrrSeries": [
+      { "month": "2025-01", "mrr": 1900 },
+      { "month": "2025-02", "mrr": 2000 },
+      { "month": "2025-03", "mrr": 2100 },
+      { "month": "2025-04", "mrr": 2200 },
+      { "month": "2025-05", "mrr": 2250 },
+      { "month": "2025-06", "mrr": 2300 }
+    ],
+    "churnRisk": "Low"
+  },
+  {
+    "id": "northwind-retail",
+    "mrrSeries": [
+      { "month": "2025-01", "mrr": 3600 },
+      { "month": "2025-02", "mrr": 3800 },
+      { "month": "2025-03", "mrr": 3950 },
+      { "month": "2025-04", "mrr": 4050 },
+      { "month": "2025-05", "mrr": 4100 },
+      { "month": "2025-06", "mrr": 4100 }
+    ],
+    "churnRisk": "Medium"
+  },
+  {
+    "id": "contoso-marketing",
+    "mrrSeries": [
+      { "month": "2025-01", "mrr": 300 },
+      { "month": "2025-02", "mrr": 310 },
+      { "month": "2025-03", "mrr": 325 },
+      { "month": "2025-04", "mrr": 340 },
+      { "month": "2025-05", "mrr": 350 },
+      { "month": "2025-06", "mrr": 350 }
+    ],
+    "churnRisk": "Low"
+  },
+  {
+    "id": "blue-ocean-finance",
+    "mrrSeries": [
+      { "month": "2025-01", "mrr": 1500 },
+      { "month": "2025-02", "mrr": 1600 },
+      { "month": "2025-03", "mrr": 1700 },
+      { "month": "2025-04", "mrr": 1850 },
+      { "month": "2025-05", "mrr": 1900 },
+      { "month": "2025-06", "mrr": 1900 }
+    ],
+    "churnRisk": "Medium"
+  },
+  {
+    "id": "lighthouse-ops",
+    "mrrSeries": [
+      { "month": "2025-01", "mrr": 600 },
+      { "month": "2025-02", "mrr": 550 },
+      { "month": "2025-03", "mrr": 520 },
+      { "month": "2025-04", "mrr": 480 },
+      { "month": "2025-05", "mrr": 450 },
+      { "month": "2025-06", "mrr": 420 }
+    ],
+    "churnRisk": "High"
+  },
+  {
+    "id": "summit-health",
+    "mrrSeries": [
+      { "month": "2025-01", "mrr": 4600 },
+      { "month": "2025-02", "mrr": 4800 },
+      { "month": "2025-03", "mrr": 4950 },
+      { "month": "2025-04", "mrr": 5050 },
+      { "month": "2025-05", "mrr": 5150 },
+      { "month": "2025-06", "mrr": 5200 }
+    ],
+    "churnRisk": "Low"
+  }
+]
+

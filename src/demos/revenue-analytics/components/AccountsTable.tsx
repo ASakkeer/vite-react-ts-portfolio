@@ -1,6 +1,7 @@
 // Revenue by account table with simple client-side sorting and pagination.
 import { useState } from "react";
 import type { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import accounts from "../data/accounts.json";
 
 interface AccountsTableProps {
@@ -13,6 +14,7 @@ export const AccountsTable: FC<AccountsTableProps> = ({ pageSize = 5 }) => {
   const [page, setPage] = useState(0);
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+  const navigate = useNavigate();
 
   const sorted = [...accounts].sort((a, b) => {
     const aValue = a[sortKey];
@@ -33,6 +35,10 @@ export const AccountsTable: FC<AccountsTableProps> = ({ pageSize = 5 }) => {
     setPage(0);
     setSortKey(key);
     setSortDirection((current) => (current === "asc" ? "desc" : "asc"));
+  };
+
+  const handleRowClick = (accountId: string) => {
+    navigate(`/demos/revenue-analytics/accounts/${accountId}`);
   };
 
   return (
@@ -77,7 +83,11 @@ export const AccountsTable: FC<AccountsTableProps> = ({ pageSize = 5 }) => {
           </thead>
           <tbody>
             {pageItems.map((account) => (
-              <tr key={account.id} className="border-b border-slate-100">
+              <tr
+                key={account.id}
+                className="cursor-pointer border-b border-slate-100 hover:bg-slate-50"
+                onClick={() => handleRowClick(account.id)}
+              >
                 <td className="px-3 py-2">{account.name}</td>
                 <td className="px-3 py-2">{account.plan}</td>
                 <td className="px-3 py-2 text-right">
