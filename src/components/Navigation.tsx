@@ -41,7 +41,7 @@ const Navigation = () => {
     { id: "about", label: "About" },
     { id: "services", label: "Services" },
     { id: "resume", label: "Resume" },
-    { id: "projects", label: "Projects" },
+    // { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" },
   ];
 
