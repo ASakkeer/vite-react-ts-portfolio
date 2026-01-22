@@ -9,7 +9,7 @@ const ProjectsList: FC = () => {
       className="page-section animate-fade-up border-t border-slate-200 bg-white"
       aria-labelledby="projects-heading"
     >
-      <div className="mx-auto max-w-[1200px] space-y-8">
+      <div className="mx-auto max-w-[1200px] space-y-6 md:space-y-8">
         <header className="max-w-2xl space-y-3">
           <h2
             id="projects-heading"
@@ -23,7 +23,7 @@ const ProjectsList: FC = () => {
             mocked data and simulated APIs to illustrate real-world workflows and technical decisions.
           </p>
         </header>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {/* Project 1: Revenue Analytics Dashboard */}
           <article className="hover-elevate h-full rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
             <header className="mb-3 space-y-1">

@@ -8,7 +8,7 @@ export const Experience: FC = () => {
       className="page-section animate-fade-up bg-white"
       aria-labelledby="experience-heading"
     >
-      <div className="mx-auto max-w-[1200px] space-y-8">
+      <div className="mx-auto max-w-[1200px] space-y-6 md:space-y-8">
         <header className="max-w-2xl space-y-3">
           <h2
             id="experience-heading"
@@ -22,7 +22,7 @@ export const Experience: FC = () => {
           </p>
         </header>
 
-        <div className="space-y-5">
+        <div className="space-y-4 md:space-y-5">
           {/* 1) Senior Software Engineer – React Native */}
           <article className="hover-elevate rounded-2xl border border-slate-200 bg-slate-50/80 p-5 shadow-sm">
             <header className="mb-3 flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">

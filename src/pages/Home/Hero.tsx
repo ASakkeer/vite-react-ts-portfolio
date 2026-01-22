@@ -9,8 +9,8 @@ export const Hero: FC = () => {
       className="page-section animate-fade-up bg-slate-50"
       aria-labelledby="hero-heading"
     >
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-10 md:flex-row md:items-center">
-        <div className="flex-1 space-y-6">
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-8 md:gap-10 md:flex-row md:items-center">
+        <div className="flex-1 space-y-5 md:space-y-6">
           <p className="text-base font-medium uppercase tracking-wide text-slate-600 md:text-lg">
             8+ Years Building Production React Applications
           </p>

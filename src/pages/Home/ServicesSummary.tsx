@@ -25,7 +25,7 @@ export const ServicesSummary: FC = () => {
             smoother user journeys.
           </p>
         </header>
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <div className="mt-6 md:mt-8 grid gap-5 md:grid-cols-3">
           {highlighted.map((service) => (
             <ServiceCard
               key={service.title}
@@ -36,7 +36,7 @@ export const ServicesSummary: FC = () => {
             />
           ))}
         </div>
-        <div className="mt-6 flex justify-end">
+        <div className="mt-5 md:mt-6 flex justify-end">
           <Link
             to="/services"
             className="pressable inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
