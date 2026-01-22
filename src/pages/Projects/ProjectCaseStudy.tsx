@@ -1,78 +1,84 @@
-// Case study card presenting a single project in a business-focused structure.
+// Case study presenting a decision-driven narrative demonstrating senior-level problem-solving and system design.
 import type { FC } from "react";
 
 export interface ProjectCaseStudyProps {
   name: string;
   role: string;
-  context: string;
-  problem: string;
-  solution: string;
-  features: string[];
-  techStack: string[];
+  problemContext: string;
+  constraints: string[];
+  solutionApproach: string;
+  tradeoffs: string[];
   outcome: string;
+  learnings?: string;
+  techStack: string[];
+  demoAlignment: string;
 }
 
 export const ProjectCaseStudy: FC<ProjectCaseStudyProps> = ({
   name,
   role,
-  context,
-  problem,
-  solution,
-  features,
-  techStack,
+  problemContext,
+  constraints,
+  solutionApproach,
+  tradeoffs,
   outcome,
+  learnings,
+  techStack,
+  demoAlignment,
 }) => {
   return (
-    <article className="hover-elevate rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
-      <header className="mb-4 flex flex-col gap-1">
-        <h3 className="text-base font-semibold text-slate-900">{name}</h3>
-        <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{role}</p>
-      </header>
-      <div className="space-y-3 text-sm text-slate-700">
-        <section>
-          <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Context
-          </h4>
-          <p>{context}</p>
-        </section>
-        <section>
-          <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Problem
-          </h4>
-          <p>{problem}</p>
-        </section>
-        <section>
-          <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Solution
-          </h4>
-          <p>{solution}</p>
-        </section>
-        <section>
-          <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Key contributions
-          </h4>
-          <ul className="list-disc space-y-1 pl-5">
-            {features.map((feature) => (
-              <li key={feature}>{feature}</li>
-            ))}
-          </ul>
-        </section>
-        <section>
-          <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Outcome
-          </h4>
-          <p>{outcome}</p>
-        </section>
-        <section>
-          <h4 className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
-            Tech Stack
-          </h4>
-          <p>{techStack.join(" · ")}</p>
-        </section>
-        <p className="pt-1 text-[10px] text-slate-400">
-          Representative case study based on real enterprise work.
-        </p>
+    <article className="space-y-6">
+      <div className="rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
+        <div className="space-y-5 text-sm text-slate-700">
+          <section>
+            <h3 className="mb-2 text-sm font-semibold text-slate-900">Problem Context</h3>
+            <p>{problemContext}</p>
+          </section>
+
+          <section>
+            <h3 className="mb-2 text-sm font-semibold text-slate-900">Constraints & Assumptions</h3>
+            <ul className="list-disc space-y-1 pl-5">
+              {constraints.map((constraint, index) => (
+                <li key={index}>{constraint}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section>
+            <h3 className="mb-2 text-sm font-semibold text-slate-900">Solution Approach</h3>
+            <p>{solutionApproach}</p>
+          </section>
+
+          <section>
+            <h3 className="mb-2 text-sm font-semibold text-slate-900">Key Tradeoffs</h3>
+            <ul className="list-disc space-y-1 pl-5">
+              {tradeoffs.map((tradeoff, index) => (
+                <li key={index}>{tradeoff}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section>
+            <h3 className="mb-2 text-sm font-semibold text-slate-900">Outcome & Learnings</h3>
+            <p className="mb-2">{outcome}</p>
+            {learnings && <p className="text-xs text-slate-600">{learnings}</p>}
+          </section>
+
+          <section>
+            <h3 className="mb-2 text-sm font-semibold text-slate-900">Tech Stack</h3>
+            <p>{techStack.join(" · ")}</p>
+          </section>
+
+          <section className="rounded-lg border border-slate-200 bg-slate-50 p-3">
+            <h3 className="mb-1 text-xs font-semibold text-slate-900">Demo Alignment</h3>
+            <p className="text-xs text-slate-600">{demoAlignment}</p>
+          </section>
+        </div>
       </div>
+      <p className="text-[10px] text-slate-400">
+        Representative case study based on real enterprise work. Details anonymized for
+        confidentiality.
+      </p>
     </article>
   );
 };

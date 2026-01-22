@@ -1,4 +1,4 @@
-// Experience section aligned to real, resume-style professional history.
+// Experience section emphasizing ownership, impact, and senior-level decision-making.
 import type { FC } from "react";
 
 export const Experience: FC = () => {
@@ -17,8 +17,8 @@ export const Experience: FC = () => {
             Professional experience
           </h2>
           <p className="text-sm text-slate-600 md:text-base">
-            Roles focused on building and shipping React and React Native applications across mobile
-            and web, with end-to-end ownership from implementation to publishing.
+            Building and shipping production React and React Native applications with end-to-end
+            ownership—from architecture decisions to app store publishing and long-term maintenance.
           </p>
         </header>
 
@@ -37,15 +37,27 @@ export const Experience: FC = () => {
               </p>
             </header>
             <div className="space-y-3 text-sm text-slate-700">
-              <ul className="list-disc space-y-1 pl-5">
-                <li>Delivered 10+ cross-platform mobile applications using React Native.</li>
+              <p className="text-xs font-medium text-slate-600">
+                Owned end-to-end delivery of 10+ cross-platform mobile applications, from initial
+                architecture through app store publishing and ongoing maintenance.
+              </p>
+              <ul className="list-disc space-y-1.5 pl-5">
                 <li>
-                  Managed end-to-end app publishing to both the Apple App Store and Google Play
-                  Store.
+                  Led technical decisions for React Native architecture, state management, and
+                  native module integration across consumer and B2B mobile products.
                 </li>
-                <li>Contributed to a 40% crash reduction through monitoring and stability fixes.</li>
-                <li>Integrated native modules where needed for device- and OS-specific features.</li>
-                <li>Mentored developers on React Native patterns and mobile delivery practices.</li>
+                <li>
+                  Reduced app crash rate by 40% through systematic error monitoring, stability
+                  improvements, and performance optimization—enabling more reliable user experiences.
+                </li>
+                <li>
+                  Managed complete app store publishing workflow (Apple App Store, Google Play
+                  Store), including release coordination, metadata, and compliance requirements.
+                </li>
+                <li>
+                  Mentored team members on React Native best practices, code review standards, and
+                  mobile delivery workflows, improving team velocity and code quality.
+                </li>
               </ul>
             </div>
           </article>
@@ -62,12 +74,19 @@ export const Experience: FC = () => {
               </p>
             </header>
             <div className="space-y-3 text-sm text-slate-700">
-              <ul className="list-disc space-y-1 pl-5">
+              <p className="text-xs font-medium text-slate-600">
+                Contributed to web and mobile product development, working across frontend and
+                backend to deliver integrated user experiences.
+              </p>
+              <ul className="list-disc space-y-1.5 pl-5">
                 <li>
-                  Worked across web and mobile solutions, contributing to both frontend and backend
-                  code.
+                  Built responsive web interfaces and mobile screens, collaborating with product and
+                  design teams to translate requirements into working features.
                 </li>
-                <li>Integrated REST APIs to connect UI flows with backend services.</li>
+                <li>
+                  Integrated frontend applications with REST APIs, ensuring reliable data flow and
+                  error handling across user-facing workflows.
+                </li>
               </ul>
             </div>
           </article>
@@ -84,9 +103,19 @@ export const Experience: FC = () => {
               </p>
             </header>
             <div className="space-y-3 text-sm text-slate-700">
-              <ul className="list-disc space-y-1 pl-5">
-                <li>Implemented user interfaces in React and Angular for web applications.</li>
-                <li>Collaborated with backend teams to connect UI components to REST APIs.</li>
+              <p className="text-xs font-medium text-slate-600">
+                Built user interfaces for web applications using React and Angular, focusing on
+                component-driven architecture and maintainable code patterns.
+              </p>
+              <ul className="list-disc space-y-1.5 pl-5">
+                <li>
+                  Implemented reusable component libraries and UI patterns that improved development
+                  speed and consistency across multiple product features.
+                </li>
+                <li>
+                  Collaborated with backend engineering teams to design API contracts and data
+                  structures, ensuring smooth integration between frontend and backend systems.
+                </li>
               </ul>
             </div>
           </article>

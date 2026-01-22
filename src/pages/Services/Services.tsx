@@ -1,5 +1,6 @@
 // Services section highlighting how React expertise translates into business outcomes.
 import type { FC } from "react";
+import { Link } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 import { services } from "./services.data.tsx";
 
@@ -19,7 +20,7 @@ export const Services: FC = () => {
             Services aligned to real product needs
           </h2>
           <p className="text-sm text-slate-600 md:text-base">
-            Each engagement focuses on measurable outcomes—faster delivery, clearer dashboards, and
+            Each engagement focuses on measurable outcomes—faster delivery, improved workflows, and
             smoother user journeys—rather than one-off feature drops.
           </p>
         </header>
@@ -33,6 +34,14 @@ export const Services: FC = () => {
               deliverables={service.deliverables}
             />
           ))}
+        </div>
+        <div className="mt-8 flex justify-end">
+          <Link
+            to="/projects"
+            className="pressable inline-flex items-center justify-center rounded-full bg-[#2563EB] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#1d4ed8]"
+          >
+            View Project Examples
+          </Link>
         </div>
       </div>
     </section>

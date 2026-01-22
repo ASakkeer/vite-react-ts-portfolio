@@ -21,7 +21,7 @@ export const ServicesSummary: FC = () => {
             Services aligned to real product needs
           </h2>
           <p className="text-sm text-slate-600 md:text-base">
-            Each engagement focuses on measurable outcomes—faster delivery, clearer dashboards, and
+            Each engagement focuses on measurable outcomes—faster delivery, improved workflows, and
             smoother user journeys.
           </p>
         </header>

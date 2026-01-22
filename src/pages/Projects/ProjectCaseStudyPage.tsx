@@ -12,11 +12,11 @@ export const ProjectCaseStudyPage: FC = () => {
 
   return (
     <Layout>
-      <section className="page-section bg-slate-50" aria-labelledby="project-case-study-heading">
+      <div className="mb-4">
+        <BackButton fallbackPath="/projects" label="Back to projects" />
+      </div>
+      <section className="page-section bg-white" aria-labelledby="project-case-study-heading">
         <div className="mx-auto max-w-[1200px] space-y-6">
-          <div className="pt-1">
-            <BackButton fallbackPath="/projects" label="Back to projects" />
-          </div>
           {project ? (
             <>
               <header className="space-y-2">

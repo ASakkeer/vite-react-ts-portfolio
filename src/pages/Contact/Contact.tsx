@@ -75,10 +75,11 @@ export const Contact: FC = () => {
             id="contact-heading"
             className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl"
           >
-            Let&apos;s discuss your project
+            Let&apos;s Talk
           </h2>
           <p className="text-sm text-slate-600 md:text-base">
-            I usually respond within 24 hours.
+            Send a message below and I&apos;ll review your inquiry and get back to you as soon as
+            possible.
           </p>
         </header>
         <form
@@ -147,13 +148,17 @@ export const Contact: FC = () => {
             />
           </div>
           {status === "success" && (
-            <div className="md:col-span-2 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700">
-              Message sent successfully. I&apos;ll get back to you shortly.
+            <div className="md:col-span-2 rounded-lg bg-emerald-50 p-4 text-sm text-emerald-700">
+              <p className="font-medium">Message sent successfully.</p>
+              <p className="mt-1 text-emerald-600">
+                I&apos;ll review your message and get back to you as soon as possible.
+              </p>
             </div>
           )}
           {status === "error" && (
-            <div className="md:col-span-2 rounded-lg bg-red-50 p-3 text-sm text-red-700">
-              Something went wrong. Please try again later.
+            <div className="md:col-span-2 rounded-lg bg-red-50 p-4 text-sm text-red-700">
+              <p className="font-medium">Unable to send message.</p>
+              <p className="mt-1 text-red-600">Please try again or reach out directly via email.</p>
             </div>
           )}
           <div className="md:col-span-2 flex justify-end">

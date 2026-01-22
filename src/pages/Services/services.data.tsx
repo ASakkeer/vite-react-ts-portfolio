@@ -14,7 +14,7 @@ export const services: ServiceDefinition[] = [
     title: "React Web Application Development",
     icon: <Code2 className="h-5 w-5" aria-hidden="true" />,
     outcome:
-      "Ship production-ready React applications that are maintainable, testable, and aligned with your product roadmap.",
+      "Deliver production-ready React applications that scale with your product roadmap and team growth.",
     deliverables: [
       "Component architecture and state management",
       "Routing, forms, and data flows",
@@ -25,7 +25,7 @@ export const services: ServiceDefinition[] = [
     title: "Dashboard & Admin Panels",
     icon: <PanelsTopLeft className="h-5 w-5" aria-hidden="true" />,
     outcome:
-      "Enable teams to make faster decisions with clear, responsive dashboards and admin tools.",
+      "Build dashboards that surface key metrics and enable faster decision-making for stakeholders.",
     deliverables: [
       "Role-based UI and navigation",
       "Data visualizations and KPI reporting",
@@ -36,7 +36,7 @@ export const services: ServiceDefinition[] = [
     title: "UI to React Conversion",
     icon: <LayoutTemplate className="h-5 w-5" aria-hidden="true" />,
     outcome:
-      "Turn static designs or legacy frontends into modern, component-driven React interfaces.",
+      "Transform static designs or legacy interfaces into maintainable, component-driven React applications.",
     deliverables: [
       "Pixel-accurate implementation from Figma or design systems",
       "Accessible, responsive layouts",
@@ -47,7 +47,7 @@ export const services: ServiceDefinition[] = [
     title: "API Integration",
     icon: <Network className="h-5 w-5" aria-hidden="true" />,
     outcome:
-      "Connect your frontend to REST or GraphQL APIs with resilient error handling and caching.",
+      "Integrate frontend with REST or GraphQL APIs using resilient error handling and efficient data patterns.",
     deliverables: [
       "Integration with existing backend services",
       "Loading, error, and empty states",
@@ -58,7 +58,7 @@ export const services: ServiceDefinition[] = [
     title: "Performance Optimization",
     icon: <Gauge className="h-5 w-5" aria-hidden="true" />,
     outcome:
-      "Improve Core Web Vitals and perceived performance to support better engagement and conversion.",
+      "Improve Core Web Vitals and user-perceived speed to drive better engagement and conversion rates.",
     deliverables: [
       "Bundle and render performance audits",
       "Code-splitting and lazy loading",
@@ -69,7 +69,7 @@ export const services: ServiceDefinition[] = [
     title: "Bug Fixing & Maintenance",
     icon: <Wrench className="h-5 w-5" aria-hidden="true" />,
     outcome:
-      "Stabilize existing React codebases so teams can ship features with confidence.",
+      "Stabilize existing React codebases to reduce technical debt and enable confident feature delivery.",
     deliverables: [
       "Bug triage and fixes",
       "Refactors to reduce regressions",

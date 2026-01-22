@@ -12,17 +12,17 @@ export const Hero: FC = () => {
       <div className="mx-auto flex max-w-[1200px] flex-col gap-10 md:flex-row md:items-center">
         <div className="flex-1 space-y-6">
           <p className="text-base font-medium uppercase tracking-wide text-slate-600 md:text-lg">
-            8+ Years Building Scalable React Applications
+            8+ Years Building Production React Applications
           </p>
           <h1
             id="hero-heading"
             className="max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-5xl"
           >
-            Production-Ready React Applications Built for Real Business Use
+            Senior Frontend Engineer Building Real Business Products
           </h1>
           <p className="max-w-xl text-base text-slate-600 md:text-lg">
-            Delivering measurable outcomes through faster workflows, clearer dashboards, and
-            user-focused interfaces.
+            Delivering analytics dashboards, customer-facing storefronts, and internal operations
+            tools with measurable impact.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link

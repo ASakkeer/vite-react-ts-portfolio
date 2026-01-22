@@ -18,8 +18,9 @@ const ProjectsList: FC = () => {
             Projects and demos
           </h2>
           <p className="text-sm text-slate-600 md:text-base">
-            Production-ready demos and case studies demonstrating real-world React applications for
-            analytics, product flows, and internal tools.
+            Interactive product simulations and case studies demonstrating React applications for
+            B2B analytics, customer-facing storefronts, and internal operations tools. All demos use
+            mocked data and simulated APIs to illustrate real-world workflows and technical decisions.
           </p>
         </header>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -27,15 +28,16 @@ const ProjectsList: FC = () => {
           <article className="hover-elevate h-full rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
             <header className="mb-3 space-y-1">
               <p className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
-                Completed · Admin Dashboard / B2B SaaS
+                Completed · B2B SaaS Analytics
               </p>
               <h3 className="text-base font-semibold text-slate-900">
                 Revenue Analytics Dashboard
               </h3>
             </header>
             <p className="mb-4 text-sm text-slate-700">
-              A production-style analytics dashboard that demonstrates KPIs, charts, filters, and an
-              admin CRUD module with simulated APIs.
+              Simulates a B2B SaaS revenue operations dashboard solving the problem of fragmented
+              subscription data across tools. Demonstrates KPI monitoring, account drill-down, and
+              plan management workflows using mocked data and simulated APIs.
             </p>
             <div className="flex flex-wrap gap-2 text-xs">
               <Link
@@ -57,15 +59,16 @@ const ProjectsList: FC = () => {
           <article className="hover-elevate h-full rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm">
             <header className="mb-3 space-y-1">
               <p className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
-                Completed · Product UI / Commerce Flow
+                Completed · Customer-Facing Storefront
               </p>
               <h3 className="text-base font-semibold text-slate-900">
                 E-commerce Frontend Demo
               </h3>
             </header>
             <p className="mb-4 text-sm text-slate-700">
-              A frontend-only e-commerce experience with product listing, client-side filters, cart
-              management, and a mock checkout flow.
+              Simulates a customer-facing product catalog solving discovery and cart management
+              workflows. Demonstrates client-side filtering, state management, and checkout UX
+              patterns using mocked product data and session-based cart persistence.
             </p>
             <div className="flex flex-wrap gap-2 text-xs">
               <Link
@@ -87,15 +90,16 @@ const ProjectsList: FC = () => {
           <article className="hover-elevate h-full rounded-2xl border border-dashed border-slate-300 bg-slate-50/80 p-6">
             <header className="mb-3 space-y-1">
               <p className="inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
-                Preview · Internal Tooling
+                Preview · Internal Operations Tool
               </p>
               <h3 className="text-base font-semibold text-slate-900">
                 SaaS Ops Tool / Design System
               </h3>
             </header>
             <p className="mb-4 text-sm text-slate-700">
-              An upcoming SaaS-style internal tool focused on reusable components, workflow screens,
-              and product consistency.
+              Simulates an internal task management system solving workflow coordination across
+              teams. Demonstrates CRUD patterns, status filtering, and reusable component
+              architecture using mocked data and simulated API interactions.
             </p>
             <div className="flex flex-wrap gap-2 text-xs">
               <Link
