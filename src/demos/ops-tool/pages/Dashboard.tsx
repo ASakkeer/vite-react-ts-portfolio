@@ -31,11 +31,13 @@ export const OpsToolDashboardPage: FC = () => {
     if (formMode === "create") {
       await create({ ...formState, title: formState.title.trim() });
       setFormState(emptyTaskForm);
+      setFormMode("create");
     } else if (formMode === "edit" && editingId) {
       await update(editingId, { ...formState, title: formState.title.trim() });
+      setFormMode("create");
+      setEditingId(null);
+      setFormState(emptyTaskForm);
     }
-    setFormMode("create");
-    setEditingId(null);
   };
 
   const handleEdit = (task: Task) => {
@@ -65,19 +67,27 @@ export const OpsToolDashboardPage: FC = () => {
 
   return (
     <Layout>
-      <section className="space-y-6 bg-slate-50 py-4">
-        <div className="space-y-2">
-          <BackButton fallbackPath="/projects" label="Back to projects" />
-        </div>
+      <div className="mb-4">
+        <BackButton fallbackPath="/projects" label="Back to projects" />
+      </div>
+      <section className="space-y-6 bg-white py-4">
         <PageHeader
-          title="SaaS Ops Tool (Preview)"
-          description="Internal operations dashboard for tracking day-to-day tasks across onboarding, billing, and cleanup. All data and workflows are simulated client-side. This is a preview demo showcasing workflow patterns and reusable components. Not a full production system."
+          title="SaaS Ops Tool (Preview / Workflow Simulation)"
+          description="Internal operations dashboard for tracking day-to-day tasks across onboarding, billing, and cleanup. All data and workflows are simulated client-side."
           badge={
             <span className="inline-flex items-center rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700">
               Preview · Internal Tooling
             </span>
           }
         />
+        <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700">
+          <p className="font-semibold text-slate-900">What this demo shows:</p>
+          <ul className="mt-1 list-disc space-y-0.5 pl-4">
+            <li>For: Internal ops teams managing day-to-day workflows</li>
+            <li>Problem: Need centralized task tracking with status, priority, and filtering</li>
+            <li>Workflow: Create task → Filter by status → Update → Complete</li>
+          </ul>
+        </div>
 
         <section className="grid gap-4 md:grid-cols-4">
           <div className="rounded-2xl border border-slate-200 bg-white/80 p-4">

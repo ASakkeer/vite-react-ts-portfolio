@@ -134,10 +134,10 @@ export const PlansManagementPage: FC = () => {
 
   return (
     <Layout>
-      <section className="space-y-6 bg-slate-50 py-4">
-        <div className="space-y-2">
-          <BackButton fallbackPath="/projects" label="Back to projects" />
-        </div>
+      <div className="mb-4">
+        <BackButton fallbackPath="/projects" label="Back to projects" />
+      </div>
+      <section className="space-y-6 bg-white py-4">
         <header className="space-y-2">
           <h1 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
             Manage Subscription Plans

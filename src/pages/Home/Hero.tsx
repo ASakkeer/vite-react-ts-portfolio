@@ -11,15 +11,18 @@ export const Hero: FC = () => {
     >
       <div className="mx-auto flex max-w-[1200px] flex-col gap-10 md:flex-row md:items-center">
         <div className="flex-1 space-y-6">
+          <p className="text-base font-medium uppercase tracking-wide text-slate-600 md:text-lg">
+            8+ Years Building Scalable React Applications
+          </p>
           <h1
             id="hero-heading"
-            className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl lg:text-5xl"
+            className="max-w-2xl text-3xl font-semibold leading-tight tracking-tight text-slate-900 md:text-4xl lg:text-5xl"
           >
-            Frontend React Developer – Building Business-Ready Web Applications
+            Production-Ready React Applications Built for Real Business Use
           </h1>
           <p className="max-w-xl text-base text-slate-600 md:text-lg">
-            8+ years of experience delivering scalable React web applications, focused on clear UX,
-            performance, and measurable business outcomes.
+            Delivering measurable outcomes through faster workflows, clearer dashboards, and
+            user-focused interfaces.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
@@ -30,7 +33,7 @@ export const Hero: FC = () => {
             </Link>
             <Link
               to="/contact"
-              className="pressable inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+              className="pressable inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
             >
               Hire Me
             </Link>

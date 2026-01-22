@@ -8,18 +8,21 @@ export const ServicesSummary: FC = () => {
   const highlighted = services.slice(0, 3);
 
   return (
-    <section className="page-section bg-white" aria-labelledby="home-services-heading">
+    <section
+      className="page-section border-t border-slate-200 bg-white"
+      aria-labelledby="home-services-heading"
+    >
       <div className="mx-auto max-w-[1200px]">
         <header className="max-w-2xl space-y-3">
           <h2
             id="home-services-heading"
-            className="text-xl font-semibold tracking-tight text-slate-900 md:text-2xl"
+            className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl"
           >
-            Services for product teams
+            Services aligned to real product needs
           </h2>
           <p className="text-sm text-slate-600 md:text-base">
-            A focused set of React services that map directly to web applications, dashboards, and
-            long-term maintenance.
+            Each engagement focuses on measurable outcomes—faster delivery, clearer dashboards, and
+            smoother user journeys.
           </p>
         </header>
         <div className="mt-8 grid gap-5 md:grid-cols-3">

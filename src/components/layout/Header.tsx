@@ -16,10 +16,20 @@ export const Header: FC = () => {
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 md:h-20">
         <Link
           to="/"
-          className="text-lg font-semibold tracking-tight text-slate-900 md:text-xl"
+          className="flex items-center gap-3"
           aria-label="Sakkeer portfolio home"
         >
-          SAKKEER
+          <img
+            src="/brand/logo-black.png"
+            alt="Sakkeer"
+            className="h-6 w-6"
+            width={24}
+            height={24}
+            fetchPriority="high"
+          />
+          <span className="text-lg font-medium tracking-wide text-slate-900 md:text-xl" style={{ letterSpacing: '0.1em' }}>
+            SAKKEER
+          </span>
         </Link>
         <nav className="hidden items-center gap-2 text-sm font-medium text-slate-700 md:flex">
           {navItems.map((item) => (
@@ -43,7 +53,7 @@ export const Header: FC = () => {
         <div className="flex items-center gap-2">
           <Link
             to="/contact"
-            className="pressable rounded-full bg-[#2563EB] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#1d4ed8]"
+            className="rounded-full border border-slate-300 bg-transparent px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-700 transition-colors"
           >
             Hire Me
           </Link>

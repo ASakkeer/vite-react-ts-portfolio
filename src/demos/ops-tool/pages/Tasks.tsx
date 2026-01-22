@@ -45,7 +45,12 @@ export const Tasks: FC<TasksProps> = ({
           ))}
         </div>
       </div>
-      {filteredTasks.length === 0 ? (
+      {tasks.length === 0 ? (
+        <EmptyState
+          title="No tasks yet."
+          description="Create your first task using the form on the right to get started."
+        />
+      ) : filteredTasks.length === 0 ? (
         <EmptyState
           title="No tasks match the selected status."
           description="Try switching to a different status or create a new task."

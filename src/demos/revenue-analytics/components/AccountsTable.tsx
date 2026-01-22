@@ -82,7 +82,14 @@ export const AccountsTable: FC<AccountsTableProps> = ({ pageSize = 5 }) => {
             </tr>
           </thead>
           <tbody>
-            {pageItems.map((account) => (
+            {pageItems.length === 0 ? (
+              <tr>
+                <td colSpan={4} className="px-3 py-8 text-center text-xs text-slate-500">
+                  No accounts found.
+                </td>
+              </tr>
+            ) : (
+              pageItems.map((account) => (
               <tr
                 key={account.id}
                 className="cursor-pointer border-b border-slate-100 hover:bg-slate-50"
@@ -97,7 +104,8 @@ export const AccountsTable: FC<AccountsTableProps> = ({ pageSize = 5 }) => {
                   {account.status}
                 </td>
               </tr>
-            ))}
+              ))
+            )}
           </tbody>
         </table>
       </div>

@@ -22,19 +22,29 @@ export const ECommerceDemoPage: FC = () => {
 
   return (
     <Layout>
-      <section className="space-y-6 bg-slate-50 py-4">
-        <div className="space-y-2">
-          <BackButton fallbackPath="/projects" label="Back to projects" />
-        </div>
-        <header className="space-y-2">
+      <div className="mb-4">
+        <BackButton fallbackPath="/projects" label="Back to projects" />
+      </div>
+      <section className="space-y-6 bg-white px-8 py-4">
+        <header className="space-y-3">
           <h1 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
-            E-commerce Demo (Frontend Only)
+            E-commerce Demo
           </h1>
-          <p className="max-w-2xl text-sm text-slate-600 md:text-base">
-            Lightweight storefront UI showing product browsing, client-side filters, cart
-            interactions, and a mock checkout experience. All data and flows are simulated in the
-            browser.
-          </p>
+          <div className="space-y-2">
+            <p className="max-w-2xl text-sm text-slate-600 md:text-base">
+              Lightweight storefront UI showing product browsing, client-side filters, cart
+              interactions, and a mock checkout experience. All data and flows are simulated in the
+              browser.
+            </p>
+            <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-700">
+              <p className="font-semibold text-slate-900">What this demo shows:</p>
+              <ul className="mt-1 list-disc space-y-0.5 pl-4">
+                <li>For: Product teams building customer-facing storefronts</li>
+                <li>Problem: Need intuitive product discovery, cart management, and checkout flow</li>
+                <li>Workflow: Browse → Filter → Add to cart → Checkout</li>
+              </ul>
+            </div>
+          </div>
         </header>
         <FiltersBar
           filters={filters}
@@ -67,7 +77,11 @@ export const ECommerceDemoPage: FC = () => {
               onRemove={removeFromCart}
               onQuantityChange={updateQuantity}
             />
-            <CheckoutSection subtotal={subtotal} onPlaceOrder={handlePlaceOrder} />
+            <CheckoutSection
+              subtotal={subtotal}
+              onPlaceOrder={handlePlaceOrder}
+              cartEmpty={items.length === 0}
+            />
           </div>
         </div>
         <DemoDisclaimer />

@@ -10,9 +10,24 @@ interface ProductCardProps {
 export const ProductCard: FC<ProductCardProps> = ({ product, onAddToCart }) => {
   return (
     <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white/80 p-4">
-      <div className="mb-3 flex h-32 items-center justify-center rounded-xl bg-slate-100 text-xs text-slate-500">
-        {/* Placeholder thumbnail representing a product image */}
-        <span>Image placeholder</span>
+      <div className="mb-3 flex h-32 items-center justify-center rounded-xl bg-gradient-to-br from-slate-100 to-slate-200">
+        <div className="flex flex-col items-center gap-1 text-xs text-slate-500">
+          <svg
+            className="h-8 w-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          <span className="text-[10px]">{product.name}</span>
+        </div>
       </div>
       <h3 className="text-sm font-semibold text-slate-900">{product.name}</h3>
       <p className="mt-1 text-xs uppercase tracking-wide text-slate-500">{product.category}</p>

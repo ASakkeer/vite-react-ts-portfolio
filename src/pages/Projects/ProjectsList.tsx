@@ -6,20 +6,20 @@ const ProjectsList: FC = () => {
   return (
     <section
       id="projects"
-      className="page-section animate-fade-up bg-white"
+      className="page-section animate-fade-up border-t border-slate-200 bg-white"
       aria-labelledby="projects-heading"
     >
       <div className="mx-auto max-w-[1200px] space-y-8">
         <header className="max-w-2xl space-y-3">
           <h2
             id="projects-heading"
-            className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl"
+            className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl"
           >
             Projects and demos
           </h2>
           <p className="text-sm text-slate-600 md:text-base">
-            A small set of production-style demos and case studies focused on analytics, product
-            flows, and internal tools.
+            Production-ready demos and case studies demonstrating real-world React applications for
+            analytics, product flows, and internal tools.
           </p>
         </header>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

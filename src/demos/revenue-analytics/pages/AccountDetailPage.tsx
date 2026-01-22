@@ -19,12 +19,30 @@ export const AccountDetailsPage: FC = () => {
   const metrics = accountMetrics.find((item) => item.id === accountId);
   const [actionMessage, setActionMessage] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"overview" | "billing" | "activity">("overview");
+  const [accountState, setAccountState] = useState<{
+    status: "Active" | "Churned" | "At Risk";
+    plan: string;
+    mrr: number;
+  } | null>(
+    account
+      ? {
+          status: account.status === "churned" ? "Churned" : "Active",
+          plan: account.plan,
+          mrr: account.mrr,
+        }
+      : null,
+  );
 
-  const statusLabel = account
-    ? account.status === "churned"
-      ? "Churned"
-      : "Active"
-    : "Unknown";
+  const statusLabel = accountState
+    ? accountState.status
+    : account
+      ? account.status === "churned"
+        ? "Churned"
+        : "Active"
+      : "Unknown";
+  
+  const currentPlan = accountState?.plan ?? account?.plan ?? "Unknown";
+  const currentMrr = accountState?.mrr ?? account?.mrr ?? 0;
 
   const churnRisk = metrics?.churnRisk ?? "Unknown";
 
@@ -52,15 +70,50 @@ export const AccountDetailsPage: FC = () => {
           { id: "act-3", date: "2025-03-25", description: "Plan updated via admin console." },
         ];
 
+  const handleUpgradePlan = () => {
+    if (!accountState) return;
+    const planUpgrades: Record<string, string> = {
+      Basic: "Pro",
+      Pro: "Enterprise",
+      Enterprise: "Enterprise",
+    };
+    const mrrUpgrades: Record<string, number> = {
+      Basic: 1500,
+      Pro: 3000,
+      Enterprise: 5000,
+    };
+    const newPlan = planUpgrades[currentPlan] || currentPlan;
+    const newMrr = mrrUpgrades[newPlan] || currentMrr;
+    setAccountState({
+      ...accountState,
+      plan: newPlan,
+      mrr: newMrr,
+    });
+    setActionMessage(
+      `Plan upgraded to ${newPlan} (demo only). MRR updated to $${newMrr.toLocaleString("en-US")}.`,
+    );
+  };
+
+  const handleMarkAtRisk = () => {
+    if (!accountState || accountState.status === "Churned") return;
+    setAccountState({
+      ...accountState,
+      status: "At Risk",
+    });
+    setActionMessage(`Account marked as at risk (demo only). Status updated.`);
+  };
+
   return (
     <Layout>
-      <section className="space-y-6 bg-slate-50 py-4">
+      <div className="mb-4">
+        <BackButton fallbackPath="/projects" label="Back to projects" />
+      </div>
+      <section className="space-y-6 bg-white py-4">
         {/* Account Header */}
         <header className="space-y-3 rounded-2xl border border-slate-200 bg-white/80 p-4">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <BackButton fallbackPath="/projects" label="Back to projects" />
-              <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
+              <h1 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
                 {account ? account.name : "Account not found"}
               </h1>
               {account && (
@@ -73,13 +126,21 @@ export const AccountDetailsPage: FC = () => {
             {account && (
               <div className="flex flex-col items-end gap-2 text-xs">
                 <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 font-semibold uppercase tracking-wide text-slate-700">
-                  Plan: {account.plan}
+                  Plan: {currentPlan}
                 </span>
-                <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 font-semibold uppercase tracking-wide text-slate-700">
+                <span
+                  className={`inline-flex items-center rounded-full px-3 py-1 font-semibold uppercase tracking-wide ${
+                    statusLabel === "At Risk"
+                      ? "bg-amber-100 text-amber-700"
+                      : statusLabel === "Churned"
+                        ? "bg-red-100 text-red-700"
+                        : "bg-emerald-100 text-emerald-700"
+                  }`}
+                >
                   Status: {statusLabel}
                 </span>
                 <span className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 font-semibold uppercase tracking-wide text-slate-700">
-                  MRR: ${account.mrr.toLocaleString("en-US")}
+                  MRR: ${currentMrr.toLocaleString("en-US")}
                 </span>
               </div>
             )}
@@ -118,7 +179,7 @@ export const AccountDetailsPage: FC = () => {
                   <dl className="mt-2 space-y-1 text-sm text-slate-700">
                     <div className="flex justify-between">
                       <dt className="text-slate-500">Plan</dt>
-                      <dd className="font-medium text-slate-900">{account.plan}</dd>
+                      <dd className="font-medium text-slate-900">{currentPlan}</dd>
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-slate-500">Status</dt>
@@ -127,7 +188,7 @@ export const AccountDetailsPage: FC = () => {
                     <div className="flex justify-between">
                       <dt className="text-slate-500">Current MRR</dt>
                       <dd className="font-medium text-slate-900">
-                        ${account.mrr.toLocaleString("en-US")}
+                        ${currentMrr.toLocaleString("en-US")}
                       </dd>
                     </div>
                   </dl>
@@ -211,13 +272,13 @@ export const AccountDetailsPage: FC = () => {
           <section className="rounded-2xl border border-slate-200 bg-white/80 p-4 text-sm text-slate-700">
             <h2 className="mb-2 text-sm font-semibold text-slate-900">Actions (demo only)</h2>
             <p className="mb-3 text-xs text-slate-500">
-              These actions simulate common account workflows in an analytics tool. They do not
-              change any real data.
+              These actions simulate common account workflows in an analytics tool. Demo-only, no
+              real data affected.
             </p>
             <div className="flex flex-wrap gap-2 text-xs">
               <button
                 type="button"
-                className="pressable inline-flex items-center justify-center rounded-full bg-[#2563EB] px-4 py-1.5 font-semibold text-white shadow-sm hover:bg-[#1d4ed8]"
+                className="pressable inline-flex items-center justify-center rounded-full bg-[#2563EB] px-4 py-1.5 font-semibold text-white shadow-sm hover:bg-[#1d4ed8] transition-colors"
                 onClick={() =>
                   setActionMessage(`Plan upgrade initiated for “${account.name}” (demo only).`)
                 }
@@ -226,7 +287,7 @@ export const AccountDetailsPage: FC = () => {
               </button>
               <button
                 type="button"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-1.5 font-semibold text-slate-800 hover:bg-slate-50"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-4 py-1.5 font-semibold text-slate-800 hover:bg-slate-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={() =>
                   setActionMessage(`Account “${account.name}” marked as at risk (demo only).`)
                 }
@@ -235,7 +296,7 @@ export const AccountDetailsPage: FC = () => {
               </button>
             </div>
             {actionMessage && (
-              <p className="mt-3 text-xs text-slate-600" role="status">
+              <p className="mt-3 text-xs text-emerald-600 font-medium" role="status">
                 {actionMessage}
               </p>
             )}
