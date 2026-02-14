@@ -22,10 +22,10 @@ export function HomePage() {
       {/* Projects – short */}
       <section className="py-16 md:py-24 border-t border-white/10">
         <div className="container mx-auto px-4 md:px-6">
-          <h2 className="font-hero font-bold text-3xl md:text-4xl text-white mb-2">
+          <h2 className="font-hero font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-2">
             Inspiring projects
           </h2>
-          <p className="text-white/70 max-w-2xl mb-10">
+          <p className="text-white/70 max-w-2xl mb-8 sm:mb-10 text-sm sm:text-base">
             Mobile apps and web applications built with React Native and React.
           </p>
           <ProjectsList limit={3} />
@@ -46,7 +46,7 @@ export function HomePage() {
           <p className="text-white/70 max-w-2xl mb-10">
             React Native and React developer. Skills, stats, and education.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             {statCards.map((stat, i) => (
               <AnimatedSection key={stat.label} delay={i * 0.05} direction="up">
                 <StatCard
@@ -72,8 +72,8 @@ export function HomePage() {
       {/* Experience – short: recent roles */}
       <section className="py-16 md:py-24 border-t border-white/10">
         <div className="container mx-auto px-4 md:px-6">
-          <h2 className="font-hero font-bold text-3xl md:text-4xl text-white mb-2">Experience</h2>
-          <p className="text-white/70 max-w-2xl mb-10">
+          <h2 className="font-hero font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-2">Experience</h2>
+          <p className="text-white/70 max-w-2xl mb-8 sm:mb-10 text-sm sm:text-base">
             Professional work history across product companies.
           </p>
           <div className="space-y-4">

@@ -77,7 +77,7 @@ export function ContactPage() {
         />
         <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <AnimatedSection>
-            <h1 className="font-hero font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-4">
+            <h1 className="font-hero font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4">
               Contact
             </h1>
             <nav className="flex items-center justify-center gap-2 text-sm md:text-base" aria-label="Breadcrumb">
@@ -130,7 +130,7 @@ export function ContactPage() {
                 <p className="text-portfolio-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4">
                   Get in Touch
                 </p>
-                <h2 className="font-hero font-bold text-3xl md:text-4xl text-white mb-6">
+                <h2 className="font-hero font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-4 sm:mb-6">
                   Elevate your brand with me
                 </h2>
                 <p className="text-white/70 leading-relaxed mb-8 max-w-md">
@@ -139,7 +139,7 @@ export function ContactPage() {
                   apps to dashboards and internal tools.
                 </p>
                 <div
-                  className="rounded-xl overflow-hidden opacity-60 max-w-sm"
+                  className="rounded-xl overflow-hidden opacity-60 max-w-sm w-full mx-auto"
                   style={{ aspectRatio: "4/3" }}
                 >
                   <img
@@ -166,7 +166,7 @@ export function ContactPage() {
                       <input
                         id="name"
                         {...register("name")}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50"
+                        className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50 text-base"
                         placeholder="Your name"
                       />
                       {errors.name && (
@@ -181,7 +181,7 @@ export function ContactPage() {
                         id="phone"
                         type="tel"
                         {...register("phone")}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50"
+                        className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50 text-base"
                         placeholder="+1 (555) 000-0000"
                       />
                     </div>
@@ -195,7 +195,7 @@ export function ContactPage() {
                         id="email"
                         type="email"
                         {...register("email")}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50"
+                        className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50 text-base"
                         placeholder="your@email.com"
                       />
                       {errors.email && (
@@ -209,7 +209,7 @@ export function ContactPage() {
                       <input
                         id="subject"
                         {...register("subject")}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50"
+                        className="w-full min-h-[44px] px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50 text-base"
                         placeholder="Project inquiry"
                       />
                     </div>
@@ -222,7 +222,7 @@ export function ContactPage() {
                       id="message"
                       {...register("message")}
                       rows={5}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50 resize-none"
+                      className="w-full min-h-[120px] px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-portfolio-primary/50 resize-none text-base"
                       placeholder="Tell me about your project..."
                     />
                     {errors.message && (
@@ -232,7 +232,7 @@ export function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-lg bg-portfolio-primary text-white font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70"
+                    className="w-full min-h-[48px] py-4 rounded-lg bg-portfolio-primary text-white font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 text-base"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <ArrowRight size={20} />

@@ -66,21 +66,18 @@ export interface SkillBar {
   percent: number;
 }
 
-export const designSkills: SkillBar[] = [
-  { name: "Figma", percent: 85 },
-  { name: "Photoshop", percent: 70 },
-  { name: "UI/UX Design", percent: 80 },
+export const developmentSkillsLeft: SkillBar[] = [
+  { name: "React Native", percent: 95 },
+  { name: "React", percent: 75 },
+  { name: "JavaScript", percent: 90 },
+  { name: "TypeScript", percent: 75 },
 ];
 
-export const developmentSkills: SkillBar[] = [
-  { name: "React Native", percent: 95 },
-  { name: "React", percent: 92 },
-  { name: "TypeScript", percent: 88 },
-  { name: "JavaScript", percent: 90 },
-  { name: "HTML", percent: 88 },
-  { name: "CSS", percent: 85 },
-  { name: "Express.js", percent: 65 },
-  { name: "MongoDB", percent: 55 },
+export const developmentSkillsRight: SkillBar[] = [
+  { name: "HTML", percent: 95 },
+  { name: "CSS", percent: 95 },
+  { name: "Express.js", percent: 50 },
+  { name: "MongoDB", percent: 35 },
 ];
 
 /** Stats for experience section. */

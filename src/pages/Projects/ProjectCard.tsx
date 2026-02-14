@@ -25,7 +25,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
         <div className="p-5 md:p-6">
           <span className="text-portfolio-primary text-xs font-medium">{project.category}</span>
-          <h3 className="font-semibold text-white mt-1 group-hover:text-portfolio-primary transition-colors">
+          <h3 className="font-semibold text-white mt-1 group-hover:text-portfolio-primary transition-colors text-base sm:text-lg">
             {project.title}
           </h3>
           <p className="text-white/70 text-sm mt-1 line-clamp-2">{project.description}</p>

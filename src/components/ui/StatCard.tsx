@@ -34,15 +34,15 @@ export function StatCard({ value, label, icon: iconKey, suffix = "", countUp = t
   return (
     <div
       ref={countUp ? ref : undefined}
-      className="rounded-xl bg-white/5 border border-white/10 p-6 text-center hover:border-portfolio-primary/20 transition-colors"
+      className="rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5 md:p-6 text-center hover:border-portfolio-primary/20 transition-colors"
     >
-      <div className="w-12 h-12 rounded-lg bg-portfolio-primary/20 flex items-center justify-center mx-auto mb-3 text-portfolio-primary">
+      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-portfolio-primary/20 flex items-center justify-center mx-auto mb-2 sm:mb-3 text-portfolio-primary [&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6">
         <Icon size={24} />
       </div>
-      <span className="text-portfolio-primary font-hero font-bold text-3xl md:text-4xl block">
+      <span className="text-portfolio-primary font-hero font-bold text-2xl sm:text-3xl md:text-4xl block">
         {displayValue}
       </span>
-      <span className="text-white text-sm mt-1 block">{label}</span>
+      <span className="text-white text-xs sm:text-sm mt-1 block">{label}</span>
     </div>
   );
 }

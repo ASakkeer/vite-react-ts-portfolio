@@ -23,9 +23,9 @@ export function SkillBar({ name, percent }: SkillBarProps) {
 
   return (
     <div ref={ref} className="mb-6 last:mb-0">
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-white text-sm font-medium uppercase tracking-wide">{name}</span>
-        <span className="text-portfolio-primary text-sm font-medium">{percent}%</span>
+      <div className="flex justify-between items-center gap-2 mb-2">
+        <span className="text-white text-xs sm:text-sm font-medium uppercase tracking-wide truncate min-w-0">{name}</span>
+        <span className="text-portfolio-primary text-sm font-medium flex-shrink-0">{percent}%</span>
       </div>
       <div className="h-2 rounded-full bg-white/10 overflow-hidden">
         <div

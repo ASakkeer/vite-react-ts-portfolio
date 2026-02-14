@@ -7,3 +7,4 @@
   - **Routing**: React Router. Routes: / (Home), /about, /experience, /projects, /services, /contact.
   - **Animations**: Framer Motion (scroll pop-in, fade-out, floating elements), react-type-animation (hero typewriter).
   - **Each folder** has its own `memory.md` documenting purpose, flow, and content.
+  - **Responsive (Feb 2025)**: All pages and components optimized for mobile. Global overflow-x hidden, Hero/Header/Footer centered on mobile, responsive typography and spacing, touch-friendly form inputs (min-height 44px), scaled-down floating shapes, stat cards and grids adapt for small screens.

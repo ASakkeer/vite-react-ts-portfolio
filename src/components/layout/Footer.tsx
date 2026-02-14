@@ -27,14 +27,14 @@ export function Footer() {
   return (
     <footer className="bg-[#0d0d0d] border-t border-white/10 mt-auto">
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12 text-center md:text-left">
           {/* Left: Logo + tagline */}
           <div>
-            <Link to="/" className="font-hero font-bold text-xl text-white flex items-center gap-2">
+            <Link to="/" className="font-hero font-bold text-xl text-white flex items-center gap-2 justify-center md:justify-start">
               <Logo variant="black" />
               Sakkeer
             </Link>
-            <p className="mt-3 text-white/70 text-sm max-w-xs">
+            <p className="mt-3 text-white/70 text-sm max-w-xs mx-auto md:mx-0">
               React Native and React developer. Building mobile apps, web applications, dashboards,
               and internal tools for businesses.
             </p>
@@ -43,7 +43,7 @@ export function Footer() {
           {/* Center: Quick links */}
           <div>
             <h3 className="font-semibold text-white mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 flex flex-col items-center md:items-start">
               {quickLinks.map(({ to, label }) => (
                 <li key={to}>
                   <Link
@@ -60,17 +60,17 @@ export function Footer() {
           {/* Right: Contact */}
           <div>
             <h3 className="font-semibold text-white mb-4">Contact</h3>
-            <div className="space-y-3 text-sm">
+            <div className="space-y-3 text-sm flex flex-col items-center md:items-start">
               <a
                 href={`mailto:${contactDetails.email}`}
-                className="flex items-center gap-2 text-white/70 hover:text-portfolio-primary transition-colors"
+                className="flex items-center gap-2 text-white/70 hover:text-portfolio-primary transition-colors break-all"
               >
                 <Mail size={16} />
                 {contactDetails.email}
               </a>
               <a
                 href={`tel:${contactDetails.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-2 text-white/70 hover:text-portfolio-primary transition-colors"
+                className="flex items-center gap-2 text-white/70 hover:text-portfolio-primary transition-colors whitespace-nowrap"
               >
                 <Phone size={16} />
                 {contactDetails.phone}
@@ -82,7 +82,7 @@ export function Footer() {
                 </p>
               )}
             </div>
-            <div className="flex gap-2 mt-4">
+            <div className="flex gap-2 mt-4 justify-center md:justify-start">
               {contactDetails.socials.map((s) => {
                 const Icon = socialIcons[s.icon] ?? Mail;
                 return (
