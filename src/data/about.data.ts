@@ -5,6 +5,7 @@
 export interface EducationEntry {
   id: string;
   title: string;
+  institution?: string;
   period: string;
   description: string;
 }
@@ -12,16 +13,10 @@ export interface EducationEntry {
 export const educationData: EducationEntry[] = [
   {
     id: "1",
-    title: "Bachelor of Computer Applications",
-    period: "2014–2017",
+    title: "B Sc Computer Science",
+    institution: "K.S.G. College of Arts and Science, Coimbatore",
+    period: "2014 – 2017",
     description:
-      "Computer science fundamentals, software development, and database management. Foundation for frontend and mobile development career.",
-  },
-  {
-    id: "2",
-    title: "Higher Secondary",
-    period: "2012–2014",
-    description:
-      "Science stream with focus on mathematics and computer applications.",
+      "Bachelor's degree in Computer Science covering programming fundamentals, data structures, algorithms, software engineering, databases, and computer networks. Foundation for software development and career in frontend, mobile, and full-stack development.",
   },
 ];

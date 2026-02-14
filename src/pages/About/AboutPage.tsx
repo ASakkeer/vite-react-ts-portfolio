@@ -134,6 +134,9 @@ export function AboutPage() {
               <AnimatedSection key={edu.id} delay={i * 0.1} direction="up">
                 <div className="rounded-xl bg-white/5 border border-white/10 p-6 md:p-8 hover:border-portfolio-primary/20 transition-colors">
                   <h3 className="font-semibold text-lg text-white">{edu.title}</h3>
+                  {edu.institution && (
+                    <p className="text-white/90 text-sm mt-1">{edu.institution}</p>
+                  )}
                   <p className="text-portfolio-primary text-sm mt-1">{edu.period}</p>
                   <p className="text-white/70 text-sm mt-2">{edu.description}</p>
                 </div>

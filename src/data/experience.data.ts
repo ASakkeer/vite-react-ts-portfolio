@@ -99,7 +99,7 @@ export const statCards = [
 /** Service/skill cards for About/Experience hero area. */
 export const serviceCards = [
   { title: "React Native", count: "10+", icon: "mobile" },
-  { title: "React Web", count: "15+", icon: "web" },
+  { title: "Web App", count: "8+", icon: "web" },
   { title: "UI/UX Design", count: "25+", icon: "design" },
-  { title: "API Integration", count: "20+", icon: "api" },
+  { title: "API Integration", count: "25+", icon: "api" },
 ];
