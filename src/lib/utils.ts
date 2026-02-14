@@ -1,3 +1,7 @@
+/**
+ * Utility helpers. Includes cn for merging Tailwind classes.
+ */
+
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 

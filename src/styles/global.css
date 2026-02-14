@@ -1,0 +1,43 @@
+/**
+ * Global styles for portfolio.
+ * Theme: #161616 background, #ffffff text, #ff494a primary.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 9%;
+    --foreground: 0 0% 100%;
+    --primary: 359 100% 64%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 64%;
+    --muted-foreground: 0 0% 45%;
+    --border: 0 0% 20%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    font-family: "Rubik", sans-serif;
+    background-color: #161616;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Hero section name uses Rajdhani */
+  .font-hero {
+    font-family: "Rajdhani", sans-serif;
+  }
+}
