@@ -43,7 +43,7 @@ vite-react-ts-portfolio/
     │
     ├── pages/
     │   ├── Home/
-    │   │   ├── HomePage.tsx        # Hero, ServicesSummary, ProjectsList, About stats
+    │   │   ├── HomePage.tsx        # Hero, ServicesSummary, About stats
     │   │   ├── Hero.tsx            # Name, role, FRONTEND effect, image, CTAs
     │   │   └── ServicesSummary.tsx
     │   ├── About/
@@ -125,7 +125,7 @@ vite-react-ts-portfolio/
 
 ## Page Flow
 
-1. **Home** → Hero (CTAs: Hire Me, View Resume) → ServicesSummary (3 cards, link to /services) → ProjectsList (limit 3, link to /projects) → About stats (link to /about)
+1. **Home** → Hero (CTAs: Hire Me, View Resume) → ServicesSummary (3 cards, link to /services) → About stats (link to /about)
 2. **About** → Service/skill cards (4) → Development skills (SkillBar) → Stat cards → Education → Core skills
 3. **Experience** → Work history cards (role, company, duration, bullets)
 4. **Projects** → Under-construction placeholder (no links yet)
