@@ -1,170 +1,151 @@
-// Sticky site header with primary navigation, active route highlighting, and hire-me call to action.
-import type { FC } from "react";
-import { useState, useEffect } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+/**
+ * Header with navigation, social links, and Hire Me CTA.
+ * Reeni-inspired layout: logo left, nav center, socials + CTA right.
+ * Responsive: hamburger menu on mobile.
+ */
+
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Linkedin, Twitter, Github, Instagram, Mail } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { contactDetails } from "@/data/contact.data";
+import { Logo } from "@/components/ui/Logo";
 
 const navItems = [
-  { to: "/", label: "Home", end: true },
-  { to: "/services", label: "Services" },
-  { to: "/projects", label: "Projects" },
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
   { to: "/experience", label: "Experience" },
+  { to: "/projects", label: "Projects" },
+  { to: "/services", label: "Services" },
   { to: "/contact", label: "Contact" },
 ];
 
-export const Header: FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const socialIcons: Record<string, React.ElementType> = {
+  linkedin: Linkedin,
+  twitter: Twitter,
+  github: Github,
+  instagram: Instagram,
+};
+
+export function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
-  // Close menu when route changes
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname]);
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isMenuOpen]);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-slate-50/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 md:h-20">
-        <Link
-          to="/"
-          className="flex items-center gap-3"
-          aria-label="Sakkeer portfolio home"
-          onClick={closeMenu}
-        >
-          <img
-            src="/brand/logo-black.png"
-            alt="Sakkeer"
-            className="h-6 w-6"
-            width={24}
-            height={24}
-            fetchPriority="high"
-          />
-          <span
-            className="text-lg font-medium tracking-wide text-slate-900 md:text-xl"
-            style={{ letterSpacing: "0.1em" }}
-          >
-            SAKKEER
-          </span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#161616]/95 backdrop-blur-sm border-b border-white/10">
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
+        {/* Logo */}
+        <Link to="/" className="font-hero font-bold text-xl text-white flex items-center gap-2">
+          <Logo variant="gray" />
+          Sakkeer
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-2 text-sm font-medium text-slate-700 md:flex">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              className={({ isActive }) =>
-                [
-                  "rounded-full px-3 py-1 transition-colors",
-                  isActive
-                    ? "bg-[#2563EB] text-white font-semibold"
-                    : "hover-elevate text-slate-700 hover:text-slate-900",
-                ].join(" ")
-              }
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navItems.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-portfolio-primary",
+                location.pathname === to ? "text-portfolio-primary" : "text-white/90"
+              )}
             >
-              {item.label}
-            </NavLink>
+              {label.toUpperCase()}
+            </Link>
           ))}
         </nav>
 
-        {/* Desktop Hire Me Button */}
-        <div className="hidden items-center gap-2 md:flex">
+        {/* Right: socials + CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            {contactDetails.socials.map((s) => {
+              const Icon = socialIcons[s.icon] ?? Mail;
+              return (
+                <a
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/80 hover:text-portfolio-primary hover:bg-white/10 transition-colors"
+                  aria-label={s.name}
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            })}
+          </div>
           <Link
             to="/contact"
-            className="rounded-full border border-slate-300 bg-transparent px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-700 transition-colors"
+            className="px-5 py-2.5 rounded-full bg-portfolio-primary text-white font-medium text-sm hover:opacity-90 transition-opacity"
           >
             Hire Me
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile menu button */}
         <button
           type="button"
-          onClick={toggleMenu}
-          aria-label="Toggle navigation menu"
-          aria-expanded={isMenuOpen}
-          className="flex flex-col items-center justify-center gap-1.5 rounded-lg p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+          className="md:hidden w-10 h-10 flex items-center justify-center text-white"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
         >
-          <span
-            className={`h-0.5 w-6 bg-slate-700 transition-all ${
-              isMenuOpen ? "translate-y-2 rotate-45" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-slate-700 transition-all ${
-              isMenuOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-slate-700 transition-all ${
-              isMenuOpen ? "-translate-y-2 -rotate-45" : ""
-            }`}
-          />
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <nav
-        className={`absolute left-0 right-0 top-16 z-50 border-b border-slate-200 bg-slate-50/95 backdrop-blur transition-all md:hidden ${
-          isMenuOpen
-            ? "max-h-screen opacity-100"
-            : "max-h-0 overflow-hidden opacity-0"
-        }`}
-        aria-hidden={!isMenuOpen}
-      >
-        <div className="mx-auto max-w-[1200px] px-4 py-4">
-          <div className="flex flex-col gap-2">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.end}
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  [
-                    "rounded-lg px-4 py-2.5 text-sm font-medium transition-colors",
-                    isActive
-                      ? "bg-[#2563EB] text-white font-semibold"
-                      : "text-slate-700 hover:bg-slate-100",
-                  ].join(" ")
-                }
+      {/* Mobile nav */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden border-t border-white/10 bg-[#161616]"
+          >
+            <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+              {navItems.map(({ to, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className={cn(
+                    "py-2 text-white font-medium",
+                    location.pathname === to ? "text-portfolio-primary" : "text-white/90"
+                  )}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {label}
+                </Link>
+              ))}
+              <div className="flex gap-2 pt-2">
+                {contactDetails.socials.map((s) => {
+                  const Icon = socialIcons[s.icon] ?? Mail;
+                  return (
+                    <a
+                      key={s.name}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white"
+                      aria-label={s.name}
+                    >
+                      <Icon size={20} />
+                    </a>
+                  );
+                })}
+              </div>
+              <Link
+                to="/contact"
+                className="mt-2 py-3 rounded-lg bg-portfolio-primary text-white font-medium text-center"
+                onClick={() => setMobileOpen(false)}
               >
-                {item.label}
-              </NavLink>
-            ))}
-            <Link
-              to="/contact"
-              onClick={closeMenu}
-              className="mt-2 rounded-lg border border-slate-300 bg-transparent px-4 py-2.5 text-center text-sm font-medium text-slate-700 hover:bg-slate-100 transition-colors"
-            >
-              Hire Me
-            </Link>
-          </div>
-        </div>
-      </nav>
+                Hire Me
+              </Link>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
-};
-
-export default Header;
-
-
+}

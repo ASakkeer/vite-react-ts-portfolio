@@ -1,37 +1,41 @@
-/* Global styles for the career-focused frontend portfolio. */
+/**
+ * Global styles for portfolio.
+ * Theme: #161616 background, #ffffff text, #ff494a primary.
+ */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-#root {
-  height: 100%;
-}
+@layer base {
+  :root {
+    --background: 0 0% 9%;
+    --foreground: 0 0% 100%;
+    --primary: 359 100% 64%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 0 0% 64%;
+    --muted-foreground: 0 0% 45%;
+    --border: 0 0% 20%;
+  }
 
-body {
-  margin: 0;
-  font-family: theme("fontFamily.sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      sans-serif);
-  background-color: #f8fafc; /* matches theme background */
-  color: #334155; /* matches theme textPrimary */
-}
+  * {
+    border-color: hsl(var(--border));
+  }
 
-/* Global layout helpers */
-.page-shell {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-.page-section {
-  padding: 2.5rem 1.5rem;
-}
+  body {
+    font-family: "Rubik", sans-serif;
+    background-color: #161616;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-@media (min-width: 768px) {
-  .page-section {
-    padding: 4rem 3rem;
+  /* Hero section name uses Rajdhani */
+  .font-hero {
+    font-family: "Rajdhani", sans-serif;
   }
 }
-

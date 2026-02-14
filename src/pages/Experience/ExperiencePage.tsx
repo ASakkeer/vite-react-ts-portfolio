@@ -1,15 +1,76 @@
-// Route-level experience page summarizing roles and impact.
-import type { FC } from "react";
-import Layout from "../../components/layout/Layout";
-import Experience from "./Experience";
+/**
+ * Experience page: professional work history (roles at companies).
+ */
 
-const ExperiencePage: FC = () => {
+import { Link } from "react-router-dom";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { experienceData } from "@/data/experience.data";
+
+export function ExperiencePage() {
   return (
-    <Layout>
-      <Experience />
-    </Layout>
+    <div>
+      {/* Hero */}
+      <section className="relative py-16 md:py-20 overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.03] bg-cover bg-center"
+          style={{
+            backgroundImage: `url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=800&fit=crop)`,
+          }}
+        />
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <AnimatedSection>
+            <h1 className="font-hero font-bold text-4xl md:text-5xl text-white mb-4 border-b-2 border-portfolio-primary inline-block pb-2">
+              Experience
+            </h1>
+            <nav className="flex items-center gap-2 text-sm md:text-base mt-4" aria-label="Breadcrumb">
+              <Link to="/" className="text-white/80 hover:text-white transition-colors">
+                Home
+              </Link>
+              <span className="text-white/50">/</span>
+              <span className="text-portfolio-primary font-medium">Experience</span>
+            </nav>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Professional experiences */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+            <AnimatedSection className="lg:col-span-4" direction="up">
+              <div className="rounded-xl overflow-hidden aspect-square max-w-sm mx-auto lg:mx-0">
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&h=500&fit=crop"
+                  alt="Developer at work"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </AnimatedSection>
+            <div className="lg:col-span-8 space-y-8">
+              {experienceData.map((role, i) => (
+                <AnimatedSection key={role.id} delay={i * 0.1} direction="up">
+                  <div className="p-6 md:p-8 rounded-xl bg-white/5 border border-white/10 hover:border-portfolio-primary/20 transition-colors">
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                      <h2 className="font-semibold text-xl text-white">{role.role}</h2>
+                      <div className="text-portfolio-primary text-sm font-medium">
+                        {role.company} · {role.duration}
+                      </div>
+                    </div>
+                    <ul className="mt-4 space-y-2">
+                      {role.bullets.map((b, j) => (
+                        <li key={j} className="flex items-start gap-2 text-white/70 text-sm">
+                          <span className="w-1.5 h-1.5 rounded-full bg-portfolio-primary mt-1.5 flex-shrink-0" />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
-};
-
-export default ExperiencePage;
-
+}

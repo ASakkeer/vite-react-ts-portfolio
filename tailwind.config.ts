@@ -13,7 +13,16 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        hero: ["Rajdhani", "sans-serif"],
+        body: ["Rubik", "sans-serif"],
+      },
       colors: {
+        portfolio: {
+          bg: "#161616",
+          fg: "#ffffff",
+          primary: "#ff494a",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

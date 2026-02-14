@@ -1,29 +1,30 @@
-// Presentational card for a single service with icon, outcomes, and deliverables.
-import type { FC, ReactNode } from "react";
+/**
+ * Service card with title, outcome, and deliverables.
+ */
+
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import type { Service } from "@/data/services.data";
 
 interface ServiceCardProps {
-  icon: ReactNode;
-  title: string;
-  outcome: string;
-  deliverables: string[];
+  service: Service;
+  index: number;
 }
 
-export const ServiceCard: FC<ServiceCardProps> = ({ icon, title, outcome, deliverables }) => {
+export function ServiceCard({ service, index }: ServiceCardProps) {
   return (
-    <article className="hover-elevate flex h-full flex-col rounded-2xl border border-slate-200 bg-white/80 p-5">
-      <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-slate-50 text-slate-800">
-        {icon}
+    <AnimatedSection delay={index * 0.08} direction="up">
+      <div className="p-6 md:p-10 rounded-xl bg-white/5 border border-white/10 hover:border-portfolio-primary/30 transition-colors h-full flex flex-col">
+        <h3 className="font-semibold text-xl text-white mb-2">{service.title}</h3>
+        <p className="text-white/80 mb-4">{service.outcome}</p>
+        <ul className="mt-auto space-y-2">
+          {service.deliverables.map((d, i) => (
+            <li key={i} className="flex items-center gap-2 text-white/70 text-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-portfolio-primary flex-shrink-0" />
+              {d}
+            </li>
+          ))}
+        </ul>
       </div>
-      <h3 className="mb-2 text-base font-medium text-slate-900">{title}</h3>
-      <p className="mb-4 text-sm text-slate-600">{outcome}</p>
-      <ul className="mt-auto list-disc space-y-1 pl-5 text-xs text-slate-500">
-        {deliverables.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </article>
+    </AnimatedSection>
   );
-};
-
-export default ServiceCard;
-
+}

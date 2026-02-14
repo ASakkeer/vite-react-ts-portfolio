@@ -1,23 +1,19 @@
-// Page layout shell with sticky header, centered content, and footer.
-import type { FC, ReactNode } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+/**
+ * Main layout wrapping pages with Header and Footer.
+ */
 
-interface LayoutProps {
-  children: ReactNode;
-}
+import { Outlet } from "react-router-dom";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
-export const Layout: FC<LayoutProps> = ({ children }) => {
+export function Layout() {
   return (
-    <div className="page-shell bg-slate-50 text-slate-900">
+    <div className="min-h-screen flex flex-col bg-[#161616]">
       <Header />
-      <main className="flex-1">
-        <div className="mx-auto max-w-[1200px] px-4 py-8 md:py-12">{children}</div>
+      <main className="flex-1 pt-16 md:pt-20">
+        <Outlet />
       </main>
       <Footer />
     </div>
   );
-};
-
-export default Layout;
-
+}

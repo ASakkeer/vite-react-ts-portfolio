@@ -1,53 +1,53 @@
-// Compact services summary for the home page, linking to the full services page.
-import type { FC } from "react";
-import { Link } from "react-router-dom";
-import ServiceCard from "../Services/ServiceCard";
-import { services } from "../Services/services.data.tsx";
+/**
+ * Compact services preview on Home page. Links to full Services page.
+ */
 
-export const ServicesSummary: FC = () => {
-  const highlighted = services.slice(0, 3);
+import { Link } from "react-router-dom";
+import { Layout, BarChart3, Code, Zap } from "lucide-react";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { servicesData } from "@/data/services.data";
+
+const icons = [Layout, BarChart3, Code, Zap];
+
+export function ServicesSummary() {
+  const preview = servicesData.slice(0, 3);
 
   return (
-    <section
-      className="page-section border-t border-slate-200 bg-white"
-      aria-labelledby="home-services-heading"
-    >
-      <div className="mx-auto max-w-[1200px]">
-        <header className="max-w-2xl space-y-3">
-          <h2
-            id="home-services-heading"
-            className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl"
-          >
-            Services aligned to real product needs
-          </h2>
-          <p className="text-sm text-slate-600 md:text-base">
-            Each engagement focuses on measurable outcomes—faster delivery, improved workflows, and
-            smoother user journeys.
-          </p>
-        </header>
-        <div className="mt-6 md:mt-8 grid gap-5 md:grid-cols-3">
-          {highlighted.map((service) => (
-            <ServiceCard
-              key={service.title}
-              icon={service.icon}
-              title={service.title}
-              outcome={service.outcome}
-              deliverables={service.deliverables}
-            />
-          ))}
+    <AnimatedSection className="py-16 md:py-24" fadeOutOnExit>
+      <div className="container mx-auto px-4 md:px-6">
+        <h2 className="font-hero font-bold text-3xl md:text-4xl text-white mb-2">
+          Services aligned to real product needs
+        </h2>
+        <p className="text-white/70 max-w-2xl mb-12">
+          React Native mobile apps and React web applications. Each engagement focuses on measurable
+          outcomes—faster delivery, improved workflows, and smoother user journeys.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+          {preview.map((s, i) => {
+            const Icon = icons[i] ?? Layout;
+            return (
+              <AnimatedSection key={s.id} delay={i * 0.1} direction="up">
+                <div className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-portfolio-primary/30 transition-colors">
+                  <div className="w-12 h-12 rounded-lg bg-portfolio-primary/20 flex items-center justify-center text-portfolio-primary mb-4">
+                    <Icon size={24} />
+                  </div>
+                  <h3 className="font-semibold text-white mb-2">{s.title}</h3>
+                  <p className="text-white/70 text-sm">{s.outcome}</p>
+                </div>
+              </AnimatedSection>
+            );
+          })}
         </div>
-        <div className="mt-5 md:mt-6 flex justify-end">
+        <AnimatedSection delay={0.3} className="mt-10">
           <Link
             to="/services"
-            className="pressable inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-800 hover:bg-slate-50"
+            className="inline-flex items-center gap-2 text-portfolio-primary font-medium hover:underline"
           >
             View all services
+            <span aria-hidden>→</span>
           </Link>
-        </div>
+        </AnimatedSection>
       </div>
-    </section>
+    </AnimatedSection>
   );
-};
-
-export default ServicesSummary;
-
+}

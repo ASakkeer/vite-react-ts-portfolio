@@ -1,44 +1,39 @@
-// Root application component configuring route definitions and React Query client.
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./pages/Home/HomePage.tsx";
-import ProjectsPage from "./pages/Projects/ProjectsPage.tsx";
-import ProjectCaseStudyPage from "./pages/Projects/ProjectCaseStudyPage.tsx";
-import ServicesPage from "./pages/Services/ServicesPage.tsx";
-import ExperiencePage from "./pages/Experience/ExperiencePage.tsx";
-import ContactPage from "./pages/Contact/ContactPage.tsx";
-import {
-  AccountDetailsPage,
-  PlansManagementPage,
-  RevenueAnalyticsDemoPage,
-} from "./demos/revenue-analytics";
-import { ECommerceDemoPage } from "./demos/ecommerce";
-import { OpsToolDashboardPage } from "./demos/ops-tool";
-import NotFound from "./pages/NotFound";
+/**
+ * Root application component. Sets up providers and routing.
+ */
 
-const queryClient = new QueryClient();
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { NavigationProvider } from "@/context/NavigationContext";
+import { Layout } from "@/components/layout/Layout";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { HomePage } from "@/pages/Home/HomePage";
+import { AboutPage } from "@/pages/About/AboutPage";
+import { ProjectsPage } from "@/pages/Projects/ProjectsPage";
+import { ServicesPage } from "@/pages/Services/ServicesPage";
+import { ExperiencePage } from "@/pages/Experience/ExperiencePage";
+import { ContactPage } from "@/pages/Contact/ContactPage";
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/projects" element={<ProjectsPage />} />
-      <Route path="/projects/:id" element={<ProjectCaseStudyPage />} />
-      <Route path="/services" element={<ServicesPage />} />
-      <Route path="/experience" element={<ExperiencePage />} />
-      <Route path="/contact" element={<ContactPage />} />
-      <Route path="/demos/revenue-analytics" element={<RevenueAnalyticsDemoPage />} />
-      <Route path="/demos/revenue-analytics/plans" element={<PlansManagementPage />} />
-      <Route
-        path="/demos/revenue-analytics/accounts/:accountId"
-        element={<AccountDetailsPage />}
-      />
-      <Route path="/demos/ecommerce" element={<ECommerceDemoPage />} />
-      <Route path="/demos/ops-tool" element={<OpsToolDashboardPage />} />
-      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <ThemeProvider>
+        <NavigationProvider>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="projects" element={<ProjectsPage />} />
+              <Route path="services" element={<ServicesPage />} />
+              <Route path="experience" element={<ExperiencePage />} />
+              <Route path="contact" element={<ContactPage />} />
+            </Route>
+          </Routes>
+        </NavigationProvider>
+      </ThemeProvider>
+    </BrowserRouter>
+  );
+}
 
 export default App;

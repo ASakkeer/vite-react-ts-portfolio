@@ -1,15 +1,25 @@
-// Route-level projects page listing all case-study projects.
-import type { FC } from "react";
-import Layout from "../../components/layout/Layout";
-import ProjectsList from "./ProjectsList";
+/**
+ * Projects page with full mock data grid.
+ */
 
-const ProjectsPage: FC = () => {
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { ProjectsList } from "./ProjectsList";
+
+export function ProjectsPage() {
   return (
-    <Layout>
-      <ProjectsList />
-    </Layout>
+    <div className="py-16 md:py-24">
+      <div className="container mx-auto px-4 md:px-6">
+        <AnimatedSection>
+          <h1 className="font-hero font-bold text-3xl md:text-4xl text-white mb-2">
+            Transforming ideas into exceptional projects
+          </h1>
+          <p className="text-white/70 max-w-2xl mb-12">
+            A showcase of mobile apps, web applications, dashboards, and tools built with React
+            Native and React.
+          </p>
+        </AnimatedSection>
+        <ProjectsList />
+      </div>
+    </div>
   );
-};
-
-export default ProjectsPage;
-
+}

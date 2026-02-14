@@ -1,19 +1,110 @@
-// Site footer with concise branding and contact emphasis.
-import type { FC } from "react";
+/**
+ * Footer with logo, quick links, contact info, and socials.
+ */
 
-export const Footer: FC = () => {
+import { Link } from "react-router-dom";
+import { Linkedin, Twitter, Github, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { contactDetails } from "@/data/contact.data";
+import { Logo } from "@/components/ui/Logo";
+
+const socialIcons: Record<string, React.ElementType> = {
+  linkedin: Linkedin,
+  twitter: Twitter,
+  github: Github,
+  instagram: Instagram,
+};
+
+const quickLinks = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/experience", label: "Experience" },
+  { to: "/projects", label: "Projects" },
+  { to: "/services", label: "Services" },
+  { to: "/contact", label: "Contact" },
+];
+
+export function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-slate-50">
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-3 px-4 py-6 text-xs text-slate-500 md:flex-row md:items-center md:justify-between md:py-8">
-        <p className="font-medium text-slate-600">© {new Date().getFullYear()} SAKKEER.</p>
-        <p className="max-w-xl">
-          Frontend React Engineer focused on shipping performant, maintainable interfaces that support
-          real business outcomes.
-        </p>
+    <footer className="bg-[#0d0d0d] border-t border-white/10 mt-auto">
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+          {/* Left: Logo + tagline */}
+          <div>
+            <Link to="/" className="font-hero font-bold text-xl text-white flex items-center gap-2">
+              <Logo variant="black" />
+              Sakkeer
+            </Link>
+            <p className="mt-3 text-white/70 text-sm max-w-xs">
+              React Native and React developer. Building mobile apps, web applications, dashboards,
+              and internal tools for businesses.
+            </p>
+          </div>
+
+          {/* Center: Quick links */}
+          <div>
+            <h3 className="font-semibold text-white mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              {quickLinks.map(({ to, label }) => (
+                <li key={to}>
+                  <Link
+                    to={to}
+                    className="text-white/70 hover:text-portfolio-primary transition-colors text-sm"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right: Contact */}
+          <div>
+            <h3 className="font-semibold text-white mb-4">Contact</h3>
+            <div className="space-y-3 text-sm">
+              <a
+                href={`mailto:${contactDetails.email}`}
+                className="flex items-center gap-2 text-white/70 hover:text-portfolio-primary transition-colors"
+              >
+                <Mail size={16} />
+                {contactDetails.email}
+              </a>
+              <a
+                href={`tel:${contactDetails.phone.replace(/\s/g, "")}`}
+                className="flex items-center gap-2 text-white/70 hover:text-portfolio-primary transition-colors"
+              >
+                <Phone size={16} />
+                {contactDetails.phone}
+              </a>
+              {(contactDetails.address ?? contactDetails.location) && (
+                <p className="flex items-center gap-2 text-white/70">
+                  <MapPin size={16} />
+                  {contactDetails.address ?? contactDetails.location}
+                </p>
+              )}
+            </div>
+            <div className="flex gap-2 mt-4">
+              {contactDetails.socials.map((s) => {
+                const Icon = socialIcons[s.icon] ?? Mail;
+                return (
+                  <a
+                    key={s.name}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-white/80 hover:text-portfolio-primary hover:bg-white/10 transition-colors"
+                    aria-label={s.name}
+                  >
+                    <Icon size={18} />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <div className="mt-12 pt-8 border-t border-white/10 text-center text-white/50 text-sm">
+          © {new Date().getFullYear()} Sakkeer. All rights reserved.
+        </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
-
+}
