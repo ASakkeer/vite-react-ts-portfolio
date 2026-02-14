@@ -17,11 +17,9 @@ export const experienceData: Role[] = [
     role: "Senior Software Engineer – React Native",
     duration: "Aug 2020 – Sep 2025",
     bullets: [
-      "Owned end-to-end delivery of 10+ cross-platform mobile applications, from initial architecture through app store publishing and ongoing maintenance.",
-      "Led technical decisions for React Native architecture, state management, and native module integration across consumer and B2B mobile products.",
-      "Reduced app crash rate by 40% through systematic error monitoring, stability improvements, and performance optimization.",
-      "Managed complete app store publishing workflow (Apple App Store, Google Play Store), including release coordination, metadata, and compliance.",
-      "Mentored team members on React Native best practices, code review standards, and mobile delivery workflows.",
+      "Delivered 10+ cross-platform mobile apps from architecture through app store publishing.",
+      "Reduced app crash rate by 40% through error monitoring and performance optimization.",
+      "Led React Native technical decisions and mentored team on best practices.",
     ],
   },
   {
@@ -30,9 +28,8 @@ export const experienceData: Role[] = [
     role: "Full Stack Developer",
     duration: "Mar 2020 – Jun 2020",
     bullets: [
-      "Contributed to web and mobile product development, working across frontend and backend to deliver integrated user experiences.",
-      "Built responsive web interfaces and mobile screens, collaborating with product and design teams to translate requirements into working features.",
-      "Integrated frontend applications with REST APIs, ensuring reliable data flow and error handling across user-facing workflows.",
+      "Built responsive web interfaces and mobile screens for integrated product experiences.",
+      "Integrated frontend with REST APIs for reliable data flow and error handling.",
     ],
   },
   {
@@ -41,9 +38,9 @@ export const experienceData: Role[] = [
     role: "Frontend Developer",
     duration: "Sep 2017 – Feb 2020",
     bullets: [
-      "Built user interfaces for web applications using React and Angular, focusing on component-driven architecture and maintainable code patterns.",
-      "Implemented reusable UI component libraries and UI patterns that improved development speed and consistency across multiple product features.",
-      "Collaborated with backend engineering teams to design API contracts and data structures, ensuring smooth integration between frontend and backend systems.",
+      "Built web UIs with React and Angular using component-driven architecture.",
+      "Implemented reusable UI component libraries improving development speed.",
+      "Collaborated with backend on API contracts and data structures.",
     ],
   },
 ];

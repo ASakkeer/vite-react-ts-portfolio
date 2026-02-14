@@ -19,19 +19,18 @@ Your contact form is now ready to send emails! Follow these steps to complete th
 ### 3. Create Email Template
 1. Go to **Email Templates**
 2. Click **Create New Template**
-3. Use this template content:
+3. Use this template content (the app sends a consolidated message with all fields):
 
 ```
 Subject: New Contact Form Message - {{subject}}
 
-From: {{from_name}} ({{from_email}})
-
-Message:
 {{message}}
 
 ---
-This message was sent from your portfolio contact form.
+Sent from portfolio contact form.
 ```
+
+The `{{message}}` contains Name, Email, Phone, Subject, and Message – all formatted in one block.
 
 4. Note down the **Template ID** (e.g., `template_xxxxxxx`) // template_45yogmq
 
@@ -40,13 +39,15 @@ This message was sent from your portfolio contact form.
 2. Copy your **Public Key** (e.g., `xxxxxxxxxxxxxxxx`) // O2cXyPaOgsWpx1QAW
 
 ### 5. Update Configuration
-Replace these values in `/src/components/Contact.tsx`:
+Create a `.env` file in the project root (copy from `.env.example`) and add:
 
-```typescript
-const serviceId = 'YOUR_SERVICE_ID_HERE';     // Replace with your Service ID
-const templateId = 'YOUR_TEMPLATE_ID_HERE';   // Replace with your Template ID  
-const publicKey = 'YOUR_PUBLIC_KEY_HERE';     // Replace with your Public Key
 ```
+VITE_EMAILJS_SERVICE_ID=service_b8zlv6l
+VITE_EMAILJS_TEMPLATE_ID=template_45yogmq
+VITE_EMAILJS_PUBLIC_KEY=O2cXyPaOgsWpx1QAW
+```
+
+Replace with your own values from the EmailJS dashboard.
 
 ### 6. Test the Form
 1. Start the development server: `npm run dev`

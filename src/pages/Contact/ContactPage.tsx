@@ -1,6 +1,6 @@
 /**
  * Contact page: hero, contact info cards, and form.
- * Layout inspired by Reeni contact design.
+ * EmailJS integration with loading, success/error notifications, and form reset.
  */
 
 import { useForm } from "react-hook-form";
@@ -8,7 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
-import { MapPin, Mail, Phone, ArrowRight } from "lucide-react";
+import { MapPin, Mail, Phone, ArrowRight, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { contactDetails } from "@/data/contact.data";
 
@@ -21,6 +22,28 @@ const schema = z.object({
 });
 
 type FormData = z.infer<typeof schema>;
+
+/** Build consolidated message and map to EmailJS template variables */
+const toEmailJSParams = (data: FormData) => {
+  const lines: string[] = [
+    `Name: ${data.name}`,
+    `Email: ${data.email}`,
+    data.phone ? `Phone: ${data.phone}` : null,
+    data.subject ? `Subject: ${data.subject}` : null,
+    "",
+    "Message:",
+    data.message,
+  ].filter(Boolean) as string[];
+
+  const messageBody = lines.join("\n");
+
+  return {
+    from_name: data.name,
+    from_email: data.email,
+    subject: data.subject || "Contact form message",
+    message: messageBody,
+  };
+};
 
 const contactCards = [
   {
@@ -47,21 +70,35 @@ export function ContactPage() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
   const onSubmit = async (data: FormData) => {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast.error("Email service not configured. Add VITE_EMAILJS_* env variables.");
+      return;
+    }
+
     try {
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-      if (serviceId && templateId && publicKey) {
-        await emailjs.send(serviceId, templateId, data, publicKey);
-      }
+      await emailjs.send(serviceId, templateId, toEmailJSParams(data), publicKey);
+      toast.success("Message sent! I'll get back to you soon.", {
+        duration: 5000,
+        description: "Thank you for reaching out.",
+      });
+      reset();
     } catch (e) {
       console.error(e);
+      toast.error("Failed to send message. Please try again or email directly.", {
+        duration: 6000,
+        description: "You can reach me at " + contactDetails.email,
+      });
     }
   };
 
@@ -98,7 +135,7 @@ export function ContactPage() {
             const Icon = card.icon;
             return (
             <AnimatedSection key={card.title} delay={i * 0.1} direction="up">
-              <div className="rounded-xl bg-white/5 border border-white/10 p-8 md:p-10 text-center hover:border-portfolio-primary/30 transition-colors">
+              <div className="rounded-xl bg-white/5 border border-white/10 p-6 sm:p-8 md:p-10 text-center hover:border-portfolio-primary/30 transition-colors">
                 <div className="w-14 h-14 rounded-full bg-portfolio-primary/20 flex items-center justify-center mx-auto mb-4 text-portfolio-primary">
                   <Icon size={28} />
                 </div>
@@ -123,7 +160,7 @@ export function ContactPage() {
       {/* Form section: two columns */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-start">
             {/* Left: Get in touch text */}
             <div className="lg:col-span-5">
               <AnimatedSection direction="up">
@@ -156,7 +193,7 @@ export function ContactPage() {
               <AnimatedSection delay={0.1} direction="up">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className="p-8 md:p-10 rounded-xl bg-white/5 border border-white/10 space-y-6"
+                  className="p-5 sm:p-6 md:p-8 lg:p-10 rounded-xl bg-white/5 border border-white/10 space-y-5 sm:space-y-6"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
@@ -232,10 +269,19 @@ export function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full min-h-[48px] py-4 rounded-lg bg-portfolio-primary text-white font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 text-base"
+                    className="w-full min-h-[48px] py-4 rounded-lg bg-portfolio-primary text-white font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-70 disabled:cursor-not-allowed text-base"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    <ArrowRight size={20} />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 size={20} className="animate-spin" aria-hidden />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <ArrowRight size={20} aria-hidden />
+                      </>
+                    )}
                   </button>
                 </form>
               </AnimatedSection>

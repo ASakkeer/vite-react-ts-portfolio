@@ -2,6 +2,7 @@
  * Root application component. Sets up providers and routing.
  */
 
+import { Toaster } from "sonner";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { NavigationProvider } from "@/context/NavigationContext";
@@ -17,6 +18,18 @@ import { ContactPage } from "@/pages/Contact/ContactPage";
 function App() {
   return (
     <BrowserRouter>
+      <Toaster
+        theme="dark"
+        position="top-center"
+        toastOptions={{
+          style: {
+            background: "#1a1a1a",
+            border: "1px solid rgba(255,255,255,0.1)",
+            color: "#fff",
+          },
+          className: "portfolio-toast",
+        }}
+      />
       <ScrollToTop />
       <ThemeProvider>
         <NavigationProvider>
