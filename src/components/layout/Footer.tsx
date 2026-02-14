@@ -4,7 +4,7 @@
 
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Github, Instagram, Mail, Phone, MapPin } from "lucide-react";
-import { contactDetails } from "@/data/contact.data";
+import { contactDetails, resumeUrl } from "@/data/contact.data";
 import { Logo } from "@/components/ui/Logo";
 
 const socialIcons: Record<string, React.ElementType> = {
@@ -21,6 +21,7 @@ const quickLinks = [
   { to: "/projects", label: "Projects" },
   { to: "/services", label: "Services" },
   { to: "/contact", label: "Contact" },
+  { href: resumeUrl, label: "Resume", external: true },
 ];
 
 export function Footer() {
@@ -44,14 +45,25 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-4">Quick Links</h3>
             <ul className="space-y-2 flex flex-col items-center md:items-start">
-              {quickLinks.map(({ to, label }) => (
-                <li key={to}>
-                  <Link
-                    to={to}
-                    className="text-white/70 hover:text-portfolio-primary transition-colors text-sm"
-                  >
-                    {label}
-                  </Link>
+              {quickLinks.map((item) => (
+                <li key={item.label}>
+                  {"external" in item && item.external ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 hover:text-portfolio-primary transition-colors text-sm"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.to}
+                      className="text-white/70 hover:text-portfolio-primary transition-colors text-sm"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

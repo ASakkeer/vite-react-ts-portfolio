@@ -1,5 +1,5 @@
 /**
- * Home page: short versions of everything – Hero, services, projects, about, experience.
+ * Home page: short versions of everything – Hero, services, projects, about.
  */
 
 import { Link } from "react-router-dom";
@@ -9,7 +9,6 @@ import { ProjectsList } from "../Projects/ProjectsList";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { StatCard } from "@/components/ui/StatCard";
 import { statCards } from "@/data/experience.data";
-import { experienceData } from "@/data/experience.data";
 
 export function HomePage() {
   return (
@@ -64,35 +63,6 @@ export function HomePage() {
             className="inline-flex items-center gap-2 text-portfolio-primary font-medium mt-8 hover:underline"
           >
             View full about
-            <span aria-hidden>→</span>
-          </Link>
-        </div>
-      </section>
-
-      {/* Experience – short: recent roles */}
-      <section className="py-16 md:py-24 border-t border-white/10">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="font-hero font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-2">Experience</h2>
-          <p className="text-white/70 max-w-2xl mb-8 sm:mb-10 text-sm sm:text-base">
-            Professional work history across product companies.
-          </p>
-          <div className="space-y-4">
-            {experienceData.slice(0, 2).map((role, i) => (
-              <AnimatedSection key={role.id} delay={i * 0.05} direction="up">
-                <div className="p-4 md:p-5 rounded-xl bg-white/5 border border-white/10 hover:border-portfolio-primary/20 transition-colors">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h3 className="font-semibold text-white">{role.role}</h3>
-                    <span className="text-portfolio-primary text-sm">{role.company} · {role.duration}</span>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-          <Link
-            to="/experience"
-            className="inline-flex items-center gap-2 text-portfolio-primary font-medium mt-8 hover:underline"
-          >
-            View full experience
             <span aria-hidden>→</span>
           </Link>
         </div>

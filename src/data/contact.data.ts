@@ -2,6 +2,10 @@
  * Contact details for Sakkeer.
  */
 
+import resumePdf from "@/assets/resume/senior_software_engineer_sakkeer.pdf";
+
+export const resumeUrl = resumePdf;
+
 export interface SocialLink {
   name: string;
   url: string;

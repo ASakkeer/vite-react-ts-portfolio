@@ -9,7 +9,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Linkedin, Twitter, Github, Instagram, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { contactDetails } from "@/data/contact.data";
+import { contactDetails, resumeUrl } from "@/data/contact.data";
 import { Logo } from "@/components/ui/Logo";
 
 const navItems = [
@@ -76,6 +76,14 @@ export function Header() {
               );
             })}
           </div>
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 rounded-full border-2 border-portfolio-primary text-portfolio-primary font-medium text-sm hover:bg-portfolio-primary/10 transition-colors"
+          >
+            Resume
+          </a>
           <Link
             to="/contact"
             className="px-5 py-2.5 rounded-full bg-portfolio-primary text-white font-medium text-sm hover:opacity-90 transition-opacity"
@@ -135,9 +143,18 @@ export function Header() {
                   );
                 })}
               </div>
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 py-3 rounded-lg border-2 border-portfolio-primary text-portfolio-primary font-medium text-center"
+                onClick={() => setMobileOpen(false)}
+              >
+                Resume
+              </a>
               <Link
                 to="/contact"
-                className="mt-2 py-3 rounded-lg bg-portfolio-primary text-white font-medium text-center"
+                className="py-3 rounded-lg bg-portfolio-primary text-white font-medium text-center"
                 onClick={() => setMobileOpen(false)}
               >
                 Hire Me

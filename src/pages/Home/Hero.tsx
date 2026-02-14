@@ -6,6 +6,7 @@
 import { motion } from "framer-motion";
 import { Linkedin, Twitter, Github, Instagram, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { resumeUrl } from "@/data/contact.data";
 import { FloatingElements } from "@/components/ui/FloatingElements";
 import { contactDetails } from "@/data/contact.data";
 import heroImage from "@/assets/images/hero.png";
@@ -20,28 +21,12 @@ const socialIcons: Record<string, React.ElementType> = {
 export function Hero() {
   return (
     <section className="relative min-h-[85svh] sm:min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background: large outline text at bottom */}
-      <div
-        className="absolute bottom-0 left-0 right-0 flex items-end justify-center pointer-events-none"
-        aria-hidden
-      >
-        <span
-          className="text-[clamp(3rem,12vw,11rem)] font-hero font-bold text-white/[0.02] select-none leading-none"
-          style={{
-            WebkitTextStroke: "1px rgba(255, 255, 255, 0.06)",
-            paintOrder: "stroke fill",
-          }}
-        >
-          FRONTEND
-        </span>
-      </div>
-
       <FloatingElements />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Left: HELLO, name, role, Hire Me */}
-          <div className="lg:col-span-4 order-2 lg:order-1 text-center lg:text-left">
+          <div className="lg:col-span-4 order-2 lg:order-1 text-center lg:text-left -translate-y-10 lg:-translate-y-12">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -56,47 +41,86 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-hero font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight"
             >
-              I'm Sakkeer a{" "}
+              I'm Sakkeer, a{" "}
               <span className="text-portfolio-primary">Senior Software Engineer</span>
             </motion.h1>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mt-6"
+              className="mt-6 flex flex-wrap gap-3 justify-center lg:justify-start"
             >
               <Button to="/contact" variant="primary" className="inline-flex items-center gap-2">
                 Hire Me
                 <ArrowRight size={18} />
               </Button>
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-sm border-2 border-portfolio-primary text-portfolio-primary hover:bg-portfolio-primary/10 transition-colors"
+              >
+                View Resume
+              </a>
             </motion.div>
           </div>
 
-          {/* Center: Hero image with bottom fade */}
-          <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center">
+          {/* Center: Hero image with FRONTEND (before=behind, after=above), bottom-centered */}
+          <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center items-center relative min-h-[18rem] sm:min-h-[24rem] md:min-h-[28rem] lg:min-h-[32rem] w-full">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-56 h-72 sm:w-72 sm:h-96 md:w-96 md:h-[32rem] lg:w-[28rem] lg:h-[36rem] overflow-hidden mx-auto"
+              className="relative w-64 sm:w-80 md:w-[26rem] lg:w-[32rem] h-80 sm:h-[28rem] md:h-[34rem] lg:h-[38rem] flex flex-col items-center justify-end"
             >
-              <img
-                src={heroImage}
-                alt="Sakkeer - Senior Software Engineer"
-                draggable={false}
-                className="w-full h-full object-cover object-top select-none"
+              {/* before: FRONTEND behind image, bottom-centered */}
+              <span
+                className="absolute left-1/2 -bottom-6 -translate-x-1/2 z-0 pointer-events-none select-none animate-hero-float-2 motion-reduce:animate-none font-hero font-bold leading-none uppercase whitespace-nowrap"
+                aria-hidden
                 style={{
-                  userSelect: "none",
-                  WebkitUserDrag: "none",
-                  maskImage: "linear-gradient(to bottom, black 95%, transparent 100%)",
-                  WebkitMaskImage: "linear-gradient(to bottom, black 95%, transparent 100%)",
+                  fontSize: "clamp(4rem, 14vw, 14rem)",
+                  color: "transparent",
+                  WebkitTextStroke: "2px rgba(200, 200, 200, 0.16)",
+                  paintOrder: "stroke fill",
                 }}
-              />
+              >
+                FRONTEND
+              </span>
+
+              {/* Hero image */}
+              <div className="relative z-10 w-full h-full overflow-hidden">
+                <img
+                  src={heroImage}
+                  alt="Sakkeer - Senior Software Engineer"
+                  draggable={false}
+                  className="w-full h-full object-cover object-top select-none"
+                  style={{
+                    userSelect: "none",
+                    WebkitUserDrag: "none",
+                    maskImage: "linear-gradient(to bottom, black 95%, transparent 100%)",
+                    WebkitMaskImage: "linear-gradient(to bottom, black 95%, transparent 100%)",
+                  }}
+                />
+              </div>
+
+              {/* after: FRONTEND above image, bottom-centered */}
+              <span
+                className="absolute left-1/2 -bottom-6 -translate-x-1/2 z-20 pointer-events-none select-none animate-hero-float motion-reduce:animate-none font-hero font-bold leading-none uppercase whitespace-nowrap"
+                aria-hidden
+                style={{
+                  fontSize: "clamp(2.5rem, 9vw, 9.5rem)",
+                  color: "transparent",
+                  WebkitTextStroke: "1.5px #ff494a",
+                  paintOrder: "stroke fill",
+                }}
+              >
+                FRONTEND
+              </span>
             </motion.div>
           </div>
 
           {/* Right: About + socials */}
-          <div className="lg:col-span-4 order-3 text-center lg:text-left">
+          <div className="lg:col-span-4 order-3 text-center lg:text-left -translate-y-10 lg:-translate-y-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

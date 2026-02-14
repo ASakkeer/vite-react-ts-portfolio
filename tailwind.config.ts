@@ -17,6 +17,9 @@ export default {
       },
     },
     extend: {
+      fontSize: {
+        sm: "1rem",
+      },
       fontFamily: {
         hero: ["Rajdhani", "sans-serif"],
         body: ["Rubik", "sans-serif"],
@@ -139,6 +142,22 @@ export default {
             transform: "translateY(-20px)",
           },
         },
+        "hero-float": {
+          "0%, 100%": {
+            transform: "translate(-50%, 0px)",
+          },
+          "50%": {
+            transform: "translate(-50%, -8px)",
+          },
+        },
+        "hero-float-2": {
+          "0%, 100%": {
+            transform: "translate(-50%, 0px)",
+          },
+          "50%": {
+            transform: "translate(-50%, -12px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -148,6 +167,8 @@ export default {
         "slide-in": "slide-in 0.5s ease-out",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
+        "hero-float": "hero-float 4s ease-in-out infinite",
+        "hero-float-2": "hero-float-2 5s ease-in-out infinite 0.5s",
       },
     },
   },
