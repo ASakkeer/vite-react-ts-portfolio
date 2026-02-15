@@ -30,7 +30,7 @@ vite-react-ts-portfolio/
     ├── components/
     │   ├── layout/
     │   │   ├── Header.tsx    # Nav, logo, socials, Resume, Hire Me; hamburger on mobile
-    │   │   ├── Footer.tsx    # Logo, quick links, contact, socials
+    │   │   ├── Footer.tsx    # Logo, quick links, contact, socials; footer-bg-img (slow spin)
     │   │   ├── Layout.tsx    # Wraps pages with Header + main + Footer
     │   │   └── ScrollToTop.tsx
     │   └── ui/
@@ -179,11 +179,12 @@ Pages use:
 - **Global**: `overflow-x: hidden` (html, body)
 - **Container**: `px-4 md:px-6`, `container mx-auto`
 - **Header**: Hamburger on `md` and below; full nav on `md+`
-- **Hero**: Single column on mobile; 3-column grid on `lg+`; image order-1 on mobile
+- **Hero**: Single column on mobile; 3-column grid on `lg+`; image order-1 on mobile; intro/About blocks use `mt-4`/`mt-6` on mobile (no negative translate) so "Hello I'm Sakkeer…" sits below hero/FRONTEND without overlay
 - **Forms**: `grid-cols-1 sm:grid-cols-2` for name/phone, email/subject; `min-h-[44px]` for touch targets
 - **Grids**: `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` (projects, services); `grid-cols-2 md:grid-cols-4` (stats)
 - **Typography**: `text-2xl sm:text-3xl md:text-4xl lg:text-5xl` patterns
 - **FloatingElements**: Scaled down on small screens
+- **Footer**: Single column on mobile, 3 columns on `md+`; spinning bg image scaled (max-h/max-w) on small screens; Quick Links and Contact use `min-h-[44px]` and `touch-manipulation` for touch targets; social icons `w-11` (44px) on mobile
 
 ---
 
@@ -193,3 +194,4 @@ Pages use:
 - **Portfolio Build (Feb 2025)**: Full portfolio with theme, structure, routing, animations.
 - **Responsive (Feb 2025)**: All screens mobile-responsive; touch-friendly inputs; overflow-x hidden.
 - **arc.md (Feb 2025)**: Project structure, data flow, routing, page flow, feature flow documented.
+- **Footer (Feb 2025)**: `footer-bg-img.png` as footer background; fit with object-cover; smooth rotation (`animate-spin-slow`, 10s linear); reduced motion respected.

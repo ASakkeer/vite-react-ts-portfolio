@@ -40,4 +40,10 @@
   .font-hero {
     font-family: "Rajdhani", sans-serif;
   }
+
+  /* Footer decorative bg image: not grabbable/draggable */
+  .footer-bg-no-drag {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
 }

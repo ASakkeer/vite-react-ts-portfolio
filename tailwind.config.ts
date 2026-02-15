@@ -158,6 +158,14 @@ export default {
             transform: "translate(-50%, -12px)",
           },
         },
+        "spin-slow": {
+          from: {
+            transform: "rotate(0deg)",
+          },
+          to: {
+            transform: "rotate(360deg)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -169,6 +177,7 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "hero-float": "hero-float 4s ease-in-out infinite",
         "hero-float-2": "hero-float-2 5s ease-in-out infinite 0.5s",
+        "spin-slow": "spin-slow 10s linear infinite",
       },
     },
   },
