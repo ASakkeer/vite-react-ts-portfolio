@@ -25,8 +25,8 @@ export function Hero() {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
-          {/* Left: HELLO, name, role, Hire Me */}
-          <div className="lg:col-span-4 order-2 lg:order-1 text-center lg:text-left -translate-y-10 lg:-translate-y-12">
+          {/* Left: HELLO, name, role, Hire Me — no negative translate on mobile so intro sits below hero/FRONTEND */}
+          <div className="lg:col-span-4 order-2 lg:order-1 text-center lg:text-left mt-4 sm:mt-6 lg:mt-0 lg:-translate-y-12">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -66,12 +66,12 @@ export function Hero() {
           </div>
 
           {/* Center: Hero image with FRONTEND (before=behind, after=above), bottom-centered */}
-          <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center items-center relative min-h-[18rem] sm:min-h-[24rem] md:min-h-[28rem] lg:min-h-[32rem] w-full">
+          <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center items-center relative min-h-[17rem] sm:min-h-[22rem] md:min-h-[26rem] lg:min-h-[30rem] w-full">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-64 sm:w-80 md:w-[26rem] lg:w-[32rem] h-80 sm:h-[28rem] md:h-[34rem] lg:h-[38rem] flex flex-col items-center justify-end"
+              className="relative w-60 sm:w-72 md:w-[24rem] lg:w-[30rem] h-72 sm:h-[26rem] md:h-[32rem] lg:h-[36rem] flex flex-col items-center justify-end"
             >
               {/* before: FRONTEND behind image, bottom-centered */}
               <span
@@ -119,8 +119,8 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: About + socials */}
-          <div className="lg:col-span-4 order-3 text-center lg:text-left -translate-y-10 lg:-translate-y-12">
+          {/* Right: About + socials — no negative translate on mobile for proper stacking */}
+          <div className="lg:col-span-4 order-3 text-center lg:text-left mt-6 sm:mt-8 lg:mt-0 lg:-translate-y-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}

@@ -1,10 +1,10 @@
 /**
- * Projects page. Project links coming soon – under development.
+ * Projects page. Showcase grid with uniform cards and smooth animations.
  */
 
 import { Link } from "react-router-dom";
-import { Construction } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { ProjectsList } from "./ProjectsList";
 
 export function ProjectsPage() {
   return (
@@ -33,7 +33,7 @@ export function ProjectsPage() {
         </div>
       </section>
 
-      {/* Content */}
+      {/* Project showcase – uniform cards, smooth animations */}
       <section className="container mx-auto px-4 md:px-6 -mt-8 relative z-20 py-16 md:py-24">
         <AnimatedSection>
           <h2 className="font-hero font-bold text-2xl sm:text-3xl md:text-4xl text-white mb-2">
@@ -44,17 +44,7 @@ export function ProjectsPage() {
             Native and React.
           </p>
         </AnimatedSection>
-        <AnimatedSection delay={0.1} direction="up">
-          <div className="rounded-xl bg-white/5 border border-white/10 border-dashed p-8 sm:p-12 md:p-16 text-center">
-            <Construction className="w-16 h-16 text-portfolio-primary/60 mx-auto mb-4" aria-hidden />
-            <p className="font-hero font-semibold text-xl text-white mb-2">
-              Project links soon – under development
-            </p>
-            <p className="text-white/60 text-sm sm:text-base">
-              Check back later for my React Native and React project showcases.
-            </p>
-          </div>
-        </AnimatedSection>
+        <ProjectsList />
       </section>
     </div>
   );
