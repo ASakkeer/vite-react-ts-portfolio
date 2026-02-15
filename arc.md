@@ -51,9 +51,10 @@ vite-react-ts-portfolio/
     │   ├── Experience/
     │   │   └── ExperiencePage.tsx  # Work history cards
     │   ├── Projects/
-    │   │   ├── ProjectsPage.tsx    # Under construction
-    │   │   ├── ProjectsList.tsx    # Grid of ProjectCard
-    │   │   └── ProjectCard.tsx
+    │   │   ├── ProjectsPage.tsx    # Project showcase (ProjectsList)
+    │   │   ├── ProjectsList.tsx    # projectsData + ComingSoonCard
+    │   │   ├── ProjectCard.tsx     # Theme-aligned, clickable
+    │   │   └── ComingSoonCard.tsx  # Faded, non-clickable "more cooking"
     │   ├── Services/
     │   │   ├── ServicesPage.tsx    # Full services grid
     │   │   └── ServiceCard.tsx
@@ -64,7 +65,7 @@ vite-react-ts-portfolio/
     │   ├── about.data.ts           # educationData
     │   ├── contact.data.ts         # contactDetails, resumeUrl
     │   ├── experience.data.ts      # experienceData, statCards, serviceCards, skills
-    │   ├── projects.mock.ts        # projectsMock
+    │   ├── projects.mock.ts        # projectsData (add projects here)
     │   └── services.data.ts        # servicesData
     │
     ├── context/
@@ -119,7 +120,7 @@ vite-react-ts-portfolio/
 | `experience.data`  | HomePage (statCards), AboutPage (serviceCards, skills, statCards), ExperiencePage |
 | `about.data`       | AboutPage (educationData)                                                   |
 | `services.data`    | ServicesSummary, ServicesPage, ServiceCard                                  |
-| `projects.mock`    | ProjectsList, ProjectCard                                                   |
+| `projects.mock`    | ProjectsList, ProjectCard (projectsData); ComingSoonCard in list            |
 
 ---
 
@@ -128,7 +129,7 @@ vite-react-ts-portfolio/
 1. **Home** → Hero (CTAs: Hire Me, View Resume) → ServicesSummary (3 cards, link to /services) → About stats (link to /about)
 2. **About** → Service/skill cards (4) → Development skills (SkillBar) → Stat cards → Education → Core skills
 3. **Experience** → Work history cards (role, company, duration, bullets)
-4. **Projects** → Under-construction placeholder (no links yet)
+4. **Projects** → ProjectsList grid (uniform cards, local thumbnails from `assets/images/projects/`); external links open in new tab
 5. **Services** → Full grid of ServiceCard
 6. **Contact** → Contact info cards (Address, Email, Phone) → Form (name, phone, email, subject, message) → EmailJS send
 
@@ -149,6 +150,13 @@ vite-react-ts-portfolio/
 ### Animations
 - **Framer Motion**: AnimatedSection (scroll pop-in), Hero motion, mobile menu
 - **CSS**: `hero-float`, `hero-float-2` for FRONTEND text in Hero
+
+### Caching (production)
+- **vite-plugin-pwa**: Service worker generated on `vite build`; not used in dev.
+- **Precache**: All built assets (JS, CSS, HTML, images: png, svg, jpg, webp, etc.) are precached so repeat visits load from cache.
+- **Runtime cache**: Google Fonts (CacheFirst, 1 year) so fonts load from cache after first visit.
+- **Registration**: `registerType: "autoUpdate"` – SW registers automatically; updates in background on new deploy.
+- **Result**: First visit loads from network; subsequent visits load app shell and assets from cache for fast display.
 
 ---
 
@@ -195,3 +203,5 @@ Pages use:
 - **Responsive (Feb 2025)**: All screens mobile-responsive; touch-friendly inputs; overflow-x hidden.
 - **arc.md (Feb 2025)**: Project structure, data flow, routing, page flow, feature flow documented.
 - **Footer (Feb 2025)**: `footer-bg-img.png` as footer background; fit with object-cover; smooth rotation (`animate-spin-slow`, 10s linear); reduced motion respected.
+- **Projects (Feb 2025)**: Simple Web Tools added with `thumbnail-tools.jpg`, link to https://tools.sakkeer.com/; uniform card size (aspect-video, min-height content); CSS-only hover (lift, scale image, border); external links open in new tab; ProjectsList shown on ProjectsPage.
+- **Caching (Feb 2025)**: vite-plugin-pwa added; production build precaches all assets (JS, CSS, HTML, images) and caches Google Fonts; repeat visits load from cache without breaking flow or functionality.
