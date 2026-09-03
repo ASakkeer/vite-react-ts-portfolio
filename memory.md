@@ -11,7 +11,7 @@ Preserved content from the previous portfolio: Home, Services, and Experience se
 - Provide clear, action-oriented entry points into case studies, projects, and hiring contact.
 
 ### Hero content
-- **Eyebrow**: "8+ Years Building Production React Applications"
+- **Eyebrow**: "8 Years Building Production React Applications"
 - **Headline**: "Senior Frontend Engineer Building Real Business Products"
 - **Subline**: "Delivering analytics dashboards, customer-facing storefronts, and internal operations tools with measurable impact."
 - **CTAs**: "View Projects" (→ /projects), "Hire Me" (→ /contact)
@@ -81,7 +81,7 @@ Atom8 IT Solutions Pvt Ltd · Aug 2020 – Sep 2025
 
 - Owned end-to-end delivery of 10+ cross-platform mobile applications, from initial architecture through app store publishing and ongoing maintenance.
 - Led technical decisions for React Native architecture, state management, and native module integration across consumer and B2B mobile products.
-- Reduced app crash rate by 40% through systematic error monitoring, stability improvements, and performance optimization.
+- Reduced app crash rate by 65% through systematic error monitoring, stability improvements, and performance optimization.
 - Managed complete app store publishing workflow (Apple App Store, Google Play Store), including release coordination, metadata, and compliance.
 - Mentored team members on React Native best practices, code review standards, and mobile delivery workflows.
 

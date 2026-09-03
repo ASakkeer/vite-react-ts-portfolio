@@ -14,7 +14,7 @@ Landing page with Hero, ServicesSummary, and Projects preview.
 
 - Hero name: Sakkeer
 - Typewriter: Frontend Developer, React Specialist, UI Engineer, React Native Developer
-- About: 8+ years, production React applications
+- About: 8 years, production React applications
 
 ## Dependencies
 

@@ -1,0 +1,39 @@
+/* Portfolio-specific styles. Kept isolated from the rest of the app. */
+
+html,
+body {
+  background: #0b0b0d;
+}
+
+main > section {
+  scroll-margin-top: 5rem;
+}
+
+.avatar-blend-mask {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%),
+    radial-gradient(circle at 50% 42%, black 52%, transparent 88%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%),
+    radial-gradient(circle at 50% 42%, black 52%, transparent 88%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+:focus-visible {
+  outline: 2px solid #ff494a;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

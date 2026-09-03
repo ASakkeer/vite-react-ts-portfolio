@@ -18,7 +18,7 @@ export const experienceData: Role[] = [
     duration: "Aug 2020 – Sep 2025",
     bullets: [
       "Delivered 10+ cross-platform mobile apps from architecture through app store publishing.",
-      "Reduced app crash rate by 40% through error monitoring and performance optimization.",
+      "Reduced app crash rate by 65% through error monitoring and performance optimization.",
       "Led React Native technical decisions and mentored team on best practices.",
     ],
   },
@@ -79,7 +79,7 @@ export const developmentSkillsRight: SkillBar[] = [
 
 /** Stats for experience section. */
 export const experienceStats = {
-  years: "8+",
+  years: "8",
   appsPublished: "5+",
   performanceBoost: 40,
   crashReduction: 85,
@@ -96,7 +96,7 @@ export const statCards = [
 /** Service/skill cards for About/Experience hero area. */
 export const serviceCards = [
   { title: "React Native", count: "10+", icon: "mobile" },
-  { title: "Web App", count: "8+", icon: "web" },
+  { title: "Web App", count: "8", icon: "web" },
   { title: "UI/UX Design", count: "25+", icon: "design" },
   { title: "API Integration", count: "25+", icon: "api" },
 ];

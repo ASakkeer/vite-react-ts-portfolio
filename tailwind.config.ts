@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -21,8 +22,10 @@ export default {
         sm: "1rem",
       },
       fontFamily: {
-        hero: ["Rajdhani", "sans-serif"],
+        display: ["Space Grotesk", "sans-serif"],
+        hero: ["Space Grotesk", "sans-serif"],
         body: ["Rubik", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
         portfolio: {
@@ -30,6 +33,11 @@ export default {
           fg: "#ffffff",
           primary: "#ff494a",
         },
+        crimson: "#FF494A",
+        obsidian: "#0B0B0D",
+        "obsidian-surface": "#111214",
+        elevated: "#17181B",
+        hover: "#22242A",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -181,5 +189,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
