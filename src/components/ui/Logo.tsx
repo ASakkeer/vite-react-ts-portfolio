@@ -1,5 +1,8 @@
 /**
- * Logo component. Variant by background: gray (#161616), black, white.
+ * Logo by page background:
+ * - white → logo-white.png (dark / black backgrounds)
+ * - black → logo-black.png (light / white backgrounds)
+ * - gray → logo-gray.png (mid-dark surfaces, e.g. #161616)
  */
 
 import logoGray from "@/assets/images/logo-gray.png";
@@ -21,7 +24,7 @@ export function Logo({ variant = "gray", className = "h-8 w-auto" }: LogoProps) 
   return (
     <img
       src={logos[variant]}
-      alt=""
+      alt="Sakkeer"
       className={className}
       draggable={false}
     />

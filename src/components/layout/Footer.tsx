@@ -46,8 +46,7 @@ export function Footer() {
             </div>
             <div className="relative z-10 px-1">
               <Link to="/" className="font-hero font-bold text-lg sm:text-xl text-white flex items-center gap-2 justify-center md:justify-start">
-                <Logo variant="black" />
-                Sakkeer
+                <Logo variant="white" />
               </Link>
               <p className="mt-3 text-white/70 text-sm max-w-xs mx-auto md:mx-0 px-1 sm:px-0">
                 React Native and React developer. Building mobile apps, web applications, dashboards,

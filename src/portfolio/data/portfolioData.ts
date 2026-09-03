@@ -14,7 +14,7 @@ export const headerNav: HeaderNavItem[] = [
 
 export const heroCopy = {
   availability: "Available for select engagements",
-  name: "SAKKEER",
+  name: "SAKKEER ",
   nameSuffix: "A.",
   role: "SENIOR SOFTWARE ENGINEER",
   summary:

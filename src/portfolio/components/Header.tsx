@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Logo } from "@/components/ui/Logo";
 import { headerNav } from "@/portfolio/data/portfolioData";
 import { links } from "@/portfolio/data/links";
 
@@ -56,10 +57,10 @@ export function Header() {
         <button
           type="button"
           onClick={() => scrollToId("scene-hero")}
-          className="font-display font-bold text-lg tracking-tight"
+          className="flex items-center shrink-0"
           aria-label="Go to Home"
         >
-          SAKKEER<span className="text-[#FF494A]">.</span>
+          <Logo variant="white" className="h-8 w-auto" />
         </button>
 
         <nav className="hidden lg:flex items-center gap-8 font-mono text-sm uppercase tracking-[0.14em] text-[#A1A1AA]">
