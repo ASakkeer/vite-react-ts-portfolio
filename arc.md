@@ -90,7 +90,7 @@ vite-react-ts-portfolio/
         ├── images/
         │   └── hero.png
         └── resume/
-            └── senior_software_engineer_sakkeer.pdf
+            └── Sakkeer_Senior_React_Native_Developer_8Years.pdf
 ```
 
 ---
@@ -144,7 +144,7 @@ vite-react-ts-portfolio/
 - **Body**: Consolidated `from_name`, `from_email`, `subject`, `message` (name, email, phone, subject, message)
 
 ### Resume
-- **Source**: `resumeUrl` from `contact.data` → `/assets/resume/senior_software_engineer_sakkeer.pdf`
+- **Source**: `resumeUrl` from `contact.data` → `/assets/resume/Sakkeer_Senior_React_Native_Developer_8Years.pdf`
 - **Used**: Header, Footer, Hero
 
 ### Animations

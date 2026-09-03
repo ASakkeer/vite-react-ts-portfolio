@@ -2,7 +2,7 @@
  * Contact details for Sakkeer.
  */
 
-import resumePdf from "@/assets/resume/senior_software_engineer_sakkeer.pdf";
+import resumePdf from "@/assets/resume/Sakkeer_Senior_React_Native_Developer_8Years.pdf";
 
 export const resumeUrl = resumePdf;
 
