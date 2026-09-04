@@ -6,7 +6,9 @@ import { attachPointerStore, pointer } from "@/portfolio/interaction/pointerStor
 function isInteractive(el: EventTarget | null): boolean {
   if (!(el instanceof Element)) return false;
   return Boolean(
-    el.closest("a, button, [data-magnetic], .manifesto-keyword, input, textarea, select")
+    el.closest(
+      "a, button, label, [data-magnetic], [data-lever-switch], .manifesto-keyword, input, textarea, select"
+    )
   );
 }
 
@@ -93,12 +95,12 @@ export function CustomCursor() {
     <>
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#FF494A] z-[100] pointer-events-none will-change-transform"
+        className="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#FF494A] z-[200] pointer-events-none will-change-transform"
         aria-hidden
       />
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#FF494A]/45 z-[99] pointer-events-none will-change-transform"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-[#FF494A]/45 z-[199] pointer-events-none will-change-transform"
         aria-hidden
       />
     </>
