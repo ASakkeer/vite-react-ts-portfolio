@@ -109,7 +109,7 @@ export function Hero() {
         <div className="lg:col-span-5 relative flex items-center justify-center order-2">
           <div
             ref={portraitRef}
-            className="relative w-full max-w-[420px] aspect-[4/5] flex items-center justify-center will-change-transform"
+            className="relative w-full max-w-[520px] aspect-[4/5] flex items-center justify-center will-change-transform"
           >
             <div className="relative w-full h-full flex items-center justify-center avatar-blend-mask">
               <img
