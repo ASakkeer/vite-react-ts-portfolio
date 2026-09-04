@@ -239,6 +239,18 @@ main > section {
   }
 }
 
+/* Skills — subtle hover (matches editorial density, no card chrome) */
+.skill-item {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-item__label,
+  .skill-item__tick {
+    transition: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
