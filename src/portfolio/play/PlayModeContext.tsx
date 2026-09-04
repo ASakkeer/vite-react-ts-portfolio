@@ -10,17 +10,16 @@ import {
 export type PlayModeId = "fire";
 
 type PlayModeContextValue = {
-  /** Bottom-right BORED? toggle */
   boredOn: boolean;
   setBoredOn: (on: boolean) => void;
-  /** Play Anything panel open (opened when toggle turns on) */
   panelOpen: boolean;
   openPanel: () => void;
   closePanel: () => void;
-  /** Active play mode — null means normal portfolio (previous cursor only) */
+  /** How-to demo after selecting a mode */
+  demoOpen: boolean;
+  closeDemo: () => void;
   activeMode: PlayModeId | null;
   setActiveMode: (mode: PlayModeId | null) => void;
-  /** Fire cursor + button burn flag */
   fireEnabled: boolean;
 };
 
@@ -29,23 +28,28 @@ const PlayModeContext = createContext<PlayModeContextValue | null>(null);
 export function PlayModeProvider({ children }: { children: ReactNode }) {
   const [boredOn, setBoredOnState] = useState(false);
   const [panelOpen, setPanelOpen] = useState(false);
+  const [demoOpen, setDemoOpen] = useState(false);
   const [activeMode, setActiveModeState] = useState<PlayModeId | null>(null);
 
   const setBoredOn = useCallback((on: boolean) => {
     setBoredOnState(on);
     if (on) {
       setPanelOpen(true);
+      setDemoOpen(false);
     } else {
       setPanelOpen(false);
+      setDemoOpen(false);
       setActiveModeState(null);
     }
   }, []);
 
-  const openPanel = useCallback(() => setPanelOpen(true), []);
+  const openPanel = useCallback(() => {
+    setDemoOpen(false);
+    setPanelOpen(true);
+  }, []);
 
   const closePanel = useCallback(() => {
     setPanelOpen(false);
-    // Dismiss without picking a mode → turn Bored off
     setActiveModeState((mode) => {
       if (mode === null) {
         setBoredOnState(false);
@@ -54,9 +58,18 @@ export function PlayModeProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const closeDemo = useCallback(() => {
+    setDemoOpen(false);
+  }, []);
+
   const setActiveMode = useCallback((mode: PlayModeId | null) => {
     setActiveModeState(mode);
-    if (mode) setPanelOpen(false);
+    if (mode) {
+      setPanelOpen(false);
+      setDemoOpen(true);
+    } else {
+      setDemoOpen(false);
+    }
   }, []);
 
   const value = useMemo<PlayModeContextValue>(
@@ -66,11 +79,23 @@ export function PlayModeProvider({ children }: { children: ReactNode }) {
       panelOpen,
       openPanel,
       closePanel,
+      demoOpen,
+      closeDemo,
       activeMode,
       setActiveMode,
       fireEnabled: activeMode === "fire",
     }),
-    [boredOn, setBoredOn, panelOpen, openPanel, closePanel, activeMode, setActiveMode]
+    [
+      boredOn,
+      setBoredOn,
+      panelOpen,
+      openPanel,
+      closePanel,
+      demoOpen,
+      closeDemo,
+      activeMode,
+      setActiveMode,
+    ]
   );
 
   return <PlayModeContext.Provider value={value}>{children}</PlayModeContext.Provider>;

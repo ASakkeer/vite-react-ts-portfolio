@@ -5,6 +5,7 @@ import { CustomCursor } from "@/portfolio/components/CustomCursor";
 import { CursorFire } from "@/portfolio/components/CursorFire";
 import { BoredToggle } from "@/portfolio/components/BoredToggle";
 import { PlayAnythingPanel } from "@/portfolio/components/PlayAnythingPanel";
+import { ModeDemoPanel } from "@/portfolio/components/ModeDemoPanel";
 import { ScrollChoreography } from "@/portfolio/components/ScrollChoreography";
 import { PlayModeProvider, usePlayMode } from "@/portfolio/play/PlayModeContext";
 import { Hero } from "@/portfolio/sections/Hero";
@@ -42,6 +43,7 @@ function PortfolioShell() {
       <Footer />
       <BoredToggle />
       <PlayAnythingPanel />
+      <ModeDemoPanel />
     </div>
   );
 }

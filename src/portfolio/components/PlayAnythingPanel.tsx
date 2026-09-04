@@ -12,19 +12,19 @@ const CARDS: PlayCard[] = [
   {
     id: "fire",
     title: "Fire",
-    blurb: "Cursor flames. Hold buttons to burn them to ash.",
+    blurb: "Turn your cursor into a flame. Burn buttons for fun.",
     available: true,
   },
   {
     id: "soon-a",
     title: "Coming soon",
-    blurb: "Another playground mode is in the works.",
+    blurb: "More chaos loading…",
     available: false,
   },
   {
     id: "soon-b",
     title: "Coming soon",
-    blurb: "More experiments will land here.",
+    blurb: "More chaos loading…",
     available: false,
   },
 ];
@@ -87,7 +87,7 @@ export function PlayAnythingPanel() {
               Play Anything
             </h2>
             <p className="font-body text-sm text-[#A1A1AA] mt-3 max-w-md leading-relaxed">
-              Pick a mode. Toggle Bored off anytime to return to the normal experience.
+              Pick a mode and cause a little beautiful trouble. Flip Bored off whenever you want your dignity back.
             </p>
           </div>
           <button

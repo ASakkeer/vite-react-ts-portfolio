@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef } from "react";
 import { useReducedMotion } from "@/portfolio/hooks/useReducedMotion";
 import { useDeviceCapabilities } from "@/portfolio/hooks/useDeviceCapabilities";
 import { attachPointerStore, pointer } from "@/portfolio/interaction/pointerStore";
+import { registerForceBurnHandler } from "@/portfolio/interaction/fireBurnBridge";
 
 type Kind = 0 | 1; // 0 flame, 1 smoke
 
@@ -101,6 +102,7 @@ export function CursorFire({ active = false }: { active?: boolean }) {
     let alive = 0;
 
     const jobs = new Map<HTMLElement, BurnJob>();
+    const completions = new Map<HTMLElement, () => void>();
     let chargingEl: HTMLElement | null = null;
 
     let raf = 0;
@@ -178,6 +180,41 @@ export function CursorFire({ active = false }: { active?: boolean }) {
       clearClasses(el);
       jobs.delete(el);
       if (chargingEl === el) chargingEl = null;
+      const done = completions.get(el);
+      if (done) {
+        completions.delete(el);
+        done();
+      }
+    };
+
+    /** Skip charge — start burning immediately (demo / scripted burns). */
+    const beginForcedBurn = (el: HTMLElement, now: number, onComplete: () => void) => {
+      const existing = jobs.get(el);
+      if (existing) {
+        // Replace in-progress cycle
+        completions.delete(el);
+        clearClasses(el);
+        jobs.delete(el);
+        if (chargingEl === el) chargingEl = null;
+      }
+
+      if (jobs.size >= MAX_ACTIVE_JOBS && !jobs.has(el)) {
+        onComplete();
+        return;
+      }
+
+      completions.set(el, onComplete);
+      jobs.set(el, {
+        el,
+        phase: "burning",
+        start: now,
+        charge: 1,
+        burn: 0,
+      });
+      el.classList.remove("fire-charging", "fire-ash", "fire-restore");
+      el.classList.add("fire-burning");
+      el.style.setProperty("--fire-charge", "1");
+      el.style.setProperty("--fire-burn", "0");
     };
 
     const beginCharge = (el: HTMLElement, now: number) => {
@@ -456,6 +493,9 @@ export function CursorFire({ active = false }: { active?: boolean }) {
     window.addEventListener("pointermove", onMove, { passive: true });
     document.addEventListener("pointerover", onOver, { passive: true });
     document.addEventListener("pointerout", onOut, { passive: true });
+    const detachForceBurn = registerForceBurnHandler((el, onComplete) => {
+      beginForcedBurn(el, performance.now(), onComplete);
+    });
     raf = window.requestAnimationFrame(tick);
 
     return () => {
@@ -463,8 +503,11 @@ export function CursorFire({ active = false }: { active?: boolean }) {
       window.removeEventListener("pointermove", onMove);
       document.removeEventListener("pointerover", onOver);
       document.removeEventListener("pointerout", onOut);
+      detachForceBurn();
       window.cancelAnimationFrame(raf);
       for (const el of [...jobs.keys()]) clearClasses(el);
+      for (const done of completions.values()) done();
+      completions.clear();
       jobs.clear();
       detachPointer();
     };
@@ -475,7 +518,7 @@ export function CursorFire({ active = false }: { active?: boolean }) {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-[90] pointer-events-none"
+      className="fixed inset-0 z-[140] pointer-events-none"
       aria-hidden
     />
   );
