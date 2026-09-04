@@ -73,6 +73,7 @@ export function MagneticButton(
         target={props.target}
         rel={props.rel}
         data-magnetic=""
+        data-burnable=""
       >
         {props.children}
       </a>
@@ -86,6 +87,7 @@ export function MagneticButton(
       type="button"
       onClick={props.onClick}
       data-magnetic=""
+      data-burnable=""
     >
       {props.children}
     </button>

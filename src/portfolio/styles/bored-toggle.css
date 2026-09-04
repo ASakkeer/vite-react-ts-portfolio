@@ -1,0 +1,52 @@
+/* Bored panel — lever fully visible inside */
+
+.bored-panel {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+  padding: 0.75rem 1.1rem 0.7rem 1.25rem;
+  overflow: visible;
+  /* background: rgba(17, 18, 20, 0.92); */
+  /* backdrop-filter: blur(12px); */
+}
+
+.bored-panel.is-on {
+  /* background: rgba(255, 73, 74, 0.12); */
+}
+
+.bored-panel__label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ff494a;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  padding-bottom: 0.55rem;
+}
+
+.bored-panel__lever {
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+  /* Explicit box tall enough for knob + bar + base */
+  width: 4.25rem;
+  height: 4.75rem;
+}
+
+.bored-panel__lever .lever-switch.toggle-container {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  width: 5em;
+  height: 5.35em;
+  margin: 0;
+  overflow: visible;
+  filter: none;
+}
